@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>可青老師｜簡報總覽</title>
+<style>
+  :root {
+    --paper: #FAF7F2;
+    --ink: #2D2824;
+    --gold: #D4A84C;
+    --brown-faint: rgba(180, 150, 100, 0.3);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: "Shippori Mincho", "Noto Serif TC", serif;
+    background: var(--paper);
+    color: var(--ink);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+  }
+  .wrap { max-width: 640px; width: 100%; }
+  h1 {
+    font-size: 28px;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    text-align: center;
+    margin-bottom: 8px;
+  }
+  .sub {
+    text-align: center;
+    color: #8a7a5c;
+    font-size: 14px;
+    letter-spacing: 0.1em;
+    margin-bottom: 40px;
+  }
+  .list { display: flex; flex-direction: column; gap: 12px; }
+  a.card {
+    display: block;
+    padding: 20px 24px;
+    background: #fff;
+    border: 1px solid var(--brown-faint);
+    border-radius: 8px;
+    text-decoration: none;
+    color: var(--ink);
+    transition: all 0.2s;
+  }
+  a.card:hover {
+    border-color: var(--gold);
+    transform: translateX(4px);
+    box-shadow: 0 2px 12px rgba(180, 150, 100, 0.15);
+  }
+  .title { font-size: 17px; margin-bottom: 4px; }
+  .desc { font-size: 13px; color: #8a7a5c; letter-spacing: 0.05em; }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>可青老師 · 簡報總覽</h1>
+    <p class="sub">KQING SLIDES</p>
+    <div class="list">
+      <a class="card" href="講座簡報.html">
+        <div class="title">免費講座簡報</div>
+      </a>
+      <a class="card" href="正課投影片_v3.html">
+        <div class="title">正課簡報</div>
+      </a>
+      <a class="card" href="人生說明書.html">
+        <div class="title">人生說明書</div>
+      </a>
+    </div>
+  </div>
+</body>
+</html>

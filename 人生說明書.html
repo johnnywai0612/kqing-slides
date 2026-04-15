@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<title>人生說明書 — 可青老師</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700;800&family=Noto+Serif+TC:wght@200;300;400;600;700&family=DM+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+/* ══════════════════════════════════════════════════
+   人生說明書 v19 — 水彩青海波有機風（內容更新版）
+   Organic watercolor blobs with seigaiha fill · Flowing gold lines · Diagonal composition
+   ══════════════════════════════════════════════════ */
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+@page{size:148mm 210mm;margin:0;}
+
+:root{
+  --paper:#FAF7F2;
+  --paper-warm:#F2EDE4;
+  --brown:#3A342C;
+  --brown-body:#5A534A;
+  --brown-muted:#9A938A;
+  --brown-faint:#C4BDB4;
+  --gold:#D4A84C;
+  --gold-bright:#E8C06A;
+  --gold-light:#C4A45A;
+  --gold-dim:#A88A50;
+  --gold-line:#B8963E;
+  --cover-dark:#2C2820;
+  --cover-mid:#3A3228;
+  --el-wood:#6AAE7A;
+  --el-fire:#E88A5A;
+  --el-earth:#D4A84C;
+  --el-metal:#A898D0;
+  --el-water:#5A9AD8;
+  --f-title:'Shippori Mincho','Noto Serif TC',serif;
+  --f-body:'Noto Serif TC',serif;
+  --f-mono:'DM Mono',monospace;
+}
+
+body{font-family:var(--f-body);background:#E8E4DC;color:var(--brown);-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+
+.page{width:148mm;height:210mm;position:relative;overflow:hidden;page-break-after:always;margin:0 auto 2mm;background:var(--paper);}
+@media print{.page{margin:0;}}
+/* Dark pages (cover, back cover) */
+.page-dark{background:var(--cover-dark);}
+
+.page-inner{position:relative;width:100%;height:100%;padding:14mm 12mm 16mm;display:flex;flex-direction:column;z-index:1;}
+
+/* ═══ WATERCOLOR WASHES — subtle CSS gradient decorations ═══ */
+.wash-gold{background:radial-gradient(ellipse 50% 35% at 80% 15%,rgba(200,170,110,0.06) 0%,transparent 70%),var(--paper);}
+.wash-blue{background:radial-gradient(ellipse 45% 30% at 20% 85%,rgba(150,180,210,0.05) 0%,transparent 70%),var(--paper);}
+.wash-both{background:radial-gradient(ellipse 50% 35% at 85% 10%,rgba(200,170,110,0.06) 0%,transparent 70%),radial-gradient(ellipse 40% 30% at 15% 90%,rgba(150,180,210,0.04) 0%,transparent 70%),var(--paper);}
+
+/* ═══ WAVE / CLOUD DECORATION ═══ */
+.waves-bottom{position:absolute;bottom:0;left:0;right:0;height:50mm;z-index:0;}
+.waves-top{position:absolute;top:0;left:0;right:0;height:30mm;z-index:0;transform:scaleY(-1);}
+
+/* ═══ SVG DECORATION LAYER ═══ */
+.deco{position:absolute;z-index:0;pointer-events:none;}
+
+/* ═══ CORNERS — warm brown, delicate ═══ */
+.cn{position:absolute;inset:0;z-index:0;pointer-events:none;}
+.cn::before,.cn::after{content:'';position:absolute;background:var(--gold-line);opacity:0.1;}
+.cn::before{top:7mm;left:7mm;width:8mm;height:0.3pt;}
+.cn::after{top:7mm;left:7mm;width:0.3pt;height:8mm;}
+.cn i::before,.cn i::after{content:'';position:absolute;background:var(--gold-line);opacity:0.1;}
+.cn i::before{bottom:7mm;right:7mm;width:8mm;height:0.3pt;}
+.cn i::after{bottom:7mm;right:7mm;width:0.3pt;height:8mm;}
+/* Gold corners for dark pages */
+.cn-dark::before,.cn-dark::after{background:var(--gold)!important;opacity:0.15!important;}
+.cn-dark i::before,.cn-dark i::after{background:var(--gold)!important;opacity:0.15!important;}
+
+/* ═══ TYPOGRAPHY — warm brown on light ═══ */
+.t1{font-family:var(--f-title);font-size:15pt;font-weight:800;color:var(--brown);letter-spacing:0.08em;margin-bottom:3mm;}
+.t1::after{content:'';display:block;width:18mm;height:0.5pt;background:linear-gradient(90deg,var(--gold-line),transparent);margin-top:2mm;}
+.t2{font-family:var(--f-title);font-size:8.5pt;font-weight:500;color:var(--brown-muted);letter-spacing:0.04em;margin-bottom:5mm;}
+.bt{font-family:var(--f-body);font-size:8.5pt;font-weight:300;line-height:1.85;color:var(--brown-body);}
+.st{font-family:var(--f-body);font-size:7pt;font-weight:200;color:var(--brown-muted);line-height:1.5;}
+.lb{font-family:var(--f-mono);font-size:6pt;color:var(--brown-muted);letter-spacing:0.15em;}
+
+/* ═══ INFO CARD — ultra-subtle on paper ═══ */
+.gl{background:rgba(180,170,155,0.04);border:0.5pt solid rgba(180,150,100,0.1);border-radius:3.5mm;padding:3.5mm 4.5mm;margin-bottom:2mm;position:relative;}
+.gl::before{content:'';position:absolute;top:0;left:8%;right:8%;height:0.3pt;background:linear-gradient(90deg,transparent,rgba(180,150,100,0.1),transparent);}
+.gl-t{font-family:var(--f-title);font-size:9pt;font-weight:700;color:#6B5D3E;margin-bottom:1.5mm;letter-spacing:0.03em;}
+
+/* ═══ WRITING CARD — subtle warm tint ═══ */
+.wr{background:rgba(180,170,155,0.06);border-radius:3.5mm;padding:4mm 5mm;margin-bottom:2mm;position:relative;box-shadow:inset 0 0 0 0.5pt rgba(180,150,100,0.15);}
+.wr::before{content:'';position:absolute;top:0;left:8%;right:8%;height:0.3pt;background:linear-gradient(90deg,transparent,rgba(180,150,100,0.12),transparent);}
+.wr-t{font-family:var(--f-title);font-size:9pt;font-weight:700;color:#6B5D3E;margin-bottom:2mm;letter-spacing:0.03em;}
+.wr-txt{font-family:var(--f-body);font-size:8pt;font-weight:300;line-height:1.85;color:var(--brown-body);}
+.wr-sm{font-family:var(--f-body);font-size:6.5pt;font-weight:200;color:var(--brown-muted);line-height:1.5;}
+/* Highlighted writing card (badge cards) */
+.wr-hl{box-shadow:inset 0 0 0 0.5pt rgba(212,168,76,0.2),inset 0 0 8px rgba(212,168,76,0.03);}
+
+/* ═══ FILL LINES — warm beige dashed ═══ */
+.fl{height:6.5mm;margin-bottom:0.8mm;border-bottom:0.4pt dashed #DDD8CE;}
+.fl-i{border-bottom:0.4pt dashed #DDD8CE;display:inline-block;width:24mm;margin:0 1mm;}
+/* Fill lines inside glass/info cards */
+.fn{height:6.5mm;margin-bottom:0.8mm;border-bottom:0.4pt dashed rgba(180,150,100,0.12);}
+.fn-i{border-bottom:0.4pt dashed rgba(180,150,100,0.12);display:inline-block;width:24mm;margin:0 1mm;}
+
+/* ═══ BADGE — warm shadow on light bg ═══ */
+.bd{display:inline-flex;align-items:center;justify-content:center;width:5mm;height:5mm;border-radius:50%;background:radial-gradient(circle at 38% 32%,var(--gold-bright),var(--gold));color:var(--brown);font-family:var(--f-title);font-size:7pt;font-weight:800;margin-right:1.5mm;box-shadow:0 1px 4px rgba(180,150,100,0.3);flex-shrink:0;}
+
+/* ═══ ELEMENT ORBS — with light-bg shadow ═══ */
+.orb{width:7mm;height:7mm;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-family:var(--f-title);font-size:8pt;font-weight:800;flex-shrink:0;position:relative;box-shadow:0 1px 4px rgba(0,0,0,0.08);}
+.orb::after{content:'';position:absolute;inset:-1.5mm;border-radius:50%;border:0.3pt solid;opacity:0.15;}
+.o-w{background:radial-gradient(circle at 35% 30%,#8FD4A0,var(--el-wood));color:#1a2e1e;}.o-w::after{border-color:var(--el-wood);}
+.o-f{background:radial-gradient(circle at 35% 30%,#F4A878,var(--el-fire));color:#2e1a12;}.o-f::after{border-color:var(--el-fire);}
+.o-e{background:radial-gradient(circle at 35% 30%,#E8C880,var(--el-earth));color:#2e2412;}.o-e::after{border-color:var(--el-earth);}
+.o-m{background:radial-gradient(circle at 35% 30%,#C4B8E8,var(--el-metal));color:#1e1a2e;}.o-m::after{border-color:var(--el-metal);}
+.o-wa{background:radial-gradient(circle at 35% 30%,#7CB8E8,var(--el-water));color:#121e2e;}.o-wa::after{border-color:var(--el-water);}
+
+/* ═══ QUOTE — warm brown tones ═══ */
+.qt{margin-top:auto;padding:2.5mm 4mm;border-left:1.2pt solid rgba(180,150,100,0.3);font-family:var(--f-title);font-size:7.8pt;font-weight:400;color:var(--brown-muted);line-height:1.6;font-style:italic;background:linear-gradient(90deg,rgba(180,150,100,0.03),transparent);}
+
+/* ═══ FOOTER — warm brown ═══ */
+.ft{position:absolute;bottom:8mm;left:12mm;right:12mm;z-index:2;display:flex;align-items:center;gap:2mm;}
+.ft-l{flex:1;height:0.3pt;background:linear-gradient(90deg,rgba(150,130,90,0.12),transparent);}
+.ft-r{flex:1;height:0.3pt;background:linear-gradient(90deg,transparent,rgba(150,130,90,0.12));}
+.ft-b{font-family:var(--f-mono);font-size:5pt;color:rgba(120,100,70,0.3);letter-spacing:0.08em;}
+.ft-n{font-family:var(--f-mono);font-size:5.5pt;color:rgba(120,100,70,0.25);width:4mm;text-align:center;}
+/* Dark page footer */
+.ft-dark .ft-b{color:rgba(212,168,76,0.25);}.ft-dark .ft-l{background:linear-gradient(90deg,rgba(212,168,76,0.15),transparent);}
+.ft-dark .ft-r{background:linear-gradient(90deg,transparent,rgba(212,168,76,0.15));}.ft-dark .ft-n{color:rgba(212,168,76,0.3);}
+
+/* ═══ RULES — warm brown ═══ */
+.rule{width:100%;height:0.3pt;background:linear-gradient(90deg,transparent,rgba(180,150,100,0.2),transparent);margin:3mm 0;}
+.rule-s{width:26mm;height:0.3pt;background:linear-gradient(90deg,transparent,rgba(180,150,100,0.3),transparent);margin:3mm auto;}
+
+/* ═══ LAYOUT ═══ */
+.row{display:flex;gap:2.5mm;}.col{flex:1;}.tc{text-align:center;}
+.mb2{margin-bottom:2mm;}.mb3{margin-bottom:3mm;}.mb4{margin-bottom:4mm;}
+
+/* ═══ v17: ORGANIC WATERCOLOR + SEIGAIHA SYSTEM ═══ */
+
+/* Paper grain overlay — washi fiber texture on every page */
+.page::before{content:'';position:absolute;inset:0;z-index:0;pointer-events:none;filter:url(#washi);mix-blend-mode:multiply;opacity:0.3;}
+.page-dark::before{mix-blend-mode:soft-light;opacity:0.15;filter:url(#washiDark);}
+
+/* Organic blob decorations — positioned at corners */
+.blob{position:absolute;z-index:0;pointer-events:none;overflow:visible;}
+
+/* Gold foil micro-displacement on decorative lines */
+.t1::after{filter:url(#goldFoil);}
+.rule,.rule-s{filter:url(#goldFoil);}
+
+@media print{.page::before{-webkit-print-color-adjust:exact;print-color-adjust:exact;}}
+</style>
+</head>
+<body>
+
+<!-- ═══ v17: SVG DEFINITIONS — Organic Blob + Seigaiha System ═══ -->
+<svg style="position:absolute;width:0;height:0;overflow:hidden;" aria-hidden="true">
+<defs>
+  <!-- Paper grain filters -->
+  <filter id="washi" x="0%" y="0%" width="100%" height="100%" color-interpolation-filters="sRGB">
+    <feTurbulence type="fractalNoise" baseFrequency="0.7 0.5" numOctaves="5" seed="3" stitchTiles="stitch" result="grain"/>
+    <feColorMatrix type="saturate" values="0" in="grain" result="mono"/>
+    <feComponentTransfer in="mono">
+      <feFuncR type="linear" slope="0.06" intercept="0.94"/>
+      <feFuncG type="linear" slope="0.055" intercept="0.935"/>
+      <feFuncB type="linear" slope="0.04" intercept="0.92"/>
+    </feComponentTransfer>
+  </filter>
+  <filter id="washiDark" x="0%" y="0%" width="100%" height="100%" color-interpolation-filters="sRGB">
+    <feTurbulence type="fractalNoise" baseFrequency="0.6 0.45" numOctaves="4" seed="5" stitchTiles="stitch" result="grain"/>
+    <feColorMatrix type="saturate" values="0" in="grain" result="mono"/>
+    <feComponentTransfer in="mono">
+      <feFuncR type="linear" slope="0.1" intercept="0.35"/>
+      <feFuncG type="linear" slope="0.09" intercept="0.33"/>
+      <feFuncB type="linear" slope="0.07" intercept="0.3"/>
+    </feComponentTransfer>
+  </filter>
+
+  <!-- Gold foil displacement -->
+  <filter id="goldFoil" x="-2%" y="-20%" width="104%" height="140%">
+    <feTurbulence type="fractalNoise" baseFrequency="4 2" numOctaves="2" seed="8" stitchTiles="stitch" result="n"/>
+    <feDisplacementMap in="SourceGraphic" in2="n" scale="0.5" xChannelSelector="R" yChannelSelector="G"/>
+  </filter>
+
+  <!-- Seigaiha pattern — refined concentric arcs -->
+  <pattern id="sei" patternUnits="userSpaceOnUse" width="28" height="14">
+    <circle cx="14" cy="14" r="13" fill="none" stroke="rgba(160,135,80,0.18)" stroke-width="0.35"/>
+    <circle cx="14" cy="14" r="10.5" fill="none" stroke="rgba(160,135,80,0.14)" stroke-width="0.3"/>
+    <circle cx="14" cy="14" r="8" fill="none" stroke="rgba(160,135,80,0.10)" stroke-width="0.25"/>
+    <circle cx="14" cy="14" r="5.5" fill="none" stroke="rgba(160,135,80,0.07)" stroke-width="0.25"/>
+    <circle cx="14" cy="14" r="3" fill="none" stroke="rgba(160,135,80,0.05)" stroke-width="0.2"/>
+    <circle cx="0" cy="14" r="13" fill="none" stroke="rgba(160,135,80,0.18)" stroke-width="0.35"/>
+    <circle cx="0" cy="14" r="10.5" fill="none" stroke="rgba(160,135,80,0.14)" stroke-width="0.3"/>
+    <circle cx="0" cy="14" r="8" fill="none" stroke="rgba(160,135,80,0.10)" stroke-width="0.25"/>
+    <circle cx="28" cy="14" r="13" fill="none" stroke="rgba(160,135,80,0.18)" stroke-width="0.35"/>
+    <circle cx="28" cy="14" r="10.5" fill="none" stroke="rgba(160,135,80,0.14)" stroke-width="0.3"/>
+    <circle cx="28" cy="14" r="8" fill="none" stroke="rgba(160,135,80,0.10)" stroke-width="0.25"/>
+    <circle cx="14" cy="0" r="13" fill="none" stroke="rgba(160,135,80,0.12)" stroke-width="0.3"/>
+    <circle cx="14" cy="0" r="10.5" fill="none" stroke="rgba(160,135,80,0.09)" stroke-width="0.25"/>
+    <circle cx="14" cy="0" r="8" fill="none" stroke="rgba(160,135,80,0.06)" stroke-width="0.25"/>
+  </pattern>
+
+  <!-- Seigaiha dark variant (for cover) -->
+  <pattern id="seiDark" patternUnits="userSpaceOnUse" width="28" height="14">
+    <circle cx="14" cy="14" r="13" fill="none" stroke="rgba(212,168,76,0.22)" stroke-width="0.4"/>
+    <circle cx="14" cy="14" r="10.5" fill="none" stroke="rgba(212,168,76,0.16)" stroke-width="0.35"/>
+    <circle cx="14" cy="14" r="8" fill="none" stroke="rgba(212,168,76,0.11)" stroke-width="0.3"/>
+    <circle cx="14" cy="14" r="5.5" fill="none" stroke="rgba(212,168,76,0.07)" stroke-width="0.25"/>
+    <circle cx="0" cy="14" r="13" fill="none" stroke="rgba(212,168,76,0.22)" stroke-width="0.4"/>
+    <circle cx="0" cy="14" r="10.5" fill="none" stroke="rgba(212,168,76,0.16)" stroke-width="0.35"/>
+    <circle cx="28" cy="14" r="13" fill="none" stroke="rgba(212,168,76,0.22)" stroke-width="0.4"/>
+    <circle cx="28" cy="14" r="10.5" fill="none" stroke="rgba(212,168,76,0.16)" stroke-width="0.35"/>
+    <circle cx="14" cy="0" r="13" fill="none" stroke="rgba(212,168,76,0.14)" stroke-width="0.35"/>
+    <circle cx="14" cy="0" r="10.5" fill="none" stroke="rgba(212,168,76,0.10)" stroke-width="0.3"/>
+  </pattern>
+
+  <!-- Seigaiha blue variant -->
+  <pattern id="seiBlue" patternUnits="userSpaceOnUse" width="28" height="14">
+    <circle cx="14" cy="14" r="13" fill="none" stroke="rgba(120,150,180,0.16)" stroke-width="0.35"/>
+    <circle cx="14" cy="14" r="10.5" fill="none" stroke="rgba(120,150,180,0.12)" stroke-width="0.3"/>
+    <circle cx="14" cy="14" r="8" fill="none" stroke="rgba(120,150,180,0.08)" stroke-width="0.25"/>
+    <circle cx="14" cy="14" r="5.5" fill="none" stroke="rgba(120,150,180,0.05)" stroke-width="0.25"/>
+    <circle cx="0" cy="14" r="13" fill="none" stroke="rgba(120,150,180,0.16)" stroke-width="0.35"/>
+    <circle cx="0" cy="14" r="10.5" fill="none" stroke="rgba(120,150,180,0.12)" stroke-width="0.3"/>
+    <circle cx="28" cy="14" r="13" fill="none" stroke="rgba(120,150,180,0.16)" stroke-width="0.35"/>
+    <circle cx="28" cy="14" r="10.5" fill="none" stroke="rgba(120,150,180,0.12)" stroke-width="0.3"/>
+    <circle cx="14" cy="0" r="13" fill="none" stroke="rgba(120,150,180,0.10)" stroke-width="0.3"/>
+    <circle cx="14" cy="0" r="10.5" fill="none" stroke="rgba(120,150,180,0.07)" stroke-width="0.25"/>
+  </pattern>
+
+  <!-- ═══ ORGANIC BLOB CLIP PATHS ═══ -->
+  <!-- Top-right blob (flows from TR corner toward center) -->
+  <clipPath id="blobTR">
+    <path d="M560,0 L280,0 C265,12 255,38 268,72 C285,115 325,148 375,155 C430,162 485,138 520,108 C545,85 558,52 560,30 Z"/>
+  </clipPath>
+  <!-- Bottom-left blob (flows from BL corner toward center) -->
+  <clipPath id="blobBL">
+    <path d="M0,793 L0,620 C18,605 48,595 85,602 C135,612 180,645 195,690 C208,730 188,765 145,782 C105,793 50,793 0,793 Z"/>
+  </clipPath>
+  <!-- Top-left blob variant -->
+  <clipPath id="blobTL">
+    <path d="M0,0 L0,160 C22,152 55,138 90,128 C140,115 185,118 210,98 C235,78 240,48 225,25 C210,5 180,0 160,0 Z"/>
+  </clipPath>
+  <!-- Bottom-right blob variant -->
+  <clipPath id="blobBR">
+    <path d="M560,793 L560,650 C540,642 510,638 475,645 C430,655 395,680 385,715 C375,750 395,775 430,788 C465,798 510,793 560,793 Z"/>
+  </clipPath>
+
+  <!-- Watercolor gradients -->
+  <radialGradient id="washGold" cx="65%" cy="35%" r="55%">
+    <stop offset="0%" stop-color="rgba(210,185,130,0.35)"/>
+    <stop offset="40%" stop-color="rgba(210,185,130,0.2)"/>
+    <stop offset="75%" stop-color="rgba(210,185,130,0.08)"/>
+    <stop offset="100%" stop-color="rgba(210,185,130,0.02)"/>
+  </radialGradient>
+  <radialGradient id="washBlue" cx="35%" cy="65%" r="55%">
+    <stop offset="0%" stop-color="rgba(160,180,200,0.28)"/>
+    <stop offset="40%" stop-color="rgba(160,180,200,0.15)"/>
+    <stop offset="75%" stop-color="rgba(160,180,200,0.06)"/>
+    <stop offset="100%" stop-color="rgba(160,180,200,0.01)"/>
+  </radialGradient>
+  <radialGradient id="washGoldDark" cx="65%" cy="35%" r="55%">
+    <stop offset="0%" stop-color="rgba(212,168,76,0.18)"/>
+    <stop offset="50%" stop-color="rgba(212,168,76,0.08)"/>
+    <stop offset="100%" stop-color="rgba(212,168,76,0.01)"/>
+  </radialGradient>
+  <radialGradient id="washBlueDark" cx="35%" cy="65%" r="55%">
+    <stop offset="0%" stop-color="rgba(130,160,190,0.14)"/>
+    <stop offset="50%" stop-color="rgba(130,160,190,0.06)"/>
+    <stop offset="100%" stop-color="rgba(130,160,190,0.01)"/>
+  </radialGradient>
+</defs>
+</svg>
+
+<!-- ══════════ 01. COVER (LIGHT) ══════════ -->
+<div class="page">
+  <div class="cn"><i></i></div><div class="cn-dot"></div>
+  <!-- v17: Organic blob — gold (top-right) with seigaiha + flowing lines + dots -->
+  <svg class="blob" style="position:absolute;inset:0;z-index:0;" viewBox="0 0 560 793" fill="none">
+    <!-- Gold watercolor wash inside blob shape -->
+    <rect width="560" height="793" clip-path="url(#blobTR)" fill="url(#washGoldDark)"/>
+    <!-- Seigaiha pattern inside same blob -->
+    <rect width="560" height="793" clip-path="url(#blobTR)" fill="url(#seiDark)" opacity="0.8"/>
+    <!-- Flowing contour lines along blob edge -->
+    <path d="M280,0 C265,12 255,38 268,72 C285,115 325,148 375,155 C430,162 485,138 520,108 C545,85 558,52 560,30" stroke="rgba(212,168,76,0.12)" stroke-width="0.4" fill="none"/>
+    <path d="M260,0 C242,18 230,50 248,88 C268,130 312,165 365,172 C425,180 490,152 528,118" stroke="rgba(212,168,76,0.08)" stroke-width="0.35" fill="none"/>
+    <path d="M240,0 C220,25 208,62 228,105 C252,150 300,185 358,190 C420,196 492,165 535,128" stroke="rgba(212,168,76,0.05)" stroke-width="0.3" fill="none"/>
+    <!-- White dots scattered on gold blob -->
+    <circle cx="380" cy="40" r="1.2" fill="rgba(245,240,235,0.25)"/>
+    <circle cx="420" cy="65" r="0.8" fill="rgba(245,240,235,0.2)"/>
+    <circle cx="350" cy="80" r="1.0" fill="rgba(245,240,235,0.18)"/>
+    <circle cx="460" cy="30" r="0.6" fill="rgba(245,240,235,0.22)"/>
+    <circle cx="500" cy="55" r="0.9" fill="rgba(245,240,235,0.15)"/>
+    <circle cx="330" cy="50" r="0.5" fill="rgba(245,240,235,0.2)"/>
+    <circle cx="440" cy="95" r="0.7" fill="rgba(245,240,235,0.12)"/>
+    <circle cx="480" cy="15" r="1.1" fill="rgba(245,240,235,0.18)"/>
+    <circle cx="310" cy="25" r="0.4" fill="rgba(245,240,235,0.15)"/>
+    <circle cx="520" cy="80" r="0.6" fill="rgba(245,240,235,0.1)"/>
+  </svg>
+  <!-- v17: Organic blob — blue-gray (bottom-left) with seigaiha -->
+  <svg class="blob" style="position:absolute;inset:0;z-index:0;" viewBox="0 0 560 793" fill="none">
+    <rect width="560" height="793" clip-path="url(#blobBL)" fill="url(#washBlueDark)"/>
+    <rect width="560" height="793" clip-path="url(#blobBL)" fill="url(#seiDark)" opacity="0.5"/>
+    <!-- Flowing contour lines — upper edge of blob -->
+    <path d="M0,620 C18,605 48,595 85,602 C135,612 180,645 195,690 C208,730 188,765 145,782" stroke="rgba(212,168,76,0.10)" stroke-width="0.4" fill="none"/>
+    <path d="M0,600 C22,582 58,572 100,580 C155,592 205,630 220,680 C232,722 208,760 160,780" stroke="rgba(212,168,76,0.06)" stroke-width="0.35" fill="none"/>
+    <path d="M0,580 C28,558 72,548 120,558 C178,572 230,615 245,670" stroke="rgba(212,168,76,0.04)" stroke-width="0.3" fill="none"/>
+    <!-- White dots on blue blob -->
+    <circle cx="60" cy="680" r="0.9" fill="rgba(245,240,235,0.2)"/>
+    <circle cx="100" cy="720" r="0.7" fill="rgba(245,240,235,0.18)"/>
+    <circle cx="40" cy="740" r="1.0" fill="rgba(245,240,235,0.15)"/>
+    <circle cx="130" cy="690" r="0.5" fill="rgba(245,240,235,0.22)"/>
+    <circle cx="80" cy="760" r="0.6" fill="rgba(245,240,235,0.12)"/>
+    <circle cx="150" cy="750" r="0.8" fill="rgba(245,240,235,0.1)"/>
+  </svg>
+  <div class="page-inner" style="align-items:center;justify-content:center;text-align:center;">
+    <div>
+      <div style="font-family:var(--f-mono);font-size:6pt;color:var(--gold-dim);letter-spacing:0.3em;margin-bottom:8mm;">LIFE MANUAL</div>
+      <div style="font-family:var(--f-title);font-size:30pt;font-weight:800;color:var(--brown);letter-spacing:0.15em;line-height:1.3;">人生說明書</div>
+      <div class="rule-s" style="margin:6mm auto;"></div>
+      <div style="font-family:var(--f-title);font-size:9pt;font-weight:500;color:var(--gold);letter-spacing:0.06em;">八字不是算命，是認識自己的工具</div>
+    </div>
+    <!-- v14: warmer gold underlines #E8C06A -->
+    <div style="position:absolute;bottom:24mm;left:0;right:0;text-align:center;">
+      <div style="display:flex;justify-content:center;gap:8mm;margin-bottom:5mm;">
+        <span style="font-family:var(--f-body);font-size:7pt;font-weight:300;color:var(--brown-muted);">姓名 <span style="border-bottom:0.4pt dashed var(--brown-faint);display:inline-block;width:20mm;margin:0 1mm;"></span></span>
+        <span style="font-family:var(--f-body);font-size:7pt;font-weight:300;color:var(--brown-muted);">日期 <span style="border-bottom:0.4pt dashed var(--brown-faint);display:inline-block;width:20mm;margin:0 1mm;"></span></span>
+      </div>
+      <div style="font-family:var(--f-title);font-size:6pt;font-weight:400;color:var(--brown-faint);letter-spacing:0.06em;">可青老師 KeQing｜八字生活應用</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ 02. GUIDE ══════════ -->
+<div class="page">
+  <div class="cn"><i></i></div>
+  <!-- v17: Gold blob top-right -->
+  <svg class="blob" style="position:absolute;inset:0;z-index:0;" viewBox="0 0 560 793" fill="none">
+    <rect width="560" height="793" clip-path="url(#blobTR)" fill="url(#washGold)"/>
+    <rect width="560" height="793" clip-path="url(#blobTR)" fill="url(#sei)" opacity="0.7"/>
+    <path d="M280,0 C265,12 255,38 268,72 C285,115 325,148 375,155 C430,162 485,138 520,108" stroke="rgba(160,135,80,0.1)" stroke-width="0.35" fill="none"/>
+    <path d="M258,0 C240,20 228,55 248,95 C270,138 318,170 372,176" stroke="rgba(160,135,80,0.06)" stroke-width="0.3" fill="none"/>
+    <circle cx="400" cy="45" r="1.0" fill="rgba(255,252,245,0.3)"/><circle cx="450" cy="70" r="0.7" fill="rgba(255,252,245,0.25)"/>
+    <circle cx="360" cy="30" r="0.8" fill="rgba(255,252,245,0.22)"/><circle cx="490" cy="40" r="0.5" fill="rgba(255,252,245,0.2)"/>
+    <circle cx="340" cy="65" r="0.6" fill="rgba(255,252,245,0.18)"/><circle cx="520" cy="60" r="0.9" fill="rgba(255,252,245,0.15)"/>
+  </svg>
+  <div class="page-inner">
+    <div class="t1">這本手冊是你的</div>
+    <div class="t2">使用前，請先閱讀</div>
+
+    <div class="gl mb3"><div class="gl-t">課堂中，跟著老師一起填寫</div><div class="st">老師說到的重點，直接寫在對應的欄位裡。</div></div>
+    <div class="gl mb2"><div class="gl-t">空白的地方，留給你的發現</div><div class="st">沒有標準答案，寫下你自己的觀察和感受。</div></div>
+    <div class="gl mb4"><div class="gl-t">這不是考試，沒有好壞只有平衡</div><div class="st">五行多不代表好，少也不代表差。一切都是能量的平衡。</div></div>
+
+    <div class="rule"></div>
+    <div class="bt mb4" style="color:var(--gold-light);">這本手冊有 5 個關鍵空格 <span style="color:var(--gold-bright);">①②③④⑤</span>，跟著正課一起填完，你就擁有一本專屬的人生說明書。</div>
+
+    <div class="qt">「命是設定，運是選擇。學八字是為了做更好的選擇。」<br>── 可青老師</div>
+  </div>
+  <div class="ft"><span class="ft-b">可青老師</span><div class="ft-l"></div><span class="ft-n">1</span><div class="ft-r"></div></div>
+</div>
+
+<!-- ══════════ 03. 命盤 ══════════ -->
+<div class="page">
+  <div class="cn"><i></i></div>
+  <!-- v17: Blue blob bottom-left -->
+  <svg class="blob" style="position:absolute;inset:0;z-index:0;" viewBox="0 0 560 793" fill="none">
+    <rect width="560" height="793" clip-path="url(#blobBL)" fill="url(#washBlue)"/>
+    <rect width="560" height="793" clip-path="url(#blobBL)" fill="url(#seiBlue)" opacity="0.6"/>
+    <path d="M0,620 C18,605 48,595 85,602 C135,612 180,645 195,690" stroke="rgba(120,150,180,0.1)" stroke-width="0.35" fill="none"/>
+    <path d="M0,598 C25,580 62,570 108,578 C162,590 210,628 225,678" stroke="rgba(120,150,180,0.06)" stroke-width="0.3" fill="none"/>
+    <circle cx="70" cy="690" r="0.8" fill="rgba(255,252,245,0.25)"/><circle cx="110" cy="730" r="0.6" fill="rgba(255,252,245,0.2)"/>
+    <circle cx="45" cy="750" r="0.9" fill="rgba(255,252,245,0.18)"/><circle cx="135" cy="700" r="0.5" fill="rgba(255,252,245,0.15)"/>
+  </svg>
+  <div class="page-inner">
+    <div class="t1">我的命盤</div>
+
+    <!-- 四柱 — cream writing blocks -->
+    <div class="row mb3">
+      <div class="wr col tc" style="padding:3mm 2mm;"><div class="lb mb2">年柱</div><div class="fl" style="height:8mm;"></div><div class="fl" style="height:8mm;"></div></div>
+      <div class="wr col tc" style="padding:3mm 2mm;"><div class="lb mb2">月柱</div><div class="fl" style="height:8mm;"></div><div class="fl" style="height:8mm;"></div></div>
+      <div class="wr col tc" style="padding:3mm 2mm;border-color:rgba(212,168,76,0.35);box-shadow:0 1px 8px rgba(0,0,0,0.15),0 0 12px rgba(212,168,76,0.06),inset 0 0 0 0.5pt rgba(212,168,76,0.2);"><div class="lb mb2" style="color:var(--gold);">日柱（我）</div><div class="fl" style="height:8mm;border-color:rgba(212,168,76,0.2);border-style:dashed;"></div><div class="fl" style="height:8mm;border-color:rgba(212,168,76,0.2);border-style:dashed;"></div></div>
+      <div class="wr col tc" style="padding:3mm 2mm;"><div class="lb mb2">時柱</div><div class="fl" style="height:8mm;"></div><div class="fl" style="height:8mm;"></div></div>
+    </div>
+    <div class="st tc mb3" style="color:var(--gold-dim);">上排 = 天干（面具）　下排 = 地支（靈魂）</div>
+
+    <div class="rule"></div>
+
+    <div class="gl-t mb2">五行計數</div>
+    <div class="row mb3" style="align-items:center;">
+      <div class="col tc"><div class="orb o-w" style="margin:0 auto 2mm;">木</div><div class="wr tc" style="padding:1.5mm;margin:0;"><div class="fl" style="width:12mm;margin:0 auto;height:5mm;"></div></div></div>
+      <div class="col tc"><div class="orb o-f" style="margin:0 auto 2mm;">火</div><div class="wr tc" style="padding:1.5mm;margin:0;"><div class="fl" style="width:12mm;margin:0 auto;height:5mm;"></div></div></div>
+      <div class="col tc"><div class="orb o-e" style="margin:0 auto 2mm;">土</div><div class="wr tc" style="padding:1.5mm;margin:0;"><div class="fl" style="width:12mm;margin:0 auto;height:5mm;"></div></div></div>
+      <div class="col tc"><div class="orb o-m" style="margin:0 auto 2mm;">金</div><div class="wr tc" style="padding:1.5mm;margin:0;"><div class="fl" style="width:12mm;margin:0 auto;height:5mm;"></div></div></div>
+      <div class="col tc"><div class="orb o-wa" style="margin:0 auto 2mm;">水</div><div class="wr tc" style="padding:1.5mm;margin:0;"><div class="fl" style="width:12mm;margin:0 auto;height:5mm;"></div></div></div>
+    </div>
+
+    <div class="wr" style="display:flex;align-items:center;"><span class="bd">2</span><span class="wr-txt">我最多的五行：<span class="fl-i"></span></span></div>
+
+    <div class="qt">「數數看，你的綠色是不是最多的？好好～不用緊張！」</div>
+  </div>
+  <div class="ft"><span class="ft-b">可青老師</span><div class="ft-l"></div><span class="ft-n">2</span><div class="ft-r"></div></div>
+</div>
+
+<!-- ══════════ 04. 出廠設定 ══════════ -->
+<div class="page">
+  <div class="cn"><i></i></div>
+  <!-- v17: Gold blob top-right (smaller, this page is content-heavy) -->
+  <svg class="blob" style="position:absolute;inset:0;z-index:0;" viewBox="0 0 560 793" fill="none">
+    <rect width="560" height="793" clip-path="url(#blobTR)" fill="url(#washGold)" opacity="0.7"/>
+    <rect width="560" height="793" clip-path="url(#blobTR)" fill="url(#sei)" opacity="0.5"/>
+    <path d="M295,0 C278,15 268,42 280,78 C295,118 338,152 388,158" stroke="rgba(160,135,80,0.08)" stroke-width="0.3" fill="none"/>
+    <circle cx="420" cy="50" r="0.8" fill="rgba(255,252,245,0.22)"/><circle cx="380" cy="35" r="0.6" fill="rgba(255,252,245,0.18)"/>
+    <circle cx="470" cy="25" r="0.7" fill="rgba(255,252,245,0.15)"/>
+  </svg>
+  <div class="page-inner">
+    <div class="t1">我的出廠設定</div>
+
+    <div class="tc" style="margin:4mm 0 3mm;">
+      <div style="width:30mm;height:30mm;border-radius:50%;margin:0 auto;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;border:0.5pt solid rgba(212,168,76,0.3);box-shadow:0 0 0 3mm rgba(212,168,76,0.02),0 0 0 6mm rgba(212,168,76,0.01),0 0 15px rgba(212,168,76,0.06);background:rgba(184,150,100,0.05);">
+        <span class="bd" style="position:absolute;top:-1.5mm;left:-1.5mm;">1</span>
+        <span class="lb" style="color:var(--gold-dim);margin-bottom:1mm;">我的日主</span>
+        <!-- Cream writing area inside circle -->
+        <div style="background:rgba(245,240,232,0.08);border-radius:1.5mm;padding:1mm 2mm;width:18mm;">
+          <div class="fl" style="width:14mm;margin:0 auto;height:5mm;"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mb2" style="flex:1;">
+      <div class="wr col"><div class="wr-t">性格關鍵字</div><div class="fl"></div><div class="fl"></div><div class="fl"></div></div>
+      <div class="wr col"><div class="wr-t">行為模式</div><div class="fl"></div><div class="fl"></div><div class="fl"></div></div>
+      <div class="wr col"><div class="wr-t">能量來源</div><div class="fl"></div><div class="fl"></div><div class="fl"></div></div>
+    </div>
+
+    <div class="qt">「記住哦，沒有好壞只有平衡。你的日主就是你的出廠設定！」</div>
+  </div>
+  <div class="ft"><span class="ft-b">可青老師</span><div class="ft-l"></div><span class="ft-n">3</span><div class="ft-r"></div></div>
+</div>
+
+<!-- ══════════ 05. 光與影 ══════════ -->
+<div class="page">
+  <div class="cn"><i></i></div>
+  <!-- v17: Both blobs — gold TR + blue BL (yin-yang duality) -->
+  <svg class="blob" style="position:absolute;inset:0;z-index:0;" viewBox="0 0 560 793" fill="none">
+    <rect width="560" height="793" clip-path="url(#blobTR)" fill="url(#washGold)" opacity="0.6"/>
+    <rect width="560" height="793" clip-path="url(#blobTR)" fill="url(#sei)" opacity="0.5"/>
+    <rect width="560" height="793" clip-path="url(#blobBL)" fill="url(#washBlue)" opacity="0.5"/>
+    <rect width="560" height="793" clip-path="url(#blobBL)" fill="url(#seiBlue)" opacity="0.4"/>
+    <path d="M290,0 C275,14 265,40 278,76 C292,115 332,150 382,156" stroke="rgba(160,135,80,0.07)" stroke-width="0.3" fill="none"/>
+    <path d="M0,625 C20,608 52,598 90,605 C140,615 182,648 198,695" stroke="rgba(120,150,180,0.07)" stroke-width="0.3" fill="none"/>
+    <circle cx="410" cy="42" r="0.7" fill="rgba(255,252,245,0.2)"/><circle cx="375" cy="28" r="0.5" fill="rgba(255,252,245,0.15)"/>
+    <circle cx="65" cy="700" r="0.6" fill="rgba(255,252,245,0.18)"/><circle cx="100" cy="735" r="0.5" fill="rgba(255,252,245,0.14)"/>
+  </svg>
+  <div class="page-inner">
+    <div class="t1">日主的光與影</div>
+
+    <div class="row mb2" style="flex:1;">
+      <div class="wr col"><div class="wr-t">我的天賦</div><div class="fl"></div><div class="fl"></div><div class="fl"></div><div class="fl"></div></div>
+      <div class="wr col" style="border-color:rgba(212,168,76,0.3);box-shadow:0 1px 8px rgba(0,0,0,0.15),0 0 8px rgba(212,168,76,0.04),inset 0 0 0 0.5pt rgba(212,168,76,0.15);">
+        <div class="wr-t" style="display:flex;align-items:center;"><span class="bd">3</span>我的盲點</div>
+        <div class="fl"></div><div class="fl"></div><div class="fl"></div>
+        <div class="wr-sm" style="margin-top:1.5mm;">我缺什麼：<span class="fl-i"></span></div>
+      </div>
+    </div>
+
+    <div class="wr mb2"><div class="wr-t">老師說的哪一句最打中我</div><div class="fl"></div><div class="fl"></div></div>
+
+    <div class="qt">「不要被嚇到哦！缺什麼不代表不好，太多也不見得好。這就是陰陽平衡。」</div>
+  </div>
+  <div class="ft"><span class="ft-b">可青老師</span><div class="ft-l"></div><span class="ft-n">4</span><div class="ft-r"></div></div>
+</div>
+
+<!-- ══════════ 06. 喜用色與五行養生 ══════════ -->
+<div class="page">
+  <div class="cn"><i></i></div>
+  <svg class="blob" style="position:absolute;inset:0;z-index:0;" viewBox="0 0 560 793" fill="none">
+    <rect width="560" height="793" clip-path="url(#blobBR)" fill="url(#washGold)"/>
+    <rect width="560" height="793" clip-path="url(#blobBR)" fill="url(#sei)" opacity="0.6"/>
+    <path d="M560,650 C540,642 510,638 475,645 C430,655 395,680 385,715" stroke="rgba(160,135,80,0.08)" stroke-width="0.3" fill="none"/>
+    <circle cx="470" cy="700" r="0.7" fill="rgba(255,252,245,0.2)"/><circle cx="500" cy="730" r="0.5" fill="rgba(255,252,245,0.16)"/>
+    <circle cx="440" cy="740" r="0.8" fill="rgba(255,252,245,0.14)"/>
+  </svg>
+  <div class="page-inner">
+    <div class="t1">喜用色與五行養生</div>
+    <div class="t2">找到你的加分顏色，呵護你的身體</div>
+
+    <div class="wr mb3">
+      <div class="wr-t">我的喜用色</div>
+      <div class="wr-sm mb2">身強身弱決定你的加分五行 → 對應顏色就是你的幸運色</div>
+      <div style="display:flex;gap:3mm;align-items:center;flex-wrap:wrap;margin-bottom:2mm;">
+        <span style="display:flex;align-items:center;gap:1mm;font-size:7pt;font-family:var(--f-body);"><span class="orb o-w" style="width:4.5mm;height:4.5mm;font-size:5pt;">木</span><span style="color:var(--el-wood);">綠色系</span></span>
+        <span style="display:flex;align-items:center;gap:1mm;font-size:7pt;font-family:var(--f-body);"><span class="orb o-f" style="width:4.5mm;height:4.5mm;font-size:5pt;">火</span><span style="color:var(--el-fire);">紅色系</span></span>
+        <span style="display:flex;align-items:center;gap:1mm;font-size:7pt;font-family:var(--f-body);"><span class="orb o-e" style="width:4.5mm;height:4.5mm;font-size:5pt;">土</span><span style="color:var(--el-earth);">黃咖啡色</span></span>
+        <span style="display:flex;align-items:center;gap:1mm;font-size:7pt;font-family:var(--f-body);"><span class="orb o-m" style="width:4.5mm;height:4.5mm;font-size:5pt;">金</span><span style="color:var(--el-metal);">白金色</span></span>
+        <span style="display:flex;align-items:center;gap:1mm;font-size:7pt;font-family:var(--f-body);"><span class="orb o-wa" style="width:4.5mm;height:4.5mm;font-size:5pt;">水</span><span style="color:var(--el-water);">黑藍色</span></span>
+      </div>
+      <div class="wr-txt">我的加分五行：<span class="fl-i"></span></div>
+      <div class="wr-txt">我的喜用色：<span class="fl-i"></span></div>
+      <div class="wr-txt">我應避免的顏色：<span class="fl-i"></span></div>
+    </div>
+
+    <div class="rule"></div>
+
+    <div class="gl" style="padding:2.5mm 4mm;margin-bottom:2mm;">
+      <div class="gl-t mb2">五行與身體</div>
+      <div style="display:flex;align-items:center;gap:2.5mm;padding:1mm 0;border-bottom:0.3pt solid rgba(212,168,76,0.05);"><div class="orb o-w" style="width:5mm;height:5mm;font-size:6pt;">木</div><div class="st" style="flex:1;"><span style="color:var(--el-wood);font-weight:600;">肝膽・肩頸</span> → 運動、伸展</div></div>
+      <div style="display:flex;align-items:center;gap:2.5mm;padding:1mm 0;border-bottom:0.3pt solid rgba(212,168,76,0.05);"><div class="orb o-f" style="width:5mm;height:5mm;font-size:6pt;">火</div><div class="st" style="flex:1;"><span style="color:var(--el-fire);font-weight:600;">心臟・血壓</span> → 靜心、泡腳</div></div>
+      <div style="display:flex;align-items:center;gap:2.5mm;padding:1mm 0;border-bottom:0.3pt solid rgba(212,168,76,0.05);"><div class="orb o-e" style="width:5mm;height:5mm;font-size:6pt;">土</div><div class="st" style="flex:1;"><span style="color:var(--el-earth);font-weight:600;">脾胃・消化</span> → 少甜食、多動</div></div>
+      <div style="display:flex;align-items:center;gap:2.5mm;padding:1mm 0;border-bottom:0.3pt solid rgba(212,168,76,0.05);"><div class="orb o-m" style="width:5mm;height:5mm;font-size:6pt;">金</div><div class="st" style="flex:1;"><span style="color:var(--el-metal);font-weight:600;">肺・皮膚</span> → 深呼吸、曬太陽</div></div>
+      <div style="display:flex;align-items:center;gap:2.5mm;padding:1mm 0;"><div class="orb o-wa" style="width:5mm;height:5mm;font-size:6pt;">水</div><div class="st" style="flex:1;"><span style="color:var(--el-water);font-weight:600;">腎・膀胱</span> → 少吃冰、保暖</div></div>
+    </div>
+
+    <div class="wr"><div class="wr-t">我的五行最多：<span class="fl-i"></span></div>
+    <div class="wr-txt" style="margin-top:1mm;">調整方法：</div><div class="fl"></div></div>
+
+    <div class="qt">「穿對顏色、吃對食物，你的能量就會慢慢回來！」</div>
+  </div>
+  <div class="ft"><span class="ft-b">可青老師</span><div class="ft-l"></div><span class="ft-n">5</span><div class="ft-r"></div></div>
+</div>
+<!-- ══════════ 08. 人際關係 ══════════ -->
+<div class="page">
+  <div class="cn"><i></i></div>
+  <svg class="blob" style="position:absolute;inset:0;z-index:0;" viewBox="0 0 560 793" fill="none">
+    <rect width="560" height="793" clip-path="url(#blobTR)" fill="url(#washGold)" opacity="0.8"/>
+    <rect width="560" height="793" clip-path="url(#blobTR)" fill="url(#sei)" opacity="0.6"/>
+    <path d="M282,0 C268,14 258,40 270,76 C286,118 328,152 380,158" stroke="rgba(160,135,80,0.08)" stroke-width="0.3" fill="none"/>
+    <circle cx="395" cy="48" r="0.8" fill="rgba(255,252,245,0.2)"/><circle cx="440" cy="30" r="0.6" fill="rgba(255,252,245,0.17)"/>
+    <circle cx="365" cy="25" r="0.5" fill="rgba(255,252,245,0.15)"/><circle cx="490" cy="50" r="0.7" fill="rgba(255,252,245,0.12)"/>
+  </svg>
+  <div class="page-inner">
+    <div class="t1">我的人際關係</div>
+    <div class="t2">月支 + 五行比例 + 各柱十神</div>
+
+    <div class="wr" style="flex:1;margin-bottom:2mm;">
+      <div class="wr-t">感情關係</div>
+      <div class="wr-sm mb2">日支 + 月支的交互 ╳ 五行比例</div>
+      <div class="wr-txt">我的日支：<span class="fl-i"></span>　我的月支：<span class="fl-i"></span></div>
+      <div class="wr-txt">我的觀察：</div><div class="fl"></div>
+    </div>
+    <div class="wr" style="flex:1;margin-bottom:2mm;">
+      <div class="wr-t">和父母的關係</div>
+      <div class="wr-sm mb2">年支 + 月支 + 年柱十神</div>
+      <div class="wr-txt">我的年支：<span class="fl-i"></span>　年柱十神：<span class="fl-i"></span></div>
+      <div class="wr-txt">我的觀察：</div><div class="fl"></div>
+    </div>
+    <div class="wr" style="flex:1;margin-bottom:2mm;">
+      <div class="wr-t">和孩子的關係</div>
+      <div class="wr-sm mb2">日主 + 時柱 + 時柱十神</div>
+      <div class="wr-txt">我的時柱：<span class="fl-i"></span>　時柱十神：<span class="fl-i"></span></div>
+      <div class="wr-txt">我的觀察：</div><div class="fl"></div>
+    </div>
+
+    <div class="qt">「月支看人際，地支看關係——了解了就不會再吵架了！」</div>
+  </div>
+  <div class="ft"><span class="ft-b">可青老師</span><div class="ft-l"></div><span class="ft-n">6</span><div class="ft-r"></div></div>
+</div>
+<!-- ══════════ 09. 馬花庫 ══════════ -->
+<div class="page">
+  <div class="cn"><i></i></div>
+  <svg class="blob" style="position:absolute;inset:0;z-index:0;" viewBox="0 0 560 793" fill="none">
+    <rect width="560" height="793" clip-path="url(#blobTL)" fill="url(#washGold)" opacity="0.6"/>
+    <rect width="560" height="793" clip-path="url(#blobTL)" fill="url(#sei)" opacity="0.45"/>
+    <rect width="560" height="793" clip-path="url(#blobBR)" fill="url(#washBlue)" opacity="0.5"/>
+    <rect width="560" height="793" clip-path="url(#blobBR)" fill="url(#seiBlue)" opacity="0.4"/>
+    <path d="M0,160 C22,152 55,138 90,128 C140,115 185,118 210,98" stroke="rgba(160,135,80,0.06)" stroke-width="0.3" fill="none"/>
+    <path d="M560,650 C540,642 510,638 475,645 C430,655 395,680 385,715" stroke="rgba(120,150,180,0.06)" stroke-width="0.3" fill="none"/>
+    <circle cx="70" cy="55" r="0.6" fill="rgba(255,252,245,0.18)"/><circle cx="480" cy="710" r="0.5" fill="rgba(255,252,245,0.15)"/>
+  </svg>
+  <div class="page-inner">
+    <div class="t1">我的馬花庫</div>
+    <div class="t2">行動力・人緣・財庫 — 你的三組能量分數</div>
+
+    <div class="row mb3" style="flex:1;">
+      <div class="wr col tc" style="padding:3mm;">
+        <div class="wr-t tc" style="color:var(--el-fire);">馬（驛馬星）</div>
+        <div class="wr-sm tc mb2">寅・申・巳・亥</div>
+        <div class="wr-txt tc" style="font-size:7.5pt;">我有 <span class="fl-i" style="width:10mm;"></span> 個</div>
+        <div style="width:100%;height:0.3pt;background:rgba(26,26,46,0.06);margin:2mm 0;"></div>
+        <div class="st" style="line-height:1.7;">0 = 不足（懶、怕變動）<br>1-2 = 平衡<br>3-4 = 過旺（定不下來）</div>
+      </div>
+      <div class="wr col tc" style="padding:3mm;">
+        <div class="wr-t tc" style="color:var(--el-water);">花（桃花星）</div>
+        <div class="wr-sm tc mb2">子・午・卯・酉</div>
+        <div class="wr-txt tc" style="font-size:7.5pt;">我有 <span class="fl-i" style="width:10mm;"></span> 個</div>
+        <div style="width:100%;height:0.3pt;background:rgba(26,26,46,0.06);margin:2mm 0;"></div>
+        <div class="st" style="line-height:1.7;">0 = 不足（不愛社交）<br>1-2 = 平衡<br>3-4 = 過旺（情緒波動）</div>
+      </div>
+      <div class="wr col tc" style="padding:3mm;">
+        <div class="wr-t tc" style="color:var(--el-earth);">庫（財庫星）</div>
+        <div class="wr-sm tc mb2">辰・戌・丑・未</div>
+        <div class="wr-txt tc" style="font-size:7.5pt;">我有 <span class="fl-i" style="width:10mm;"></span> 個</div>
+        <div style="width:100%;height:0.3pt;background:rgba(26,26,46,0.06);margin:2mm 0;"></div>
+        <div class="st" style="line-height:1.7;">0 = 不足（有始無終）<br>1-2 = 平衡<br>3-4 = 過旺（什麼都扛）</div>
+      </div>
+    </div>
+
+    <div class="wr"><div class="wr-t">我的馬花庫筆記</div><div class="fl"></div><div class="fl"></div></div>
+
+    <div class="qt">「馬花庫就是你的人生三把鑰匙——行動、人緣、跟財庫。」</div>
+  </div>
+  <div class="ft"><span class="ft-b">可青老師</span><div class="ft-l"></div><span class="ft-n">7</span><div class="ft-r"></div></div>
+</div>
+<!-- ══════════ 09. 和盤 ══════════ -->
+<div class="page">
+  <div class="cn"><i></i></div>
+  <svg class="blob" style="position:absolute;inset:0;z-index:0;" viewBox="0 0 560 793" fill="none">
+    <rect width="560" height="793" clip-path="url(#blobBL)" fill="url(#washBlue)"/>
+    <rect width="560" height="793" clip-path="url(#blobBL)" fill="url(#seiBlue)" opacity="0.55"/>
+    <path d="M0,618 C20,602 50,592 88,600 C138,610 182,642 198,688" stroke="rgba(120,150,180,0.08)" stroke-width="0.3" fill="none"/>
+    <circle cx="60" cy="685" r="0.7" fill="rgba(255,252,245,0.2)"/><circle cx="95" cy="720" r="0.5" fill="rgba(255,252,245,0.16)"/>
+    <circle cx="40" cy="745" r="0.8" fill="rgba(255,252,245,0.13)"/>
+  </svg>
+  <div class="page-inner">
+    <div class="t1">我的和盤筆記</div>
+    <div class="t2">選一個你最在意的人，用月柱和日主來和盤</div>
+
+    <!-- 上方：兩個十字圖 -->
+    <div class="row mb3">
+      <!-- 我的十字 -->
+      <div class="wr col tc" style="padding:4mm 3mm;">
+        <div class="wr-t tc" style="color:var(--gold);margin-bottom:3mm;">我</div>
+        <div style="position:relative;width:100%;height:32mm;">
+          <!-- 日主（上） -->
+          <div style="position:absolute;top:0;left:50%;transform:translateX(-50%);text-align:center;">
+            <div class="lb" style="font-size:5.5pt;color:var(--brown-muted);">日主</div>
+            <div class="fl-i" style="width:18mm;margin:1mm auto 0;"></div>
+          </div>
+          <!-- 月令（左） -->
+          <div style="position:absolute;top:50%;left:0;transform:translateY(-50%);text-align:center;">
+            <div class="lb" style="font-size:5.5pt;color:var(--brown-muted);">月令</div>
+            <div class="fl-i" style="width:16mm;margin:1mm auto 0;"></div>
+          </div>
+          <!-- 日支（右） -->
+          <div style="position:absolute;top:50%;right:0;transform:translateY(-50%);text-align:center;">
+            <div class="lb" style="font-size:5.5pt;color:var(--brown-muted);">日支</div>
+            <div class="fl-i" style="width:16mm;margin:1mm auto 0;"></div>
+          </div>
+          <!-- 十字線 -->
+          <div style="position:absolute;top:12mm;left:50%;width:0.4pt;height:16mm;background:rgba(180,150,100,0.2);"></div>
+          <div style="position:absolute;top:50%;left:18mm;right:18mm;height:0.4pt;background:rgba(180,150,100,0.2);"></div>
+        </div>
+      </div>
+      <!-- 他的十字 -->
+      <div class="wr col tc" style="padding:4mm 3mm;">
+        <div class="wr-t tc" style="color:var(--gold);margin-bottom:3mm;">他 / 她</div>
+        <div style="position:relative;width:100%;height:32mm;">
+          <div style="position:absolute;top:0;left:50%;transform:translateX(-50%);text-align:center;">
+            <div class="lb" style="font-size:5.5pt;color:var(--brown-muted);">日主</div>
+            <div class="fl-i" style="width:18mm;margin:1mm auto 0;"></div>
+          </div>
+          <div style="position:absolute;top:50%;left:0;transform:translateY(-50%);text-align:center;">
+            <div class="lb" style="font-size:5.5pt;color:var(--brown-muted);">月令</div>
+            <div class="fl-i" style="width:16mm;margin:1mm auto 0;"></div>
+          </div>
+          <div style="position:absolute;top:50%;right:0;transform:translateY(-50%);text-align:center;">
+            <div class="lb" style="font-size:5.5pt;color:var(--brown-muted);">日支</div>
+            <div class="fl-i" style="width:16mm;margin:1mm auto 0;"></div>
+          </div>
+          <div style="position:absolute;top:12mm;left:50%;width:0.4pt;height:16mm;background:rgba(180,150,100,0.2);"></div>
+          <div style="position:absolute;top:50%;left:18mm;right:18mm;height:0.4pt;background:rgba(180,150,100,0.2);"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="rule"></div>
+
+    <!-- 下方：日主對日主 -->
+    <div class="gl mb3" style="padding:3mm 4mm;">
+      <div class="gl-t mb2">日主對日主</div>
+      <div class="st mb2">我的日主 vs 他的日主 → 相生 / 相剋</div>
+      <div class="fl"></div>
+    </div>
+
+    <!-- 2×2 對照矩陣 -->
+    <div class="wr mb2" style="padding:0;overflow:hidden;">
+      <table style="width:100%;border-collapse:collapse;font-family:var(--f-body);font-size:7.5pt;color:var(--brown-body);">
+        <tr>
+          <td style="width:18mm;padding:3mm;border-right:0.4pt solid rgba(180,150,100,0.15);border-bottom:0.4pt solid rgba(180,150,100,0.15);"></td>
+          <td style="padding:3mm;text-align:center;border-right:0.4pt solid rgba(180,150,100,0.15);border-bottom:0.4pt solid rgba(180,150,100,0.15);font-family:var(--f-title);font-weight:700;color:#6B5D3E;">他的月令</td>
+          <td style="padding:3mm;text-align:center;border-bottom:0.4pt solid rgba(180,150,100,0.15);font-family:var(--f-title);font-weight:700;color:#6B5D3E;">他的日支</td>
+        </tr>
+        <tr>
+          <td style="padding:3mm;border-right:0.4pt solid rgba(180,150,100,0.15);border-bottom:0.4pt solid rgba(180,150,100,0.15);font-family:var(--f-title);font-weight:700;color:#6B5D3E;">我的月令</td>
+          <td style="padding:3mm;text-align:center;border-right:0.4pt solid rgba(180,150,100,0.15);border-bottom:0.4pt solid rgba(180,150,100,0.15);"><div class="fl" style="width:24mm;margin:0 auto;height:5mm;"></div></td>
+          <td style="padding:3mm;text-align:center;border-bottom:0.4pt solid rgba(180,150,100,0.15);"><div class="fl" style="width:24mm;margin:0 auto;height:5mm;"></div></td>
+        </tr>
+        <tr>
+          <td style="padding:3mm;border-right:0.4pt solid rgba(180,150,100,0.15);font-family:var(--f-title);font-weight:700;color:#6B5D3E;">我的日支</td>
+          <td style="padding:3mm;text-align:center;border-right:0.4pt solid rgba(180,150,100,0.15);"><div class="fl" style="width:24mm;margin:0 auto;height:5mm;"></div></td>
+          <td style="padding:3mm;text-align:center;"><div class="fl" style="width:24mm;margin:0 auto;height:5mm;"></div></td>
+        </tr>
+      </table>
+    </div>
+    <div class="st tc mb2" style="color:var(--gold-dim);">↑ 填入：衝 / 合 / 害 / 無</div>
+
+    <div class="wr" style="flex:1;"><div class="wr-t">我的發現</div><div class="fl"></div><div class="fl"></div></div>
+
+    <div class="qt">「和盤不是看配不配，是看怎麼相處會更好。」</div>
+  </div>
+  <div class="ft"><span class="ft-b">可青老師</span><div class="ft-l"></div><span class="ft-n">8</span><div class="ft-r"></div></div>
+</div>
+<!-- ══════════ 11. 走運時機 ══════════ -->
+<div class="page">
+  <div class="cn"><i></i></div>
+  <svg class="blob" style="position:absolute;inset:0;z-index:0;" viewBox="0 0 560 793" fill="none">
+    <rect width="560" height="793" clip-path="url(#blobTR)" fill="url(#washGold)"/>
+    <rect width="560" height="793" clip-path="url(#blobTR)" fill="url(#sei)" opacity="0.6"/>
+    <path d="M278,0 C262,15 252,42 266,78 C282,118 325,152 378,158" stroke="rgba(160,135,80,0.09)" stroke-width="0.3" fill="none"/>
+    <path d="M256,0 C238,22 226,58 246,100 C268,145 315,178 372,184" stroke="rgba(160,135,80,0.05)" stroke-width="0.3" fill="none"/>
+    <circle cx="400" cy="42" r="0.9" fill="rgba(255,252,245,0.22)"/><circle cx="445" cy="28" r="0.6" fill="rgba(255,252,245,0.18)"/>
+    <circle cx="360" cy="60" r="0.7" fill="rgba(255,252,245,0.15)"/><circle cx="500" cy="45" r="0.5" fill="rgba(255,252,245,0.12)"/>
+  </svg>
+  <div class="page-inner">
+    <div class="t1">我的走運時機</div>
+    <div class="t2">未來 10 年，哪幾年是你的好運年？</div>
+
+    <div class="wr mb2" style="display:flex;align-items:center;border-color:rgba(212,168,76,0.3);"><span class="bd">4</span><span class="wr-txt">我是身強 / 身弱（圈一個）</span></div>
+
+    <div class="gl mb2" style="padding:2.5mm 4mm;">
+      <div class="gl-t mb2">走運對照表</div>
+      <div class="st" style="line-height:2;">
+        <span style="color:var(--el-wood);font-weight:600;">甲乙木</span>　身強：巳午未申酉戌　身弱：亥子丑寅卯辰<br>
+        <span style="color:var(--el-fire);font-weight:600;">丙丁火</span>　身強：申酉戌亥子丑　身弱：寅卯辰巳午未<br>
+        <span style="color:var(--el-earth);font-weight:600;">戊己土</span>　身強：亥子丑寅卯辰申酉戌　身弱：巳午未<br>
+        <span style="color:var(--el-metal);font-weight:600;">庚辛金</span>　身強：寅卯辰巳午未亥子丑　身弱：申酉戌<br>
+        <span style="color:var(--el-water);font-weight:600;">壬癸水</span>　身強：寅卯辰巳午未　身弱：申酉戌亥子丑
+      </div>
+    </div>
+
+    <div class="wr-txt mb2" style="color:var(--gold-light);">我走運的地支是：<span class="fl-i" style="width:40mm;"></span></div>
+
+    <div class="gl mb2" style="padding:2.5mm 3mm;">
+      <div class="gl-t mb2">圈出你的好運年</div>
+      <div style="display:flex;gap:1mm;text-align:center;">
+        <div style="flex:1;"><div class="lb">2026</div><div class="st">午</div><div class="wr tc" style="margin:1mm 0 0;padding:1mm;"><div class="fl" style="width:8mm;margin:0 auto;height:4mm;"></div></div></div>
+        <div style="flex:1;"><div class="lb">2027</div><div class="st">未</div><div class="wr tc" style="margin:1mm 0 0;padding:1mm;"><div class="fl" style="width:8mm;margin:0 auto;height:4mm;"></div></div></div>
+        <div style="flex:1;"><div class="lb">2028</div><div class="st">申</div><div class="wr tc" style="margin:1mm 0 0;padding:1mm;"><div class="fl" style="width:8mm;margin:0 auto;height:4mm;"></div></div></div>
+        <div style="flex:1;"><div class="lb">2029</div><div class="st">酉</div><div class="wr tc" style="margin:1mm 0 0;padding:1mm;"><div class="fl" style="width:8mm;margin:0 auto;height:4mm;"></div></div></div>
+        <div style="flex:1;"><div class="lb">2030</div><div class="st">戌</div><div class="wr tc" style="margin:1mm 0 0;padding:1mm;"><div class="fl" style="width:8mm;margin:0 auto;height:4mm;"></div></div></div>
+        <div style="flex:1;"><div class="lb">2031</div><div class="st">亥</div><div class="wr tc" style="margin:1mm 0 0;padding:1mm;"><div class="fl" style="width:8mm;margin:0 auto;height:4mm;"></div></div></div>
+        <div style="flex:1;"><div class="lb">2032</div><div class="st">子</div><div class="wr tc" style="margin:1mm 0 0;padding:1mm;"><div class="fl" style="width:8mm;margin:0 auto;height:4mm;"></div></div></div>
+        <div style="flex:1;"><div class="lb">2033</div><div class="st">丑</div><div class="wr tc" style="margin:1mm 0 0;padding:1mm;"><div class="fl" style="width:8mm;margin:0 auto;height:4mm;"></div></div></div>
+        <div style="flex:1;"><div class="lb">2034</div><div class="st">寅</div><div class="wr tc" style="margin:1mm 0 0;padding:1mm;"><div class="fl" style="width:8mm;margin:0 auto;height:4mm;"></div></div></div>
+        <div style="flex:1;"><div class="lb">2035</div><div class="st">卯</div><div class="wr tc" style="margin:1mm 0 0;padding:1mm;"><div class="fl" style="width:8mm;margin:0 auto;height:4mm;"></div></div></div>
+      </div>
+    </div>
+
+    <div class="wr mb2" style="display:flex;align-items:center;gap:2mm;border-color:rgba(212,168,76,0.3);"><span class="wr-txt" style="font-weight:500;">未來 10 年，我有 <span class="fl-i" style="width:8mm;border-color:rgba(212,168,76,0.25);"></span> 年走運！</span></div>
+
+    <div class="st" style="line-height:1.7;color:var(--gold-dim);">走運時 → 衝！創業、投資、換工作　｜　不走運時 → 守！不投資、不借錢、不跳槽</div>
+
+    <div class="qt">「不看幾歲才走大運，看未來 10 年哪幾年是你的！這樣才有動力！」</div>
+  </div>
+  <div class="ft"><span class="ft-b">可青老師</span><div class="ft-l"></div><span class="ft-n">9</span><div class="ft-r"></div></div>
+</div>
+<!-- ══════════ 12. 流年驗證 ══════════ -->
+<div class="page">
+  <div class="cn"><i></i></div>
+  <svg class="blob" style="position:absolute;inset:0;z-index:0;" viewBox="0 0 560 793" fill="none">
+    <rect width="560" height="793" clip-path="url(#blobBR)" fill="url(#washGold)" opacity="0.9"/>
+    <rect width="560" height="793" clip-path="url(#blobBR)" fill="url(#sei)" opacity="0.7"/>
+    <path d="M560,648 C538,640 508,636 472,642 C428,652 392,678 382,712" stroke="rgba(160,135,80,0.09)" stroke-width="0.35" fill="none"/>
+    <path d="M560,628 C535,618 498,612 458,620 C408,632 368,662 356,700" stroke="rgba(160,135,80,0.05)" stroke-width="0.3" fill="none"/>
+    <circle cx="475" cy="695" r="0.8" fill="rgba(255,252,245,0.22)"/><circle cx="510" cy="725" r="0.6" fill="rgba(255,252,245,0.18)"/>
+    <circle cx="445" cy="738" r="0.9" fill="rgba(255,252,245,0.14)"/><circle cx="498" cy="680" r="0.5" fill="rgba(255,252,245,0.2)"/>
+  </svg>
+  <div class="page-inner">
+    <div class="t1">我的流年驗證</div>
+    <div class="t2">流年地支碰命盤 —— 驗證過去、預測未來</div>
+
+    <div class="gl mb3" style="padding:3mm 4mm;">
+      <div class="gl-t mb2">柱位 × 事件類型</div>
+      <div class="st" style="line-height:1.8;">
+        碰到<span style="font-weight:500;">年柱</span> → 家庭、長輩、外在環境變化<br>
+        碰到<span style="font-weight:500;">月柱</span> → 工作、人際、社交變動<br>
+        碰到<span style="font-weight:500;">日柱</span> → 自己、伴侶、核心生活<br>
+        碰到<span style="font-weight:500;">時柱</span> → 事業突破、晚輩、未來方向
+      </div>
+    </div>
+
+    <div class="wr" style="flex:1;margin-bottom:2mm;">
+      <div class="wr-t">回顧驗證</div>
+      <div class="wr-sm mb2">把過去 3 年的地支對照你的命盤，看看準不準</div>
+      <div class="wr-txt" style="font-size:7pt;">2024（辰年）碰到我的<span class="fl-i" style="width:12mm;"></span>柱，那年發生：<span class="fl-i" style="width:20mm;"></span></div>
+      <div class="wr-txt" style="font-size:7pt;">2025（巳年）碰到我的<span class="fl-i" style="width:12mm;"></span>柱，那年發生：<span class="fl-i" style="width:20mm;"></span></div>
+      <div class="wr-txt" style="font-size:7pt;">2026（午年）碰到我的<span class="fl-i" style="width:12mm;"></span>柱，今年可能：<span class="fl-i" style="width:20mm;"></span></div>
+    </div>
+
+    <div class="wr" style="flex:1;"><div class="wr-t">我的發現</div><div class="fl"></div><div class="fl"></div><div class="fl"></div></div>
+
+    <div class="qt">「對地支真的超準！驗證過去，你才會相信未來。」</div>
+  </div>
+  <div class="ft"><span class="ft-b">可青老師</span><div class="ft-l"></div><span class="ft-n">10</span><div class="ft-r"></div></div>
+</div>
+<!-- ══════════ 13. 財運十神 ══════════ -->
+<div class="page">
+  <div class="cn"><i></i></div>
+  <svg class="blob" style="position:absolute;inset:0;z-index:0;" viewBox="0 0 560 793" fill="none">
+    <rect width="560" height="793" clip-path="url(#blobBR)" fill="url(#washGold)" opacity="0.9"/>
+    <rect width="560" height="793" clip-path="url(#blobBR)" fill="url(#sei)" opacity="0.7"/>
+    <path d="M560,648 C538,640 508,636 472,642 C428,652 392,678 382,712" stroke="rgba(160,135,80,0.09)" stroke-width="0.35" fill="none"/>
+    <path d="M560,628 C535,618 498,612 458,620 C408,632 368,662 356,700" stroke="rgba(160,135,80,0.05)" stroke-width="0.3" fill="none"/>
+    <circle cx="475" cy="695" r="0.8" fill="rgba(255,252,245,0.22)"/><circle cx="510" cy="725" r="0.6" fill="rgba(255,252,245,0.18)"/>
+    <circle cx="445" cy="738" r="0.9" fill="rgba(255,252,245,0.14)"/><circle cx="498" cy="680" r="0.5" fill="rgba(255,252,245,0.2)"/>
+  </svg>
+  <div class="page-inner">
+    <div class="t1">我的財運方向</div>
+    <div class="t2">十神 ＝ 十種賺錢方式，圈出你有的</div>
+
+    <div class="gl mb2" style="padding:3mm 4mm;">
+      <div class="row" style="gap:3mm;">
+        <div class="col">
+          <div style="padding:1mm 0;border-bottom:0.3pt solid rgba(212,168,76,0.05);"><div class="st"><span style="font-weight:600;">□ 比肩</span> 人脈・合夥・社群</div></div>
+          <div style="padding:1mm 0;border-bottom:0.3pt solid rgba(212,168,76,0.05);"><div class="st"><span style="font-weight:600;">□ 劫財</span> 業務・銷售・談判</div></div>
+          <div style="padding:1mm 0;border-bottom:0.3pt solid rgba(212,168,76,0.05);"><div class="st"><span style="font-weight:600;">□ 食神</span> 創作・美食・享受型</div></div>
+          <div style="padding:1mm 0;border-bottom:0.3pt solid rgba(212,168,76,0.05);"><div class="st"><span style="font-weight:600;">□ 傷官</span> 才華・技術・高風險</div></div>
+          <div style="padding:1mm 0;"><div class="st"><span style="font-weight:600;">□ 正財</span> 穩定薪資・踏實累積</div></div>
+        </div>
+        <div class="col">
+          <div style="padding:1mm 0;border-bottom:0.3pt solid rgba(212,168,76,0.05);"><div class="st"><span style="font-weight:600;">□ 偏財</span> 投資・副業・商業</div></div>
+          <div style="padding:1mm 0;border-bottom:0.3pt solid rgba(212,168,76,0.05);"><div class="st"><span style="font-weight:600;">□ 正官</span> 管理・教學・制度</div></div>
+          <div style="padding:1mm 0;border-bottom:0.3pt solid rgba(212,168,76,0.05);"><div class="st"><span style="font-weight:600;">□ 七殺</span> 創業・競爭・開疆闢土</div></div>
+          <div style="padding:1mm 0;border-bottom:0.3pt solid rgba(212,168,76,0.05);"><div class="st"><span style="font-weight:600;">□ 正印</span> 知識變現・顧問・教育</div></div>
+          <div style="padding:1mm 0;"><div class="st"><span style="font-weight:600;">□ 偏印</span> 獨門技術・幕後策劃</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="wr mb2" style="display:flex;align-items:center;border-color:rgba(212,168,76,0.3);"><span class="bd">5</span><span class="wr-txt">我的賺錢優勢：<span class="fl-i" style="width:50mm;"></span></span></div>
+
+    <div class="rule" style="margin:2mm 0;"></div>
+
+    <div class="gl" style="padding:2mm 3mm;">
+      <div class="gl-t" style="font-size:7.5pt;">我的理財體質</div>
+      <div class="st" style="line-height:1.6;">木=衝勁型（定時定額）　火=衝動型（自動扣款）　土=穩健型（定存不動產）<br>金=精算型（基金ETF）　水=靈活型（多元配置）</div>
+    </div>
+    <div class="wr-txt" style="margin-top:1.5mm;">我的存錢方式：<span class="fl-i" style="width:40mm;"></span></div>
+
+    <div class="wr" style="flex:1;margin-top:2mm;"><div class="wr-t">我的財運筆記</div><div class="fl"></div><div class="fl"></div></div>
+
+    <div class="qt">「每個人的財路不一樣——不是命不好，是你還沒找到你的賺錢方式！」</div>
+  </div>
+  <div class="ft"><span class="ft-b">可青老師</span><div class="ft-l"></div><span class="ft-n">11</span><div class="ft-r"></div></div>
+</div>
+<!-- ══════════ 14. 事業 ══════════ -->
+<div class="page">
+  <div class="cn"><i></i></div>
+  <svg class="blob" style="position:absolute;inset:0;z-index:0;" viewBox="0 0 560 793" fill="none">
+    <rect width="560" height="793" clip-path="url(#blobTL)" fill="url(#washBlue)" opacity="0.5"/>
+    <rect width="560" height="793" clip-path="url(#blobTL)" fill="url(#seiBlue)" opacity="0.4"/>
+    <rect width="560" height="793" clip-path="url(#blobBR)" fill="url(#washGold)" opacity="0.6"/>
+    <rect width="560" height="793" clip-path="url(#blobBR)" fill="url(#sei)" opacity="0.5"/>
+    <path d="M0,158 C24,150 58,136 92,126 C142,114 188,116 212,96" stroke="rgba(120,150,180,0.06)" stroke-width="0.3" fill="none"/>
+    <path d="M560,648 C538,640 508,636 472,642 C428,652 392,678 382,712" stroke="rgba(160,135,80,0.06)" stroke-width="0.3" fill="none"/>
+    <circle cx="60" cy="50" r="0.5" fill="rgba(255,252,245,0.16)"/><circle cx="485" cy="705" r="0.6" fill="rgba(255,252,245,0.15)"/>
+  </svg>
+  <div class="page-inner">
+    <div class="t1">事業與方向</div>
+    <div class="t2">從五行看你適合的產業方向</div>
+
+    <div class="gl" style="padding:3mm 4mm;margin-bottom:3mm;">
+      <div style="display:flex;align-items:center;gap:3mm;padding:1.5mm 0;border-bottom:0.3pt solid rgba(212,168,76,0.05);"><div class="orb o-w" style="width:5.5mm;height:5.5mm;font-size:6.5pt;">木</div><div class="st" style="flex:1;">教育・文創・農業・醫療・環保</div></div>
+      <div style="display:flex;align-items:center;gap:3mm;padding:1.5mm 0;border-bottom:0.3pt solid rgba(212,168,76,0.05);"><div class="orb o-f" style="width:5.5mm;height:5.5mm;font-size:6.5pt;">火</div><div class="st" style="flex:1;">科技・行銷・表演・餐飲・美業</div></div>
+      <div style="display:flex;align-items:center;gap:3mm;padding:1.5mm 0;border-bottom:0.3pt solid rgba(212,168,76,0.05);"><div class="orb o-e" style="width:5.5mm;height:5.5mm;font-size:6.5pt;">土</div><div class="st" style="flex:1;">房地產・倉儲・建設・服務・顧問</div></div>
+      <div style="display:flex;align-items:center;gap:3mm;padding:1.5mm 0;border-bottom:0.3pt solid rgba(212,168,76,0.05);"><div class="orb o-m" style="width:5.5mm;height:5.5mm;font-size:6.5pt;">金</div><div class="st" style="flex:1;">金融・法律・精密・軍警・工程</div></div>
+      <div style="display:flex;align-items:center;gap:3mm;padding:1.5mm 0;"><div class="orb o-wa" style="width:5.5mm;height:5.5mm;font-size:6.5pt;">水</div><div class="st" style="flex:1;">物流・旅遊・傳媒・貿易・自由業</div></div>
+    </div>
+
+    <div class="wr" style="flex:1;"><div class="wr-t">我最適合的方向</div><div class="fl"></div><div class="fl"></div><div class="wr-t" style="margin-top:2mm;">我目前的工作跟五行的關係</div><div class="fl"></div><div class="fl"></div></div>
+  </div>
+  <div class="ft"><span class="ft-b">可青老師</span><div class="ft-l"></div><span class="ft-n">12</span><div class="ft-r"></div></div>
+</div>
+<!-- ══════════ 15. 修煉課題 ══════════ -->
+<div class="page">
+  <div class="cn"><i></i></div>
+  <svg class="blob" style="position:absolute;inset:0;z-index:0;" viewBox="0 0 560 793" fill="none">
+    <rect width="560" height="793" clip-path="url(#blobBL)" fill="url(#washGold)"/>
+    <rect width="560" height="793" clip-path="url(#blobBL)" fill="url(#sei)" opacity="0.6"/>
+    <path d="M0,622 C18,607 50,597 88,604 C138,614 180,647 196,692" stroke="rgba(160,135,80,0.08)" stroke-width="0.3" fill="none"/>
+    <circle cx="65" cy="688" r="0.8" fill="rgba(255,252,245,0.22)"/><circle cx="100" cy="725" r="0.6" fill="rgba(255,252,245,0.18)"/>
+    <circle cx="42" cy="748" r="0.9" fill="rgba(255,252,245,0.14)"/><circle cx="125" cy="702" r="0.5" fill="rgba(255,252,245,0.2)"/>
+  </svg>
+  <div class="page-inner">
+    <div class="t1">我的修煉課題</div>
+    <div class="t2">看全盤的平衡，找到你這輩子的功課</div>
+
+    <div class="wr" style="flex:1;">
+      <div class="wr-t">我五行最多的是</div>
+      <div class="fl"></div>
+      <div class="wr-txt" style="margin-top:1.5mm;">這帶來的挑戰是：</div>
+      <div class="fl"></div><div class="fl"></div>
+
+      <div style="width:100%;height:0.3pt;background:rgba(26,26,46,0.06);margin:3mm 0;"></div>
+
+      <div class="wr-t">我五行最缺的是</div>
+      <div class="fl"></div>
+      <div class="wr-txt" style="margin-top:1.5mm;">我需要發展的是：</div>
+      <div class="fl"></div><div class="fl"></div>
+
+      <div style="width:100%;height:0.3pt;background:rgba(26,26,46,0.06);margin:3mm 0;"></div>
+
+      <div class="wr-t">回顧今天學到的所有內容，我覺得我的修煉課題是</div>
+      <div class="fl"></div><div class="fl"></div><div class="fl"></div>
+    </div>
+
+    <div class="qt">「修煉不是修苦，是認清自己的不平衡，然後慢慢調。」</div>
+  </div>
+  <div class="ft"><span class="ft-b">可青老師</span><div class="ft-l"></div><span class="ft-n">13</span><div class="ft-r"></div></div>
+</div>
+<!-- ══════════ 16. 三個發現 ══════════ -->
+<div class="page">
+  <div class="cn"><i></i></div>
+  <svg class="blob" style="position:absolute;inset:0;z-index:0;" viewBox="0 0 560 793" fill="none">
+    <rect width="560" height="793" clip-path="url(#blobTL)" fill="url(#washBlue)" opacity="0.7"/>
+    <rect width="560" height="793" clip-path="url(#blobTL)" fill="url(#seiBlue)" opacity="0.5"/>
+    <path d="M0,158 C24,150 58,136 92,126 C142,114 188,116 212,96" stroke="rgba(120,150,180,0.08)" stroke-width="0.3" fill="none"/>
+    <circle cx="75" cy="58" r="0.7" fill="rgba(255,252,245,0.2)"/><circle cx="115" cy="85" r="0.5" fill="rgba(255,252,245,0.16)"/>
+    <circle cx="48" cy="95" r="0.6" fill="rgba(255,252,245,0.14)"/>
+  </svg>
+  <div class="page-inner">
+    <div class="t1">我最大的三個發現</div>
+
+    <div class="wr" style="margin-bottom:2mm;"><div style="font-family:var(--f-title);font-size:16pt;color:rgba(212,168,76,0.2);font-weight:800;margin-bottom:1mm;">1</div><div class="fl"></div><div class="fl"></div><div class="fl"></div></div>
+    <div class="wr" style="margin-bottom:2mm;"><div style="font-family:var(--f-title);font-size:16pt;color:rgba(212,168,76,0.2);font-weight:800;margin-bottom:1mm;">2</div><div class="fl"></div><div class="fl"></div><div class="fl"></div></div>
+    <div class="wr" style="margin-bottom:3mm;"><div style="font-family:var(--f-title);font-size:16pt;color:rgba(212,168,76,0.2);font-weight:800;margin-bottom:1mm;">3</div><div class="fl"></div><div class="fl"></div><div class="fl"></div></div>
+
+    <div class="rule"></div>
+
+    <div class="wr-t" style="font-family:var(--f-title);font-size:9pt;font-weight:700;color:#6B5D3E;margin-bottom:2mm;">我還想深入了解的問題</div>
+    <div class="wr" style="margin:0 0 1.5mm;display:flex;align-items:center;gap:3mm;"><span style="font-family:var(--f-title);font-size:12pt;color:rgba(212,168,76,0.15);font-weight:800;">?</span><div class="fl" style="flex:1;height:5mm;margin:0;"></div></div>
+    <div class="wr" style="margin:0 0 1.5mm;display:flex;align-items:center;gap:3mm;"><span style="font-family:var(--f-title);font-size:12pt;color:rgba(212,168,76,0.15);font-weight:800;">?</span><div class="fl" style="flex:1;height:5mm;margin:0;"></div></div>
+    <div class="wr" style="margin:0;display:flex;align-items:center;gap:3mm;"><span style="font-family:var(--f-title);font-size:12pt;color:rgba(212,168,76,0.15);font-weight:800;">?</span><div class="fl" style="flex:1;height:5mm;margin:0;"></div></div>
+
+    <div class="qt">「今天學到的，趕快寫下來。回家再翻開看，會有不一樣的感覺！」</div>
+  </div>
+  <div class="ft"><span class="ft-b">可青老師</span><div class="ft-l"></div><span class="ft-n">14</span><div class="ft-r"></div></div>
+</div>
+<!-- ══════════ 17. 速查表 ══════════ -->
+
+<div class="page">
+  <div class="cn"><i></i></div>
+  <!-- v17: Minimal — small gold blob BR (content-heavy page) -->
+  <svg class="blob" style="position:absolute;inset:0;z-index:0;" viewBox="0 0 560 793" fill="none">
+    <rect width="560" height="793" clip-path="url(#blobBR)" fill="url(#washGold)" opacity="0.4"/>
+    <rect width="560" height="793" clip-path="url(#blobBR)" fill="url(#sei)" opacity="0.3"/>
+    <circle cx="490" cy="715" r="0.5" fill="rgba(255,252,245,0.15)"/><circle cx="460" cy="740" r="0.4" fill="rgba(255,252,245,0.12)"/>
+  </svg>
+  <div class="page-inner">
+    <div class="t1">八字速查表</div>
+
+    <div class="gl mb3"><div class="gl-t mb2">天干（十個）</div><div style="display:flex;flex-wrap:wrap;gap:1mm;">
+      <span style="flex:1;text-align:center;padding:1.5mm;border-radius:2mm;min-width:18mm;font-size:6.5pt;font-family:var(--f-body);color:var(--el-wood);background:rgba(106,174,122,0.08);">甲（陽木）</span><span style="flex:1;text-align:center;padding:1.5mm;border-radius:2mm;min-width:18mm;font-size:6.5pt;font-family:var(--f-body);color:var(--el-wood);background:rgba(106,174,122,0.08);">乙（陰木）</span><span style="flex:1;text-align:center;padding:1.5mm;border-radius:2mm;min-width:18mm;font-size:6.5pt;font-family:var(--f-body);color:var(--el-fire);background:rgba(232,138,90,0.08);">丙（陽火）</span><span style="flex:1;text-align:center;padding:1.5mm;border-radius:2mm;min-width:18mm;font-size:6.5pt;font-family:var(--f-body);color:var(--el-fire);background:rgba(232,138,90,0.08);">丁（陰火）</span><span style="flex:1;text-align:center;padding:1.5mm;border-radius:2mm;min-width:18mm;font-size:6.5pt;font-family:var(--f-body);color:var(--el-earth);background:rgba(212,168,76,0.08);">戊（陽土）</span><span style="flex:1;text-align:center;padding:1.5mm;border-radius:2mm;min-width:18mm;font-size:6.5pt;font-family:var(--f-body);color:var(--el-earth);background:rgba(212,168,76,0.08);">己（陰土）</span><span style="flex:1;text-align:center;padding:1.5mm;border-radius:2mm;min-width:18mm;font-size:6.5pt;font-family:var(--f-body);color:var(--el-metal);background:rgba(168,152,208,0.08);">庚（陽金）</span><span style="flex:1;text-align:center;padding:1.5mm;border-radius:2mm;min-width:18mm;font-size:6.5pt;font-family:var(--f-body);color:var(--el-metal);background:rgba(168,152,208,0.08);">辛（陰金）</span><span style="flex:1;text-align:center;padding:1.5mm;border-radius:2mm;min-width:18mm;font-size:6.5pt;font-family:var(--f-body);color:var(--el-water);background:rgba(90,154,216,0.08);">壬（陽水）</span><span style="flex:1;text-align:center;padding:1.5mm;border-radius:2mm;min-width:18mm;font-size:6.5pt;font-family:var(--f-body);color:var(--el-water);background:rgba(90,154,216,0.08);">癸（陰水）</span>
+    </div></div>
+
+    <div class="gl mb3"><div class="gl-t mb2">地支（十二個）</div><div style="display:flex;flex-wrap:wrap;gap:1mm;">
+      <span style="flex:1;text-align:center;padding:1.5mm;border-radius:2mm;min-width:14mm;font-size:6.5pt;font-family:var(--f-body);color:var(--el-water);background:rgba(90,154,216,0.08);">子</span><span style="flex:1;text-align:center;padding:1.5mm;border-radius:2mm;min-width:14mm;font-size:6.5pt;font-family:var(--f-body);color:var(--el-earth);background:rgba(212,168,76,0.08);">丑</span><span style="flex:1;text-align:center;padding:1.5mm;border-radius:2mm;min-width:14mm;font-size:6.5pt;font-family:var(--f-body);color:var(--el-wood);background:rgba(106,174,122,0.08);">寅</span><span style="flex:1;text-align:center;padding:1.5mm;border-radius:2mm;min-width:14mm;font-size:6.5pt;font-family:var(--f-body);color:var(--el-wood);background:rgba(106,174,122,0.08);">卯</span><span style="flex:1;text-align:center;padding:1.5mm;border-radius:2mm;min-width:14mm;font-size:6.5pt;font-family:var(--f-body);color:var(--el-earth);background:rgba(212,168,76,0.08);">辰</span><span style="flex:1;text-align:center;padding:1.5mm;border-radius:2mm;min-width:14mm;font-size:6.5pt;font-family:var(--f-body);color:var(--el-fire);background:rgba(232,138,90,0.08);">巳</span><span style="flex:1;text-align:center;padding:1.5mm;border-radius:2mm;min-width:14mm;font-size:6.5pt;font-family:var(--f-body);color:var(--el-fire);background:rgba(232,138,90,0.08);">午</span><span style="flex:1;text-align:center;padding:1.5mm;border-radius:2mm;min-width:14mm;font-size:6.5pt;font-family:var(--f-body);color:var(--el-earth);background:rgba(212,168,76,0.08);">未</span><span style="flex:1;text-align:center;padding:1.5mm;border-radius:2mm;min-width:14mm;font-size:6.5pt;font-family:var(--f-body);color:var(--el-metal);background:rgba(168,152,208,0.08);">申</span><span style="flex:1;text-align:center;padding:1.5mm;border-radius:2mm;min-width:14mm;font-size:6.5pt;font-family:var(--f-body);color:var(--el-metal);background:rgba(168,152,208,0.08);">酉</span><span style="flex:1;text-align:center;padding:1.5mm;border-radius:2mm;min-width:14mm;font-size:6.5pt;font-family:var(--f-body);color:var(--el-earth);background:rgba(212,168,76,0.08);">戌</span><span style="flex:1;text-align:center;padding:1.5mm;border-radius:2mm;min-width:14mm;font-size:6.5pt;font-family:var(--f-body);color:var(--el-water);background:rgba(90,154,216,0.08);">亥</span>
+    </div></div>
+
+    <div class="gl"><div class="gl-t mb2">五行循環</div><div class="st" style="line-height:1.8;">
+      <span style="color:var(--gold-light);">相生（順）</span>：<span style="color:var(--el-wood);">木</span> → <span style="color:var(--el-fire);">火</span> → <span style="color:var(--el-earth);">土</span> → <span style="color:var(--el-metal);">金</span> → <span style="color:var(--el-water);">水</span> → <span style="color:var(--el-wood);">木</span><br>
+      <span style="color:var(--gold-light);">相剋（制）</span>：<span style="color:var(--el-wood);">木</span> → <span style="color:var(--el-earth);">土</span> → <span style="color:var(--el-water);">水</span> → <span style="color:var(--el-fire);">火</span> → <span style="color:var(--el-metal);">金</span> → <span style="color:var(--el-wood);">木</span>
+    </div></div>
+
+    <div class="rule" style="margin:2mm 0;"></div>
+    <div class="gl" style="padding:2mm 3mm;"><div class="gl-t" style="font-size:7.5pt;">走運速查（2026-2035）</div><div class="st" style="line-height:1.6;">
+      <span style="color:var(--gold-light);">年份→地支</span>：2026午　2027未　2028申　2029酉　2030戌　2031亥　2032子　2033丑　2034寅　2035卯
+    </div></div>
+    <div class="rule" style="margin:2mm 0;"></div>
+    <div style="display:flex;gap:3mm;">
+      <div class="gl" style="flex:1;padding:2mm 3mm;"><div class="gl-t" style="font-size:7pt;">加入 LINE 社群</div><div style="width:14mm;height:14mm;border:0.5pt dashed rgba(212,168,76,0.2);border-radius:1.5mm;margin:1mm auto;display:flex;align-items:center;justify-content:center;"><span class="lb" style="font-size:4.5pt;">QR</span></div></div>
+      <div class="gl" style="flex:1;padding:2mm 3mm;"><div class="gl-t" style="font-size:7pt;">追蹤可青老師</div><div class="st">Instagram：@keqing_bazi<br>每週分享八字生活應用</div></div>
+    </div>
+  </div>
+  <div class="ft"><span class="ft-b">可青老師</span><div class="ft-l"></div><span class="ft-n">15</span><div class="ft-r"></div></div>
+</div>
+
+<!-- ══════════ 18. BACK COVER (LIGHT) ══════════ -->
+<div class="page">
+  <div class="cn"><i></i></div><div class="cn-dot"></div>
+  <!-- v17: Blob decorations — blue TL + gold BR -->
+  <svg class="blob" style="position:absolute;inset:0;z-index:0;" viewBox="0 0 560 793" fill="none">
+    <rect width="560" height="793" clip-path="url(#blobTL)" fill="url(#washBlue)" opacity="0.9"/>
+    <rect width="560" height="793" clip-path="url(#blobTL)" fill="url(#seiBlue)" opacity="0.6"/>
+    <rect width="560" height="793" clip-path="url(#blobBR)" fill="url(#washGold)" opacity="1.0"/>
+    <rect width="560" height="793" clip-path="url(#blobBR)" fill="url(#sei)" opacity="0.8"/>
+    <circle cx="70" cy="55" r="0.7" fill="rgba(255,252,245,0.22)"/><circle cx="490" cy="720" r="0.6" fill="rgba(255,252,245,0.2)"/>
+  </svg>
+  <div class="page-inner" style="justify-content:center;align-items:center;text-align:center;">
+    <div style="max-width:100mm;">
+      <div style="font-family:var(--f-title);font-size:13pt;font-weight:700;color:var(--brown);line-height:2.2;letter-spacing:0.1em;">
+        八字是地圖，不是宿命。<br>你的人生，你來走。
+      </div>
+      <div class="rule-s" style="margin:5mm auto;"></div>
+      <div style="font-family:var(--f-title);font-size:7pt;font-weight:500;color:var(--brown-muted);letter-spacing:0.04em;">── 可青老師</div>
+    </div>
+    <div style="position:absolute;bottom:12mm;left:0;right:0;text-align:center;">
+      <div style="font-family:var(--f-mono);font-size:5.5pt;font-weight:400;color:var(--brown-faint);letter-spacing:0.08em;">可青老師 × 幕創 MOVE STRONG</div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

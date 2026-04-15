@@ -1,0 +1,1832 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>免費講座 — 你的財運體質｜可青老師</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@700;800&family=Noto+Serif+TC:wght@200;300;400;500;600;700&family=DM+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+/* ============================================
+   CSS VARIABLES — exact v19 tokens
+   ============================================ */
+:root {
+  --paper: #FAF7F2;
+  --paper-warm: #F2EDE4;
+  --brown: #3A342C;
+  --brown-body: #5A534A;
+  --brown-muted: #9A938A;
+  --brown-faint: #C4BDB4;
+  --gold: #D4A84C;
+  --gold-bright: #E8C06A;
+  --gold-light: #C4A45A;
+  --gold-dim: #A88A50;
+  --gold-line: #B8963E;
+  --el-wood: #6AAE7A;
+  --el-fire: #E88A5A;
+  --el-earth: #D4A84C;
+  --el-metal: #A898D0;
+  --el-water: #5A9AD8;
+  --f-title: 'Shippori Mincho', 'Noto Serif TC', serif;
+  --f-body: 'Noto Serif TC', serif;
+  --f-mono: 'DM Mono', monospace;
+}
+
+/* ============================================
+   RESET & BASE
+   ============================================ */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+html {
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: var(--f-body);
+  font-weight: 300;
+  color: var(--brown-body);
+  background: var(--paper);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ============================================
+   PROGRESS BAR
+   ============================================ */
+#progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--gold), var(--gold-bright));
+  z-index: 1000;
+  transition: width 0.3s ease;
+  width: 0%;
+}
+
+/* ============================================
+   SLIDE BASE
+   ============================================ */
+.slide {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  scroll-snap-align: start;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: clamp(32px, 6vh, 64px) clamp(24px, 8vw, 96px);
+  background: var(--paper);
+}
+
+/* Corner L-Decorations */
+.slide::before,
+.slide::after {
+  content: '';
+  position: absolute;
+  background: var(--gold-line);
+  opacity: 0.12;
+  pointer-events: none;
+  z-index: 3;
+}
+.slide::before {
+  top: clamp(16px, 3vw, 40px);
+  left: clamp(16px, 3vw, 40px);
+  width: clamp(24px, 3.5vw, 48px);
+  height: 1px;
+}
+.slide::after {
+  top: clamp(16px, 3vw, 40px);
+  left: clamp(16px, 3vw, 40px);
+  width: 1px;
+  height: clamp(24px, 3.5vw, 48px);
+}
+
+.slide-inner::before,
+.slide-inner::after {
+  content: '';
+  position: absolute;
+  background: var(--gold-line);
+  opacity: 0.12;
+  pointer-events: none;
+  z-index: 3;
+}
+.slide-inner::before {
+  bottom: clamp(16px, 3vw, 40px);
+  right: clamp(16px, 3vw, 40px);
+  width: clamp(24px, 3.5vw, 48px);
+  height: 1px;
+}
+.slide-inner::after {
+  bottom: clamp(16px, 3vw, 40px);
+  right: clamp(16px, 3vw, 40px);
+  width: 1px;
+  height: clamp(24px, 3.5vw, 48px);
+}
+
+.slide-inner {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+/* ============================================
+   INK WASH BACKGROUNDS
+   ============================================ */
+.wash-gold {
+  background:
+    radial-gradient(ellipse 60% 40% at 85% 10%, rgba(184,150,62,0.22) 0%, transparent 60%),
+    radial-gradient(ellipse 30% 25% at 75% 20%, rgba(212,168,76,0.16) 0%, transparent 50%),
+    radial-gradient(ellipse 20% 40% at 90% 50%, rgba(200,170,110,0.10) 0%, transparent 60%),
+    var(--paper);
+}
+.wash-blue {
+  background:
+    radial-gradient(ellipse 55% 45% at 10% 85%, rgba(120,160,200,0.20) 0%, transparent 60%),
+    radial-gradient(ellipse 25% 30% at 20% 75%, rgba(90,154,216,0.14) 0%, transparent 50%),
+    radial-gradient(ellipse 35% 20% at 5% 60%, rgba(150,180,210,0.10) 0%, transparent 60%),
+    var(--paper);
+}
+.wash-both {
+  background:
+    radial-gradient(ellipse 55% 40% at 85% 10%, rgba(184,150,62,0.20) 0%, transparent 55%),
+    radial-gradient(ellipse 30% 25% at 78% 18%, rgba(212,168,76,0.12) 0%, transparent 50%),
+    radial-gradient(ellipse 50% 40% at 10% 90%, rgba(120,160,200,0.18) 0%, transparent 55%),
+    radial-gradient(ellipse 25% 20% at 18% 80%, rgba(90,154,216,0.12) 0%, transparent 50%),
+    var(--paper);
+}
+.wash-warm {
+  background:
+    radial-gradient(ellipse 40% 35% at 70% 20%, rgba(200,180,140,0.14) 0%, transparent 60%),
+    var(--paper-warm);
+}
+
+/* Ink stain blobs */
+.ink-stain-tr {
+  position: absolute; top: -5vh; right: -5vw;
+  width: 45vw; height: 45vh;
+  background: radial-gradient(ellipse at center, rgba(184,150,62,0.18) 0%, rgba(184,150,62,0.10) 30%, transparent 70%);
+  border-radius: 40% 60% 55% 45% / 50% 40% 60% 50%;
+  transform: rotate(-15deg);
+  pointer-events: none; z-index: 0;
+}
+.ink-stain-bl {
+  position: absolute; bottom: -8vh; left: -5vw;
+  width: 40vw; height: 40vh;
+  background: radial-gradient(ellipse at center, rgba(120,160,200,0.18) 0%, rgba(120,160,200,0.10) 30%, transparent 70%);
+  border-radius: 55% 45% 40% 60% / 45% 55% 45% 55%;
+  transform: rotate(10deg);
+  pointer-events: none; z-index: 0;
+}
+.ink-stain-tl {
+  position: absolute; top: -3vh; left: -3vw;
+  width: 35vw; height: 35vh;
+  background: radial-gradient(ellipse at center, rgba(184,150,62,0.16) 0%, rgba(184,150,62,0.08) 35%, transparent 65%);
+  border-radius: 45% 55% 60% 40% / 55% 45% 50% 50%;
+  transform: rotate(5deg);
+  pointer-events: none; z-index: 0;
+}
+
+/* Organic Blob Decorations */
+.blob-tr {
+  position: absolute; top: -15%; right: -12%; width: 35%; height: 40%;
+  background: radial-gradient(ellipse 60% 50% at 70% 30%, rgba(184,150,62,0.20), rgba(200,170,110,0.06) 40%, transparent 65%);
+  border-radius: 40% 60% 55% 45% / 50% 40% 60% 50%;
+  pointer-events: none; z-index: 0;
+}
+.blob-bl {
+  position: absolute; bottom: -15%; left: -12%; width: 30%; height: 35%;
+  background: radial-gradient(ellipse 55% 45% at 30% 70%, rgba(120,160,200,0.18), rgba(150,180,210,0.05) 40%, transparent 60%);
+  border-radius: 55% 45% 40% 60% / 45% 55% 45% 55%;
+  pointer-events: none; z-index: 0;
+}
+.blob-tr-blue {
+  position: absolute; top: -5%; right: -5%; width: 40%; height: 45%;
+  background: radial-gradient(ellipse at center, rgba(120,160,200,0.14), transparent 70%);
+  border-radius: 45% 55% 50% 50% / 55% 45% 45% 55%;
+  pointer-events: none; z-index: 0;
+}
+.blob-bl-gold {
+  position: absolute; bottom: -15%; left: -12%; width: 30%; height: 35%;
+  background: radial-gradient(ellipse 55% 45% at 30% 70%, rgba(184,150,62,0.18), rgba(200,170,110,0.05) 40%, transparent 60%);
+  border-radius: 50% 50% 45% 55% / 55% 45% 55% 45%;
+  pointer-events: none; z-index: 0;
+}
+
+/* Seigaiha Pattern Decoration */
+.sei-decor-br {
+  position: absolute;
+  bottom: clamp(20px, 4vh, 50px); right: clamp(20px, 4vw, 50px);
+  width: clamp(80px, 12vw, 160px); height: clamp(56px, 8vw, 112px);
+  opacity: 0.6; pointer-events: none; z-index: 0;
+}
+.sei-decor-bl {
+  position: absolute;
+  bottom: clamp(20px, 4vh, 50px); left: clamp(20px, 4vw, 50px);
+  width: clamp(80px, 12vw, 160px); height: clamp(56px, 8vw, 112px);
+  opacity: 0.6; pointer-events: none; z-index: 0;
+}
+
+/* ============================================
+   SLIDE FOOTER
+   ============================================ */
+.slide-footer {
+  position: absolute;
+  bottom: clamp(12px, 2vh, 24px);
+  left: clamp(24px, 4vw, 48px);
+  right: clamp(24px, 4vw, 48px);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  z-index: 2;
+  font-family: var(--f-mono);
+  font-size: clamp(10px, 1vw, 13px);
+  color: var(--brown-faint);
+  letter-spacing: 0.05em;
+}
+.slide-footer .line {
+  flex: 1; height: 1px;
+  background: linear-gradient(90deg, rgba(150,130,90,0.12), transparent);
+}
+.slide-footer .line-r {
+  flex: 1; height: 1px;
+  background: linear-gradient(270deg, rgba(150,130,90,0.12), transparent);
+}
+
+/* ============================================
+   CONTENT WRAPPER
+   ============================================ */
+.slide-content {
+  width: 100%;
+  max-width: 1400px;
+  text-align: left;
+  position: relative;
+  z-index: 10;
+}
+
+.slide-content--center {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 1400px;
+  width: 100%;
+  position: relative;
+  z-index: 2;
+}
+
+/* ============================================
+   TYPOGRAPHY
+   ============================================ */
+.slide-title {
+  font-family: var(--f-title);
+  font-weight: 800;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  color: var(--brown);
+  margin-bottom: clamp(6px, 1vh, 16px);
+  letter-spacing: 0.02em;
+  position: relative;
+  display: inline-block;
+}
+.slide-title::after {
+  content: '';
+  display: block;
+  width: clamp(50px, 10vw, 100px);
+  height: 1.5px;
+  background: linear-gradient(90deg, transparent, rgba(184,150,62,0.5), transparent);
+  margin: clamp(6px, 0.8vw, 14px) auto 0;
+}
+.slide-title--center {
+  text-align: center;
+}
+.slide-title--center::after {
+  margin-left: auto; margin-right: auto;
+  background: linear-gradient(90deg, transparent, var(--gold-line), transparent);
+}
+
+.slide-subtitle {
+  font-family: var(--f-body);
+  font-weight: 300;
+  font-size: clamp(1rem, 1.8vw, 1.5rem);
+  color: var(--brown-muted);
+  margin-bottom: clamp(16px, 3vh, 32px);
+}
+
+.mono-label {
+  font-family: var(--f-mono);
+  font-size: clamp(11px, 1.2vw, 16px);
+  letter-spacing: 0.3em;
+  color: var(--gold-line);
+  text-transform: uppercase;
+  margin-bottom: clamp(10px, 2vh, 20px);
+}
+
+.gold-text { color: var(--gold); }
+.gold-line-text { color: var(--gold-line); }
+.muted-text { color: var(--brown-muted); }
+.brown-text { color: var(--brown); }
+
+.text-huge {
+  font-family: var(--f-title);
+  font-weight: 800;
+  font-size: clamp(44px, 6vw, 88px);
+  color: var(--brown);
+}
+
+.text-large {
+  font-family: var(--f-title);
+  font-weight: 700;
+  font-size: clamp(24px, 3vw, 44px);
+}
+
+.text-medium {
+  font-size: clamp(1rem, 1.8vw, 1.4rem);
+  line-height: 1.7;
+}
+
+.text-small {
+  font-size: clamp(0.85rem, 1.3vw, 1.1rem);
+}
+
+/* ============================================
+   DIVIDERS
+   ============================================ */
+.divider {
+  width: 100%; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(180,150,100,0.25), transparent);
+  margin: clamp(10px, 2vh, 20px) 0;
+}
+
+.gold-divider {
+  width: clamp(40px, 6vw, 70px);
+  height: 1.5px;
+  background: linear-gradient(90deg, transparent, rgba(184,150,62,0.5), transparent);
+  margin: clamp(10px, 2vh, 20px) auto;
+}
+
+/* ============================================
+   CARDS
+   ============================================ */
+.info-card {
+  background: rgba(180,170,155,0.05);
+  border: 1.5px solid rgba(180,150,100,0.15);
+  border-radius: 10px;
+  padding: clamp(16px, 2.5vw, 32px);
+  position: relative;
+}
+.info-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 8%; right: 8%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(180,150,100,0.12), transparent);
+}
+
+.write-card {
+  background: rgba(180,170,155,0.06);
+  border-radius: 10px;
+  padding: clamp(20px, 3.5vw, 40px);
+  position: relative;
+  box-shadow: inset 0 0 0 1.5px rgba(180,150,100,0.18);
+  max-width: 700px;
+  width: 100%;
+}
+.write-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 8%; right: 8%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(180,150,100,0.15), transparent);
+}
+
+.card-row {
+  display: flex;
+  gap: clamp(10px, 2vw, 20px);
+  width: 100%;
+  margin-top: clamp(16px, 3vh, 28px);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.card {
+  background: rgba(180,170,155,0.05);
+  border: 1.5px solid rgba(180,150,100,0.12);
+  border-radius: 10px;
+  padding: clamp(16px, 2.5vw, 32px);
+  flex: 1;
+  min-width: 180px;
+  position: relative;
+}
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 8%; right: 8%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(180,150,100,0.12), transparent);
+}
+
+.card--gold-border {
+  border-color: var(--gold);
+  box-shadow: 0 0 16px rgba(212, 168, 76, 0.15);
+}
+
+.card-label {
+  font-family: var(--f-mono);
+  font-size: clamp(10px, 1vw, 14px);
+  letter-spacing: 0.15em;
+  color: var(--gold-line);
+  margin-bottom: clamp(6px, 0.8vh, 10px);
+  text-transform: uppercase;
+}
+
+.card-title {
+  font-family: var(--f-title);
+  font-weight: 700;
+  font-size: clamp(1.1rem, 2vw, 1.6rem);
+  color: var(--brown);
+  margin-bottom: clamp(4px, 0.5vh, 8px);
+}
+
+.card-body {
+  font-size: clamp(0.9rem, 1.4vw, 1.15rem);
+  color: var(--brown-muted);
+  line-height: 1.7;
+}
+
+/* ============================================
+   BULLET LIST
+   ============================================ */
+.bullet-list {
+  list-style: none;
+  padding: 0;
+  margin: clamp(12px, 2vh, 24px) 0;
+}
+.bullet-list li {
+  position: relative;
+  padding-left: 1.6em;
+  margin-bottom: clamp(10px, 1.5vh, 18px);
+  font-size: clamp(1rem, 1.8vw, 1.4rem);
+  line-height: 1.7;
+  color: var(--brown-body);
+}
+.bullet-list li::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0.55em;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--gold);
+}
+
+/* ============================================
+   QUOTE
+   ============================================ */
+.quote {
+  padding: clamp(12px, 2vw, 24px);
+  border-left: 3px solid rgba(184,150,62,0.5);
+  font-family: var(--f-title);
+  font-style: italic;
+  font-weight: 700;
+  font-size: clamp(0.9rem, 1.5vw, 1.2rem);
+  color: var(--brown-muted);
+  background: linear-gradient(90deg, rgba(180,150,100,0.04), transparent);
+  margin-top: auto;
+  max-width: 700px;
+}
+.quote--right {
+  align-self: flex-end;
+  text-align: right;
+  border-left: none;
+  border-right: 3px solid rgba(180,150,100,0.4);
+  background: linear-gradient(270deg, rgba(180,150,100,0.04), transparent);
+}
+
+/* ============================================
+   TABLE
+   ============================================ */
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-top: clamp(12px, 2vh, 24px);
+  font-size: clamp(0.75rem, 1.2vw, 0.95rem);
+}
+.data-table th {
+  background: var(--gold);
+  color: white;
+  font-family: var(--f-title);
+  font-weight: 700;
+  padding: clamp(10px, 1.5vw, 18px);
+  text-align: left;
+  font-size: clamp(0.75rem, 1.2vw, 0.95rem);
+}
+.data-table td {
+  padding: clamp(10px, 1.5vw, 18px);
+  border-bottom: 1px solid rgba(180,150,100,0.1);
+  line-height: 1.6;
+}
+.data-table tr:nth-child(even) td { background: var(--paper-warm); }
+.data-table tr:nth-child(odd) td { background: var(--paper); }
+
+/* ============================================
+   FOUR PILLARS TABLE (橫式四柱)
+   ============================================ */
+.four-pillars-table {
+  border-collapse: collapse;
+  background: var(--paper);
+  font-size: clamp(1.1rem, 1.8vw, 1.7rem);
+  box-shadow: 0 2px 12px rgba(180,150,100,0.12);
+  width: min(92%, 1200px);
+  table-layout: fixed;
+}
+.four-pillars-table th,
+.four-pillars-table td {
+  border: 1.5px solid var(--gold-line);
+  padding: clamp(14px, 2.2vh, 24px) clamp(20px, 3vw, 44px);
+  text-align: center;
+  vertical-align: middle;
+  color: var(--ink, #2a2a2a);
+  font-weight: 400;
+}
+.four-pillars-table col.fp-col-label { width: 8%; }
+.four-pillars-table col.fp-col-pillar { width: 23%; }
+.four-pillars-table .fp-self-mark {
+  font-size: 0.55em;
+  color: var(--gold-dim);
+  margin-left: 0.15em;
+  letter-spacing: 0;
+  font-weight: 400;
+}
+/* 強調「人 + 命」兩列（天干＋地支）— 粗框 */
+.four-pillars-table .fp-highlight-top td.fp-hl {
+  border-top: 4px solid #B23A48;
+}
+.four-pillars-table .fp-highlight-bottom td.fp-hl {
+  border-bottom: 4px solid #B23A48;
+}
+.four-pillars-table .fp-highlight-top td.fp-hl:first-of-type,
+.four-pillars-table .fp-highlight-bottom td.fp-hl:first-of-type {
+  border-left: 4px solid #B23A48;
+}
+.four-pillars-table .fp-highlight-top td.fp-hl:last-child,
+.four-pillars-table .fp-highlight-bottom td.fp-hl:last-child {
+  border-right: 4px solid #B23A48;
+}
+.four-pillars-table .fp-corner {
+  border: none;
+  background: transparent;
+}
+.four-pillars-table .fp-pillar {
+  font-size: clamp(1.4rem, 2.2vw, 2rem);
+  font-weight: 600;
+  color: var(--gold-line);
+  background: var(--paper-warm);
+  letter-spacing: 0.1em;
+}
+.four-pillars-table .fp-age {
+  font-size: clamp(0.85rem, 1.2vw, 1.1rem);
+  font-weight: 400;
+  color: var(--gold-dim);
+  background: var(--paper-warm);
+  letter-spacing: 0.05em;
+}
+.four-pillars-table .fp-row-label {
+  font-size: clamp(1.2rem, 1.8vw, 1.7rem);
+  font-weight: 600;
+  color: var(--gold-line);
+  background: var(--paper-warm);
+  letter-spacing: 0.15em;
+}
+.four-pillars-table .fp-self {
+  background: rgba(212, 168, 76, 0.12);
+  color: var(--gold);
+  font-weight: 600;
+}
+.four-pillars-table th.fp-pillar.fp-self,
+.four-pillars-table th.fp-age.fp-self {
+  background: rgba(212, 168, 76, 0.22);
+  color: var(--gold);
+}
+
+.el-cell-wood { color: var(--el-wood); font-weight: 600; }
+.el-cell-fire { color: var(--el-fire); font-weight: 600; }
+.el-cell-earth { color: var(--el-earth); font-weight: 600; }
+.el-cell-metal { color: var(--el-metal); font-weight: 600; }
+.el-cell-water { color: var(--el-water); font-weight: 600; }
+
+/* ============================================
+   FIVE ELEMENT ORBS
+   ============================================ */
+.element-row {
+  display: flex;
+  gap: clamp(16px, 3vw, 36px);
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: clamp(20px, 4vh, 40px) 0;
+}
+
+.element-orb {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(6px, 1vh, 14px);
+}
+
+.orb {
+  width: clamp(80px, 8vw, 130px);
+  height: clamp(80px, 8vw, 130px);
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--f-title);
+  font-weight: 800;
+  font-size: clamp(24px, 3vw, 42px);
+  position: relative;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15), 0 2px 6px rgba(0,0,0,0.1);
+  color: #fff;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.15);
+}
+.orb::after {
+  content: '';
+  position: absolute;
+  inset: -10px;
+  border-radius: 50%;
+  border: 2px solid;
+  opacity: 0.3;
+}
+.orb-wood { background: radial-gradient(circle at 30% 25%, #b0f0c0, #8FD4A0 40%, #6AAE7A); }
+.orb-wood::after { border-color: #6AAE7A; }
+.orb-fire { background: radial-gradient(circle at 30% 25%, #ffd0a8, #F4A878 40%, #E88A5A); }
+.orb-fire::after { border-color: #E88A5A; }
+.orb-earth { background: radial-gradient(circle at 30% 25%, #f5e0a0, #E8C880 40%, #D4A84C); }
+.orb-earth::after { border-color: #D4A84C; }
+.orb-metal { background: radial-gradient(circle at 30% 25%, #e0d8f8, #C4B8E8 40%, #A898D0); }
+.orb-metal::after { border-color: #A898D0; }
+.orb-water { background: radial-gradient(circle at 30% 25%, #a8d8f8, #7CB8E8 40%, #5A9AD8); }
+.orb-water::after { border-color: #5A9AD8; }
+
+.orb-label {
+  font-size: clamp(0.8rem, 1.2vw, 1rem);
+  color: var(--brown-muted);
+  text-align: center;
+  line-height: 1.4;
+}
+
+/* Large orb for type detail slides */
+.orb-large {
+  width: clamp(100px, 12vw, 160px);
+  height: clamp(100px, 12vw, 160px);
+  font-size: clamp(32px, 4vw, 56px);
+}
+
+/* ============================================
+   TWO-COL LAYOUT
+   ============================================ */
+.two-col {
+  display: flex;
+  gap: clamp(20px, 4vw, 48px);
+  align-items: center;
+  width: 100%;
+}
+.two-col .col-orb {
+  flex-shrink: 0;
+}
+.two-col .col-text {
+  flex: 1;
+}
+
+/* ============================================
+   FILL TITLE (for interactive slides)
+   ============================================ */
+.fill-title {
+  font-family: var(--f-title);
+  font-weight: 800;
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  color: var(--brown);
+  margin-bottom: clamp(16px, 3vh, 28px);
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.fill-title::before {
+  content: '';
+  display: inline-block;
+  width: clamp(20px, 3vw, 32px);
+  height: clamp(20px, 3vw, 32px);
+  border-radius: 6px;
+  background: linear-gradient(135deg, var(--gold-bright), var(--gold));
+  flex-shrink: 0;
+}
+
+/* ============================================
+   FORM ROWS (for A4 form slide)
+   ============================================ */
+.form-row {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5em;
+  padding: clamp(10px, 1.5vh, 16px) 0;
+  border-bottom: 1px dashed rgba(180,150,100,0.15);
+  font-size: clamp(0.9rem, 1.5vw, 1.2rem);
+  line-height: 1.7;
+}
+.form-row .form-num {
+  font-family: var(--f-mono);
+  color: var(--gold);
+  font-weight: 600;
+  min-width: 2em;
+}
+.form-row .form-label {
+  color: var(--brown-body);
+  flex: 1;
+}
+.form-row .form-blank {
+  flex: 1;
+  border-bottom: 1px dashed var(--brown-faint);
+  min-width: 100px;
+}
+
+.form-row--locked {
+  opacity: 0.45;
+}
+.form-row--locked .form-label {
+  color: var(--brown-muted);
+}
+.form-row--locked .lock-icon {
+  color: var(--gold-dim);
+  font-size: 0.9em;
+  margin-right: 0.3em;
+}
+
+/* ============================================
+   PROMPT CARD (for type-specific info)
+   ============================================ */
+.prompt-card {
+  padding: clamp(10px, 1.5vw, 18px);
+  border-left: 3px solid;
+  margin-bottom: clamp(8px, 1vh, 14px);
+  background: rgba(180,170,155,0.03);
+  border-radius: 0 8px 8px 0;
+  font-size: clamp(0.85rem, 1.3vw, 1.1rem);
+  line-height: 1.6;
+}
+.prompt-card--wood { border-color: var(--el-wood); }
+.prompt-card--fire { border-color: var(--el-fire); }
+.prompt-card--earth { border-color: var(--el-earth); }
+.prompt-card--metal { border-color: var(--el-metal); }
+.prompt-card--water { border-color: var(--el-water); }
+
+/* ============================================
+   CHECK/LOCK LIST (for iceberg slide)
+   ============================================ */
+.check-list {
+  list-style: none; padding: 0;
+}
+.check-list li {
+  padding: clamp(6px, 1vh, 12px) 0;
+  font-size: clamp(0.9rem, 1.5vw, 1.2rem);
+  line-height: 1.6;
+  display: flex;
+  align-items: center;
+  gap: 0.6em;
+}
+.check-list .icon-check {
+  color: var(--el-wood);
+  font-weight: 700;
+}
+.check-list .icon-lock {
+  color: var(--gold-dim);
+}
+
+/* ============================================
+   REVEAL ANIMATION
+   ============================================ */
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal:nth-child(2) { transition-delay: 0.15s; }
+.reveal:nth-child(3) { transition-delay: 0.30s; }
+.reveal:nth-child(4) { transition-delay: 0.45s; }
+.reveal:nth-child(5) { transition-delay: 0.60s; }
+.reveal:nth-child(6) { transition-delay: 0.75s; }
+.reveal:nth-child(7) { transition-delay: 0.90s; }
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 768px) {
+  .slide { padding: clamp(24px, 4vh, 48px) clamp(16px, 6vw, 40px); }
+  .card-row { flex-direction: column; }
+  .two-col { flex-direction: column; }
+  .element-row { gap: clamp(8px, 3vw, 16px); }
+}
+
+/* Force font on ALL elements */
+* { font-family: var(--f-body); }
+h1, h2, h3, .slide-title, .card-title, .section-label, th { font-family: var(--f-title); }
+.slide-footer, .mono, code, .mono-label, .card-label { font-family: var(--f-mono); }
+
+/* Washi Paper Texture */
+.slide .washi-texture {
+  position: absolute; inset: 0;
+  z-index: -1; pointer-events: none;
+  filter: url(#washi);
+  mix-blend-mode: multiply;
+  opacity: 0.25;
+}
+
+/* Z-INDEX: content above decorations */
+.slide .slide-content,
+.slide .slide-content--center,
+.slide .slide-footer,
+.slide .quote { position: relative; z-index: 50 !important; }
+.slide .blob-tr, .slide .blob-bl, .slide .blob-tr-blue, .slide .blob-bl-gold,
+.slide .sei-decor-br, .slide .sei-decor-bl,
+.slide .washi-texture, .slide .slide-inner { z-index: 0 !important; }
+
+</style>
+</head>
+<body>
+
+<!-- Washi Paper Texture SVG Filter -->
+<svg style="position:fixed;width:0;height:0;overflow:hidden;" aria-hidden="true">
+<defs>
+  <filter id="washi" x="0%" y="0%" width="100%" height="100%" color-interpolation-filters="sRGB">
+    <feTurbulence type="fractalNoise" baseFrequency="0.7 0.5" numOctaves="5" seed="3" stitchTiles="stitch" result="grain"/>
+    <feColorMatrix type="saturate" values="0" in="grain" result="mono"/>
+    <feComponentTransfer in="mono">
+      <feFuncR type="linear" slope="0.06" intercept="0.94"/>
+      <feFuncG type="linear" slope="0.055" intercept="0.935"/>
+      <feFuncB type="linear" slope="0.04" intercept="0.92"/>
+    </feComponentTransfer>
+  </filter>
+</defs>
+</svg>
+
+<!-- SVG Seigaiha Pattern -->
+<svg style="position:fixed;width:0;height:0"><defs>
+<pattern id="sei" patternUnits="userSpaceOnUse" width="28" height="14">
+  <circle cx="14" cy="14" r="13" fill="none" stroke="rgba(160,135,80,0.12)" stroke-width="0.4"/>
+  <circle cx="14" cy="14" r="10.5" fill="none" stroke="rgba(160,135,80,0.09)" stroke-width="0.35"/>
+  <circle cx="14" cy="14" r="8" fill="none" stroke="rgba(160,135,80,0.06)" stroke-width="0.3"/>
+  <circle cx="0" cy="14" r="13" fill="none" stroke="rgba(160,135,80,0.12)" stroke-width="0.4"/>
+  <circle cx="28" cy="14" r="13" fill="none" stroke="rgba(160,135,80,0.12)" stroke-width="0.4"/>
+</pattern>
+</defs></svg>
+
+<!-- Progress Bar -->
+<div id="progress-bar"></div>
+
+<!-- ============================================
+     SLIDE 1 — COVER
+     ============================================ -->
+<section class="slide wash-both" data-slide="1">
+  <div class="washi-texture"></div>
+  <div class="ink-stain-tr"></div>
+  <div class="ink-stain-bl"></div>
+  <div class="blob-tr"></div>
+  <div class="blob-bl"></div>
+  <div class="slide-inner"></div>
+  <svg class="sei-decor-br"><rect width="100%" height="100%" fill="url(#sei)"/></svg>
+  <div class="slide-content--center">
+    <div class="mono-label reveal">FREE LECTURE</div>
+    <h1 class="text-huge reveal" style="margin-bottom: clamp(6px, 1vh, 14px);">你的財運體質</h1>
+    <div class="gold-divider reveal"></div>
+    <p class="text-medium gold-text reveal" style="margin-bottom: clamp(28px, 5vh, 56px);">從測驗結果到命盤真相</p>
+    <p class="text-small muted-text reveal">可青老師 KeQing｜八字生活應用</p>
+  </div>
+</section>
+
+<!-- ============================================
+     SLIDE 2 — ICEBREAKER: Which type?
+     ============================================ -->
+<section class="slide wash-gold" data-slide="2">
+  <div class="washi-texture"></div>
+  <div class="ink-stain-tr"></div>
+  <div class="blob-tr"></div>
+  <div class="slide-inner"></div>
+  <div class="slide-content--center">
+    <h2 class="slide-title slide-title--center reveal">你是哪一種財運體質？</h2>
+    <div class="element-row reveal">
+      <div class="element-orb"><div class="orb orb-wood">木</div><div class="orb-label">衝勁財</div></div>
+      <div class="element-orb"><div class="orb orb-fire">火</div><div class="orb-label">爆發財</div></div>
+      <div class="element-orb"><div class="orb orb-earth">土</div><div class="orb-label">厚積財</div></div>
+      <div class="element-orb"><div class="orb orb-metal">金</div><div class="orb-label">精算財</div></div>
+      <div class="element-orb"><div class="orb orb-water">水</div><div class="orb-label">靈感財</div></div>
+    </div>
+    <p class="text-medium gold-line-text reveal">舉手讓我看看&mdash;&mdash;哪一組最多？</p>
+  </div>
+</section>
+
+<!-- ============================================
+     SLIDE 3 — AGENDA
+     ============================================ -->
+<section class="slide wash-blue" data-slide="3">
+  <div class="washi-texture"></div>
+  <div class="ink-stain-bl"></div>
+  <div class="blob-tr-blue"></div>
+  <div class="slide-inner"></div>
+  <div class="slide-content">
+    <h2 class="slide-title reveal">今天 90 分鐘</h2>
+    <div class="card-row reveal">
+      <div class="card">
+        <div class="card-label">Part 01</div>
+        <div class="card-title">驗證</div>
+        <div class="card-body">你的測驗結果到底準不準</div>
+      </div>
+      <div class="card">
+        <div class="card-label">Part 02</div>
+        <div class="card-title">發現</div>
+        <div class="card-body">你命盤裡沒人告訴過你的事</div>
+      </div>
+      <div class="card">
+        <div class="card-label">Part 03</div>
+        <div class="card-title">時機</div>
+        <div class="card-body">2026 下半年你該注意的月份</div>
+      </div>
+    </div>
+    <div class="quote quote--right reveal">「今天不算命。今天教你看自己。」</div>
+  </div>
+</section>
+
+<!-- ============================================
+     SLIDE 4 — MYTH-BREAKING
+     ============================================ -->
+<section class="slide wash-gold" data-slide="4">
+  <div class="washi-texture"></div>
+  <div class="ink-stain-tr"></div>
+  <div class="blob-bl-gold"></div>
+  <div class="slide-inner"></div>
+  <div class="slide-content">
+    <h2 class="slide-title reveal">八字不是算命</h2>
+    <ul class="bullet-list reveal">
+      <li>八字 &ne; 「你明年會怎樣」</li>
+      <li>八字 ＝ 「你的出廠設定是什麼」</li>
+      <li>用途：認識自己、理解關係、找到節奏</li>
+    </ul>
+    <div class="quote reveal">「別人幫你算命只給答案&mdash;&mdash;但你的人生，你自己才能走。」</div>
+  </div>
+</section>
+
+<!-- ============================================
+     SLIDE 5 — MAP METAPHOR
+     ============================================ -->
+<section class="slide wash-blue" data-slide="5">
+  <div class="washi-texture"></div>
+  <div class="ink-stain-bl"></div>
+  <div class="blob-tr-blue"></div>
+  <div class="slide-inner"></div>
+  <div class="slide-content--center">
+    <h1 class="text-huge reveal" style="margin-bottom: clamp(20px, 4vh, 40px);">地圖</h1>
+    <p class="text-medium muted-text reveal">命 ＝ 體質（不會變）</p>
+    <p class="text-medium muted-text reveal">運 ＝ 節奏（會動的）</p>
+    <div class="gold-divider reveal"></div>
+    <p class="text-small gold-line-text reveal">體質 &times; 節奏 ＝ 你的人生</p>
+  </div>
+</section>
+
+<!-- ============================================
+     SLIDE 6 — WHAT THE TEST MEASURED
+     ============================================ -->
+<section class="slide wash-gold" data-slide="6">
+  <div class="washi-texture"></div>
+  <div class="ink-stain-tr"></div>
+  <div class="blob-tr"></div>
+  <div class="slide-inner"></div>
+  <div class="slide-content">
+    <h2 class="slide-title reveal">測驗在測什麼？</h2>
+    <div class="card-row reveal">
+      <div class="card">
+        <div class="card-title">測驗做的事</div>
+        <div class="card-body">根據你的行為習慣，推測你最強的五行</div>
+      </div>
+      <div class="card card--gold-border">
+        <div class="card-title">接下來要做的事</div>
+        <div class="card-body">打開命盤，看你的五行到底有幾個</div>
+      </div>
+    </div>
+    <p class="text-small muted-text reveal" style="margin-top: clamp(16px, 3vh, 28px); text-align: center;">7 道題 &rarr; 五行偏好 &rarr; 理財行為模式</p>
+  </div>
+</section>
+
+<!-- ============================================
+     SLIDE 7 — TRANSITION: Open Your Phone
+     ============================================ -->
+<section class="slide wash-warm" data-slide="7">
+  <div class="washi-texture"></div>
+  <div class="ink-stain-tl"></div>
+  <div class="slide-inner"></div>
+  <div class="slide-content--center">
+    <div class="divider reveal"></div>
+    <p class="text-large brown-text reveal">準備好了嗎？</p>
+    <p class="text-large brown-text reveal">打開你的手機。</p>
+    <div class="divider reveal"></div>
+    <p class="text-small gold-line-text reveal" style="margin-top: clamp(16px, 3vh, 28px);">接下來，我們一起排出你的命盤</p>
+  </div>
+</section>
+
+<!-- ============================================
+     SLIDE 8 — DOWNLOAD APP
+     ============================================ -->
+<section class="slide wash-warm" data-slide="8">
+  <div class="washi-texture"></div>
+  <div class="ink-stain-tl"></div>
+  <div class="slide-inner"></div>
+  <div class="slide-content--center">
+    <div class="fill-title reveal">Step 1：下載排盤 App</div>
+    <div class="info-card reveal" style="max-width: 500px; text-align: center; padding: clamp(24px, 4vw, 48px);">
+      <div style="width: 160px; height: 160px; border-radius: 12px; margin: 0 auto clamp(12px, 2vh, 20px); overflow: hidden; background: #fff; padding: 8px; box-shadow: 0 2px 8px rgba(180,150,100,0.15);">
+        <img src="assets/八字萬年曆-qr.jpg" alt="八字萬年曆 App QR Code" style="width: 100%; height: 100%; object-fit: contain; display: block;">
+      </div>
+      <p class="text-medium brown-text">搜尋「八字萬年曆」</p>
+      <p class="text-small muted-text" style="margin-top: 8px;">iOS / Android 都有｜免費</p>
+    </div>
+    <p class="text-small gold-line-text reveal" style="margin-top: clamp(16px, 3vh, 28px);">下載好的請打字「好了」</p>
+  </div>
+</section>
+
+<!-- ============================================
+     SLIDE 9 — ENTER BIRTH DATA
+     ============================================ -->
+<section class="slide wash-gold" data-slide="9">
+  <div class="washi-texture"></div>
+  <div class="ink-stain-tr"></div>
+  <div class="blob-bl-gold"></div>
+  <div class="slide-inner"></div>
+  <div class="slide-content--center">
+    <div class="fill-title reveal">Step 2：輸入出生資訊</div>
+    <div class="info-card reveal" style="max-width: 550px;">
+      <ul class="bullet-list" style="margin: 0;">
+        <li>出生年月日（國曆）</li>
+        <li>出生時間（不知道選「不確定」）</li>
+        <li>性別</li>
+      </ul>
+    </div>
+    <p class="text-small gold-line-text reveal" style="margin-top: clamp(16px, 3vh, 28px);">不知道出生時間？沒關係&mdash;&mdash;六個字也能看很多</p>
+  </div>
+</section>
+
+<!-- ============================================
+     SLIDE 10 — FOUR PILLARS
+     ============================================ -->
+<section class="slide wash-blue" data-slide="10">
+  <div class="washi-texture"></div>
+  <div class="ink-stain-bl"></div>
+  <div class="blob-tr-blue"></div>
+  <div class="slide-inner"></div>
+  <div class="slide-content">
+    <h2 class="slide-title reveal">四柱八字</h2>
+    <div class="reveal" style="display: flex; justify-content: center;">
+      <table class="four-pillars-table">
+        <colgroup>
+          <col class="fp-col-label">
+          <col class="fp-col-pillar">
+          <col class="fp-col-pillar">
+          <col class="fp-col-pillar">
+          <col class="fp-col-pillar">
+        </colgroup>
+        <thead>
+          <tr>
+            <th class="fp-corner"></th>
+            <th class="fp-pillar">時</th>
+            <th class="fp-pillar fp-self">日<span class="fp-self-mark">（我）</span></th>
+            <th class="fp-pillar">月</th>
+            <th class="fp-pillar">年</th>
+          </tr>
+          <tr>
+            <th class="fp-corner"></th>
+            <th class="fp-age">49-64 歲</th>
+            <th class="fp-age fp-self">33-48 歲</th>
+            <th class="fp-age">17-32 歲</th>
+            <th class="fp-age">1-16 歲</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th class="fp-row-label">客</th>
+            <td>十神</td>
+            <td class="fp-self">日元</td>
+            <td>十神</td>
+            <td>十神</td>
+          </tr>
+          <tr class="fp-highlight-top">
+            <th class="fp-row-label">人</th>
+            <td class="fp-hl">天干</td>
+            <td class="fp-self fp-hl">天干</td>
+            <td class="fp-hl">天干</td>
+            <td class="fp-hl">天干</td>
+          </tr>
+          <tr class="fp-highlight-bottom">
+            <th class="fp-row-label">命</th>
+            <td class="fp-hl">地支</td>
+            <td class="fp-self fp-hl">地支</td>
+            <td class="fp-hl">地支</td>
+            <td class="fp-hl">地支</td>
+          </tr>
+          <tr>
+            <th class="fp-row-label">盤</th>
+            <td>藏干</td>
+            <td class="fp-self">藏干</td>
+            <td>藏干</td>
+            <td>藏干</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="text-small gold-line-text reveal" style="margin-top: clamp(16px, 3vh, 28px);">4 柱 &times; 2 字 ＝ 八字。日柱天干就是「你」。</p>
+  </div>
+</section>
+
+<!-- ============================================
+     SLIDE 11 — FIVE ELEMENTS = FIVE COLORS
+     ============================================ -->
+<section class="slide wash-both" data-slide="11">
+  <div class="washi-texture"></div>
+  <div class="ink-stain-tr"></div>
+  <div class="ink-stain-bl"></div>
+  <div class="slide-inner"></div>
+  <div class="slide-content--center">
+    <h2 class="slide-title slide-title--center reveal">五行 ＝ 五種顏色</h2>
+    <div class="element-row reveal">
+      <div class="element-orb"><div class="orb orb-wood">木</div><div class="orb-label">向上</div></div>
+      <div class="element-orb"><div class="orb orb-fire">火</div><div class="orb-label">擴散</div></div>
+      <div class="element-orb"><div class="orb orb-earth">土</div><div class="orb-label">穩定</div></div>
+      <div class="element-orb"><div class="orb orb-metal">金</div><div class="orb-label">收斂</div></div>
+      <div class="element-orb"><div class="orb orb-water">水</div><div class="orb-label">流動</div></div>
+    </div>
+    <p class="text-small gold-line-text reveal">排盤 App 上，每個字旁邊都有顏色標示</p>
+  </div>
+</section>
+
+<!-- ============================================
+     SLIDE 12 — COUNT YOUR FIVE ELEMENTS
+     ============================================ -->
+<section class="slide wash-warm" data-slide="12">
+  <div class="washi-texture"></div>
+  <div class="ink-stain-tl"></div>
+  <div class="slide-inner"></div>
+  <div class="slide-content--center">
+    <div class="fill-title reveal">Step 3：數你的五行</div>
+    <div class="write-card reveal">
+      <p class="text-small muted-text" style="margin-bottom: clamp(12px, 2vh, 20px);">看你的排盤 App，數每種顏色出現幾次，寫在紙上：</p>
+      <div style="display: flex; gap: clamp(12px, 2vw, 24px); flex-wrap: wrap; justify-content: center; font-size: clamp(1rem, 1.8vw, 1.4rem);">
+        <span><span class="el-cell-wood">木</span>：___</span>
+        <span><span class="el-cell-fire">火</span>：___</span>
+        <span><span class="el-cell-earth">土</span>：___</span>
+        <span><span class="el-cell-metal">金</span>：___</span>
+        <span><span class="el-cell-water">水</span>：___</span>
+      </div>
+      <p class="text-small muted-text" style="margin-top: clamp(12px, 2vh, 20px);">先數，等一下老師帶你看什麼意思</p>
+    </div>
+    <p class="text-small gold-line-text reveal" style="margin-top: clamp(16px, 3vh, 28px);">數好了告訴我，你最多的是什麼？</p>
+  </div>
+</section>
+
+<!-- ============================================
+     SLIDE 13 — FIVE ELEMENTS × MONEY TABLE
+     ============================================ -->
+<section class="slide wash-gold" data-slide="13">
+  <div class="washi-texture"></div>
+  <div class="ink-stain-tr"></div>
+  <div class="blob-tr"></div>
+  <div class="slide-inner"></div>
+  <div class="slide-content">
+    <h2 class="slide-title reveal">五行 &times; 理財行為</h2>
+    <table class="data-table reveal">
+      <thead><tr>
+        <th>五行</th><th>財運類型</th><th>天賦</th><th>容易踩的坑</th>
+      </tr></thead>
+      <tbody>
+        <tr><td class="el-cell-wood">木</td><td>衝勁財</td><td>看到機會就動、學什麼都快</td><td>方向太多，錢太分散</td></tr>
+        <tr><td class="el-cell-fire">火</td><td>爆發財</td><td>直覺敏銳、出手果斷</td><td>不知道何時停，追高殺低</td></tr>
+        <tr><td class="el-cell-earth">土</td><td>厚積財</td><td>穩健保守、承諾必達</td><td>穩到卡住，該動不動</td></tr>
+        <tr><td class="el-cell-metal">金</td><td>精算財</td><td>標準最高、深思熟慮</td><td>想太久，錯過機會</td></tr>
+        <tr><td class="el-cell-water">水</td><td>靈感財</td><td>感應力強、嗅覺敏銳</td><td>貪婪恐懼來回擺盪</td></tr>
+      </tbody>
+    </table>
+    <p class="text-small gold-line-text reveal" style="margin-top: clamp(12px, 2vh, 20px); text-align: center;">你最多的那個五行，是不是跟測驗結果一樣？</p>
+  </div>
+</section>
+
+<!-- ============================================
+     SLIDE 14 — VALIDATION MOMENT (Layer 1)
+     ============================================ -->
+<section class="slide wash-both" data-slide="14">
+  <div class="washi-texture"></div>
+  <div class="ink-stain-tr"></div>
+  <div class="ink-stain-bl"></div>
+  <div class="blob-tr"></div>
+  <div class="blob-bl"></div>
+  <div class="slide-inner"></div>
+  <div class="slide-content--center">
+    <h1 class="text-huge gold-text reveal">對，</h1>
+    <h1 class="text-huge reveal" style="margin-bottom: clamp(20px, 4vh, 40px);">你就是這樣的人。</h1>
+    <div class="gold-divider reveal"></div>
+    <p class="text-medium muted-text reveal" style="margin-top: clamp(20px, 4vh, 40px);">但&hellip;&hellip;你有沒有注意到，</p>
+    <p class="text-medium muted-text reveal">你缺了什麼？</p>
+  </div>
+</section>
+
+<!-- ============================================
+     SLIDE 15 — MOST vs LEAST
+     ============================================ -->
+<section class="slide wash-gold" data-slide="15">
+  <div class="washi-texture"></div>
+  <div class="ink-stain-tr"></div>
+  <div class="blob-bl-gold"></div>
+  <div class="slide-inner"></div>
+  <div class="slide-content">
+    <h2 class="slide-title reveal">你最多的 vs 你最少的</h2>
+    <div class="card-row reveal">
+      <div class="card" style="border-top: 3px solid var(--el-wood);">
+        <div class="card-title">最多 ＝ 天賦</div>
+        <div class="card-body">你最擅長的，也是你最容易過度依賴的</div>
+      </div>
+      <div class="card" style="border-top: 3px solid var(--el-fire);">
+        <div class="card-title">最少 ＝ 盲點</div>
+        <div class="card-body">你最缺的，就是你的財運漏洞</div>
+      </div>
+    </div>
+    <p class="text-small gold-line-text reveal" style="margin-top: clamp(16px, 3vh, 28px);">看你的紙&mdash;&mdash;哪一個是 0 或 1？</p>
+  </div>
+</section>
+
+<!-- ============================================
+     SLIDE 16 — WOOD: 衝勁財
+     ============================================ -->
+<section class="slide wash-blue" data-slide="16">
+  <div class="washi-texture"></div>
+  <div class="ink-stain-bl"></div>
+  <div class="slide-inner"></div>
+  <div class="slide-content">
+    <div class="two-col reveal">
+      <div class="col-orb"><div class="orb orb-wood orb-large">木</div></div>
+      <div class="col-text">
+        <h2 class="slide-title">木多｜衝勁財</h2>
+        <p class="text-medium">天賦：行動力爆表、學什麼都快</p>
+        <div class="divider"></div>
+        <p class="text-medium"><span class="el-cell-metal">盲點：缺金</span> &rarr; 十個方向，只回收兩三個</p>
+        <p class="text-small muted-text" style="margin-top: 8px;">金 ＝ 收斂、修剪。缺金的人，賺得到但留不住。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     SLIDE 17 — FIRE: 爆發財
+     ============================================ -->
+<section class="slide wash-gold" data-slide="17">
+  <div class="washi-texture"></div>
+  <div class="ink-stain-tr"></div>
+  <div class="slide-inner"></div>
+  <div class="slide-content">
+    <div class="two-col reveal">
+      <div class="col-orb"><div class="orb orb-fire orb-large">火</div></div>
+      <div class="col-text">
+        <h2 class="slide-title">火多｜爆發財</h2>
+        <p class="text-medium">天賦：直覺敏銳、果斷出手</p>
+        <div class="divider"></div>
+        <p class="text-medium"><span class="el-cell-water">盲點：缺水</span> &rarr; 明明賺了，再等一下就蒸發</p>
+        <p class="text-small muted-text" style="margin-top: 8px;">水 ＝ 冷靜、節奏。缺水的人，情緒主導一切。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     SLIDE 18 — EARTH: 厚積財
+     ============================================ -->
+<section class="slide wash-blue" data-slide="18">
+  <div class="washi-texture"></div>
+  <div class="ink-stain-bl"></div>
+  <div class="slide-inner"></div>
+  <div class="slide-content">
+    <div class="two-col reveal">
+      <div class="col-orb"><div class="orb orb-earth orb-large">土</div></div>
+      <div class="col-text">
+        <h2 class="slide-title">土多｜厚積財</h2>
+        <p class="text-medium">天賦：最穩、最扛得住</p>
+        <div class="divider"></div>
+        <p class="text-medium"><span class="el-cell-wood">盲點：缺木</span> &rarr; 穩到卡住，該止損不止損</p>
+        <p class="text-small muted-text" style="margin-top: 8px;">木 ＝ 方向、疏通。缺木的人，堅持變成恐懼。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     SLIDE 19 — METAL: 精算財
+     ============================================ -->
+<section class="slide wash-gold" data-slide="19">
+  <div class="washi-texture"></div>
+  <div class="ink-stain-tr"></div>
+  <div class="slide-inner"></div>
+  <div class="slide-content">
+    <div class="two-col reveal">
+      <div class="col-orb"><div class="orb orb-metal orb-large">金</div></div>
+      <div class="col-text">
+        <h2 class="slide-title">金多｜精算財</h2>
+        <p class="text-medium">天賦：標準最高、思考最深</p>
+        <div class="divider"></div>
+        <p class="text-medium"><span class="el-cell-fire">盲點：缺火</span> &rarr; 想太久，機會都走了</p>
+        <p class="text-small muted-text" style="margin-top: 8px;">火 ＝ 行動、推力。缺火的人，完美主義吃掉一切。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     SLIDE 20 — WATER: 靈感財
+     ============================================ -->
+<section class="slide wash-blue" data-slide="20">
+  <div class="washi-texture"></div>
+  <div class="ink-stain-bl"></div>
+  <div class="slide-inner"></div>
+  <div class="slide-content">
+    <div class="two-col reveal">
+      <div class="col-orb"><div class="orb orb-water orb-large">水</div></div>
+      <div class="col-text">
+        <h2 class="slide-title">水多｜靈感財</h2>
+        <p class="text-medium">天賦：感應力最強、直覺最準</p>
+        <div class="divider"></div>
+        <p class="text-medium"><span class="el-cell-earth">盲點：缺土</span> &rarr; 在貪婪和恐懼之間來回擺盪</p>
+        <p class="text-small muted-text" style="margin-top: 8px;">土 ＝ 穩定、錨點。缺土的人，直覺變成敵人。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     SLIDE 21 — LAYER 2 CLIMAX
+     ============================================ -->
+<section class="slide wash-both" data-slide="21">
+  <div class="washi-texture"></div>
+  <div class="ink-stain-tr"></div>
+  <div class="ink-stain-bl"></div>
+  <div class="blob-tr"></div>
+  <div class="blob-bl"></div>
+  <div class="slide-inner"></div>
+  <svg class="sei-decor-br"><rect width="100%" height="100%" fill="url(#sei)"/></svg>
+  <div class="slide-content--center">
+    <p class="text-large gold-text reveal">你的天賦，你已經知道了。</p>
+    <p class="text-large brown-text reveal" style="margin-top: clamp(16px, 3vh, 28px);">但你缺的那一塊&mdash;&mdash;</p>
+    <p class="text-large brown-text reveal">才是決定你財運天花板的關鍵。</p>
+    <div class="gold-divider reveal"></div>
+    <p class="text-medium muted-text reveal" style="margin-top: clamp(16px, 3vh, 28px);">問題不是你不夠努力。<br>問題是你一直在用天賦硬撐盲點。</p>
+  </div>
+</section>
+
+<!-- ============================================
+     SLIDE 22 — ICEBERG: Seen vs Unseen
+     ============================================ -->
+<section class="slide wash-gold" data-slide="22">
+  <div class="washi-texture"></div>
+  <div class="ink-stain-tr"></div>
+  <div class="blob-tr"></div>
+  <div class="slide-inner"></div>
+  <div class="slide-content">
+    <h2 class="slide-title reveal">今天看到的 vs 還沒看到的</h2>
+    <div class="card-row reveal">
+      <div class="card">
+        <div class="card-title" style="color: var(--el-wood);">今天學到的</div>
+        <ul class="check-list">
+          <li><span class="icon-check">&check;</span> 五行數量</li>
+          <li><span class="icon-check">&check;</span> 哪個最多、哪個最少</li>
+          <li><span class="icon-check">&check;</span> 理財行為模式</li>
+          <li><span class="icon-check">&check;</span> 你的盲點是什麼</li>
+        </ul>
+      </div>
+      <div class="card" style="border-color: var(--gold-dim);">
+        <div class="card-title" style="color: var(--gold-dim);">正課才能看到的</div>
+        <ul class="check-list">
+          <li><span class="icon-lock">&xotime;</span> 身強身弱（決定一切的關鍵）</li>
+          <li><span class="icon-lock">&xotime;</span> 怎麼補你缺的五行</li>
+          <li><span class="icon-lock">&xotime;</span> 十天干性格密碼</li>
+          <li><span class="icon-lock">&xotime;</span> 合盤：跟另一半的關係</li>
+          <li><span class="icon-lock">&xotime;</span> 風水財位</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     SLIDE 23 — TRANSITION TO TIMING
+     ============================================ -->
+<section class="slide wash-blue" data-slide="23">
+  <div class="washi-texture"></div>
+  <div class="ink-stain-bl"></div>
+  <div class="blob-tr-blue"></div>
+  <div class="slide-inner"></div>
+  <div class="slide-content--center">
+    <p class="text-large gold-text reveal">在那之前&mdash;&mdash;</p>
+    <h1 class="text-huge reveal" style="margin: clamp(12px, 2vh, 24px) 0;">我們先看時機。</h1>
+    <div class="gold-divider reveal"></div>
+    <p class="text-medium muted-text reveal">你的盲點在哪裡，你已經知道了。</p>
+    <p class="text-medium muted-text reveal">但&hellip;&hellip;什麼時候會出事？</p>
+  </div>
+</section>
+
+<!-- ============================================
+     SLIDE 24 — PART 03 TITLE
+     ============================================ -->
+<section class="slide wash-both" data-slide="24">
+  <div class="washi-texture"></div>
+  <div class="ink-stain-tr"></div>
+  <div class="ink-stain-bl"></div>
+  <div class="slide-inner"></div>
+  <svg class="sei-decor-bl"><rect width="100%" height="100%" fill="url(#sei)"/></svg>
+  <div class="slide-content--center">
+    <div class="mono-label reveal">PART 03</div>
+    <h1 class="text-huge reveal">時機</h1>
+    <div class="gold-divider reveal"></div>
+    <p class="slide-subtitle reveal">2026 下半年，你的五行什麼時候被挑戰？</p>
+  </div>
+</section>
+
+<!-- ============================================
+     SLIDE 25 — 2026 H2 MONTHLY TABLE (Layer 3)
+     ============================================ -->
+<section class="slide wash-gold" data-slide="25">
+  <div class="washi-texture"></div>
+  <div class="ink-stain-tr"></div>
+  <div class="blob-tr"></div>
+  <div class="slide-inner"></div>
+  <div class="slide-content">
+    <h2 class="slide-title reveal">2026 下半年｜月運五行</h2>
+    <table class="data-table reveal">
+      <thead><tr>
+        <th>月份</th><th>天干地支</th><th>主導五行</th><th>需要注意的人</th>
+      </tr></thead>
+      <tbody>
+        <tr><td>7 月</td><td>乙未</td><td class="el-cell-earth">木 &middot; 土</td><td>缺金的人</td></tr>
+        <tr><td>8 月</td><td>丙申</td><td class="el-cell-fire">火 &middot; 金</td><td>缺水的人</td></tr>
+        <tr><td>9 月</td><td>丁酉</td><td class="el-cell-fire">火 &middot; 金</td><td>缺木的人</td></tr>
+        <tr><td>10 月</td><td>戊戌</td><td class="el-cell-earth">土 &middot; 土</td><td>缺木的人</td></tr>
+        <tr><td>11 月</td><td>己亥</td><td class="el-cell-earth">土 &middot; 水</td><td>缺火的人</td></tr>
+        <tr><td>12 月</td><td>庚子</td><td class="el-cell-metal">金 &middot; 水</td><td>缺土的人</td></tr>
+      </tbody>
+    </table>
+    <p class="text-small muted-text reveal" style="margin-top: clamp(8px, 1.5vh, 14px); text-align: center;">找到你缺的五行&mdash;&mdash;那就是你今年最需要注意的月份</p>
+  </div>
+</section>
+
+<!-- ============================================
+     SLIDE 26 — YOUR DANGER MONTH
+     ============================================ -->
+<section class="slide wash-blue" data-slide="26">
+  <div class="washi-texture"></div>
+  <div class="ink-stain-bl"></div>
+  <div class="blob-bl"></div>
+  <div class="slide-inner"></div>
+  <div class="slide-content">
+    <h2 class="slide-title slide-title--center reveal">你的注意月份是？</h2>
+    <div style="display: flex; flex-direction: column; gap: clamp(6px, 1vh, 12px); margin-top: clamp(16px, 3vh, 28px);" class="reveal">
+      <div class="prompt-card prompt-card--wood"><strong class="el-cell-wood">木多缺金</strong> &rarr; 留意 7 月（木土月沖你的節奏）</div>
+      <div class="prompt-card prompt-card--fire"><strong class="el-cell-fire">火多缺水</strong> &rarr; 留意 8 月（火金月，情緒更容易失控）</div>
+      <div class="prompt-card prompt-card--earth"><strong class="el-cell-earth">土多缺木</strong> &rarr; 留意 9&ndash;10 月（方向感最弱的時期）</div>
+      <div class="prompt-card prompt-card--metal"><strong class="el-cell-metal">金多缺火</strong> &rarr; 留意 11 月（動力最低谷）</div>
+      <div class="prompt-card prompt-card--water"><strong class="el-cell-water">水多缺土</strong> &rarr; 留意 12 月（金水月，擺盪最劇烈）</div>
+    </div>
+    <p class="text-small gold-line-text reveal" style="margin-top: clamp(12px, 2vh, 20px); text-align: center;">圈起來。這幾個月，先不要做重大財務決定。</p>
+  </div>
+</section>
+
+<!-- ============================================
+     SLIDE 27 — LIVE DEMO: Mini Reading 1
+     ============================================ -->
+<section class="slide wash-gold" data-slide="27">
+  <div class="washi-texture"></div>
+  <div class="ink-stain-tr"></div>
+  <div class="blob-bl-gold"></div>
+  <div class="slide-inner"></div>
+  <div class="slide-content--center">
+    <h2 class="slide-title slide-title--center reveal">現場看命盤</h2>
+    <div class="info-card reveal" style="max-width: 600px; text-align: center;">
+      <p class="text-medium brown-text">我現在請 1&ndash;2 位同學，<br>當場帶你看你的命盤。</p>
+      <p class="text-small muted-text" style="margin-top: clamp(8px, 1.5vh, 14px);">需要你的出生年月日和時間</p>
+    </div>
+    <p class="text-medium gold-line-text reveal" style="margin-top: clamp(20px, 4vh, 36px);">想被看的請打字「我要」</p>
+  </div>
+</section>
+
+<!-- ============================================
+     SLIDE 28 — Mini Reading 2
+     ============================================ -->
+<section class="slide wash-blue" data-slide="28">
+  <div class="washi-texture"></div>
+  <div class="ink-stain-bl"></div>
+  <div class="blob-tr-blue"></div>
+  <div class="slide-inner"></div>
+  <div class="slide-content--center">
+    <h2 class="slide-title slide-title--center reveal">再看一位</h2>
+    <div class="info-card reveal" style="max-width: 600px; text-align: center;">
+      <p class="text-medium brown-text">剛剛那位看完了&mdash;&mdash;<br>我們再看一個不同類型的。</p>
+    </div>
+    <p class="text-medium gold-line-text reveal" style="margin-top: clamp(20px, 4vh, 36px);">你有沒有看到，老師怎麼解讀的？</p>
+  </div>
+</section>
+
+<!-- ============================================
+     SLIDE 29 — CLOSING BRIDGE
+     ============================================ -->
+<section class="slide wash-both" data-slide="29">
+  <div class="washi-texture"></div>
+  <div class="ink-stain-tr"></div>
+  <div class="ink-stain-bl"></div>
+  <div class="blob-tr"></div>
+  <div class="blob-bl"></div>
+  <div class="slide-inner"></div>
+  <div class="slide-content--center">
+    <div class="divider reveal"></div>
+    <p class="text-large brown-text reveal">今天你帶走了第一頁。</p>
+    <p class="text-large gold-text reveal" style="margin-top: clamp(12px, 2vh, 24px);">完整的人生說明書，還有九頁。</p>
+    <div class="divider reveal"></div>
+  </div>
+</section>
+
+<!-- ============================================
+     SLIDE 30 — A4 FORM (Zeigarnik Core)
+     ============================================ -->
+<section class="slide wash-warm" data-slide="30">
+  <div class="washi-texture"></div>
+  <div class="ink-stain-tl"></div>
+  <div class="slide-inner"></div>
+  <div class="slide-content--center">
+    <div class="fill-title reveal">你的財運簡報</div>
+    <div class="write-card reveal" style="max-width: 680px;">
+      <div class="form-row">
+        <span class="form-num">&oplus;</span>
+        <span class="form-label">我的五行比例：木__ 火__ 土__ 金__ 水__</span>
+      </div>
+      <div class="form-row">
+        <span class="form-num">&oplus;</span>
+        <span class="form-label">我最多的五行：_______________</span>
+      </div>
+      <div class="form-row">
+        <span class="form-num">&oplus;</span>
+        <span class="form-label">我的財運類型：_______________</span>
+      </div>
+      <div class="form-row">
+        <span class="form-num">&oplus;</span>
+        <span class="form-label">我缺的五行 + 注意月份：_______________</span>
+      </div>
+      <div class="form-row form-row--locked">
+        <span class="form-num" style="opacity: 0.4;">&oplus;</span>
+        <span class="form-label"><span class="lock-icon">&#x1F512;</span> 我的身強身弱：_______________</span>
+      </div>
+      <div class="form-row form-row--locked">
+        <span class="form-num" style="opacity: 0.4;">&oplus;</span>
+        <span class="form-label"><span class="lock-icon">&#x1F512;</span> 我的喜用神：_______________</span>
+      </div>
+      <div class="form-row form-row--locked">
+        <span class="form-num" style="opacity: 0.4;">&oplus;</span>
+        <span class="form-label"><span class="lock-icon">&#x1F512;</span> 我該怎麼補：_______________</span>
+      </div>
+      <div class="form-row form-row--locked">
+        <span class="form-num" style="opacity: 0.4;">&oplus;</span>
+        <span class="form-label"><span class="lock-icon">&#x1F512;</span> 我的合盤結果：_______________</span>
+      </div>
+      <div class="form-row form-row--locked" style="border-bottom: none;">
+        <span class="form-num" style="opacity: 0.4;">&oplus;</span>
+        <span class="form-label"><span class="lock-icon">&#x1F512;</span> 我的財位方向：_______________</span>
+      </div>
+    </div>
+    <p class="text-small gold-line-text reveal" style="margin-top: clamp(12px, 2vh, 20px);">前 4 格是今天學到的。後 5 格，正課會帶你填完。</p>
+  </div>
+</section>
+
+<!-- ============================================
+     SLIDE 31 — COURSE INTRODUCTION
+     ============================================ -->
+<section class="slide wash-gold" data-slide="31">
+  <div class="washi-texture"></div>
+  <div class="ink-stain-tr"></div>
+  <div class="blob-tr"></div>
+  <div class="slide-inner"></div>
+  <div class="slide-content">
+    <h2 class="slide-title reveal">正課：學會自己看</h2>
+    <div class="card-row reveal">
+      <div class="card">
+        <div class="card-label">一整天</div>
+        <div class="card-title">7 小時密集班</div>
+        <div class="card-body">從排盤到實戰</div>
+      </div>
+      <div class="card">
+        <div class="card-label">帶走</div>
+        <div class="card-title">人生說明書</div>
+        <div class="card-body">A5 精裝手冊，專屬於你</div>
+      </div>
+      <div class="card">
+        <div class="card-label">學會</div>
+        <div class="card-title">自己看命盤</div>
+        <div class="card-body">身強身弱 + 十天干 + 合盤 + 流年</div>
+      </div>
+      <div class="card card--gold-border">
+        <div class="card-label">填完</div>
+        <div class="card-title">後面那 5 格</div>
+        <div class="card-body">你手上那張紙的空白</div>
+      </div>
+    </div>
+    <div class="reveal" style="text-align: center; margin-top: clamp(20px, 4vh, 36px);">
+      <p class="text-large gold-text">NT$6,800</p>
+      <p class="text-small muted-text">早鳥優惠：今天報名 <strong style="color: var(--gold);">$5,800</strong>（限講座當天）</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     SLIDE 32 — TESTIMONIALS
+     ============================================ -->
+<section class="slide wash-blue" data-slide="32">
+  <div class="washi-texture"></div>
+  <div class="ink-stain-bl"></div>
+  <div class="blob-bl"></div>
+  <div class="slide-inner"></div>
+  <div class="slide-content">
+    <h2 class="slide-title reveal">學員怎麼說</h2>
+    <div style="display: flex; flex-direction: column; gap: clamp(12px, 2vh, 20px); margin-top: clamp(16px, 3vh, 28px);">
+      <div class="quote reveal">「上完課我才知道，我以為的優點其實是我的盲點。身強身弱完全翻轉了我的理解。」</div>
+      <div class="quote reveal">「人生說明書我每個月都拿出來看一次，比任何算命都實用。」</div>
+      <div class="quote quote--right reveal">「我現在可以幫我老公看命盤了，省了一次諮詢費。」</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     SLIDE 33 — CTA
+     ============================================ -->
+<section class="slide wash-gold" data-slide="33">
+  <div class="washi-texture"></div>
+  <div class="ink-stain-tr"></div>
+  <div class="blob-bl-gold"></div>
+  <div class="slide-inner"></div>
+  <svg class="sei-decor-br"><rect width="100%" height="100%" fill="url(#sei)"/></svg>
+  <div class="slide-content--center">
+    <h1 class="text-huge gold-text reveal">報名正課</h1>
+    <div class="gold-divider reveal"></div>
+    <div class="info-card reveal" style="max-width: 500px; text-align: center; margin-top: clamp(12px, 2vh, 24px);">
+      <p class="text-medium brown-text">日期：（待確認）</p>
+      <p class="text-medium brown-text">時間：09:30&ndash;17:00</p>
+      <p class="text-medium brown-text">地點：（待確認）</p>
+      <div class="divider" style="margin: clamp(8px, 1.5vh, 14px) 0;"></div>
+      <p class="text-small muted-text"><s>NT$6,800</s></p>
+      <p class="text-large gold-text" style="margin: 4px 0;">NT$5,800</p>
+      <p class="text-small muted-text">講座當天限定&middot;名額有限</p>
+    </div>
+    <div style="width: 120px; height: 120px; border: 2px dashed var(--brown-faint); border-radius: 12px; margin: clamp(12px, 2vh, 20px) auto 0; display: flex; align-items: center; justify-content: center;" class="reveal">
+      <span class="text-small muted-text">QR Code</span>
+    </div>
+    <p class="text-small gold-line-text reveal" style="margin-top: 8px;">報名連結也在聊天室裡</p>
+  </div>
+</section>
+
+<!-- ============================================
+     SLIDE 34 — Q&A
+     ============================================ -->
+<section class="slide wash-blue" data-slide="34">
+  <div class="washi-texture"></div>
+  <div class="ink-stain-bl"></div>
+  <div class="blob-tr-blue"></div>
+  <div class="slide-inner"></div>
+  <div class="slide-content--center">
+    <h2 class="slide-title slide-title--center reveal">Q&amp;A 時間</h2>
+    <p class="text-medium muted-text reveal" style="margin-top: clamp(16px, 3vh, 28px);">你的問題，我來回答。</p>
+    <p class="text-small gold-line-text reveal" style="margin-top: clamp(28px, 5vh, 56px);">報名連結持續開放中</p>
+  </div>
+</section>
+
+<!-- ============================================
+     SLIDE 35 — CLOSING
+     ============================================ -->
+<section class="slide wash-both" data-slide="35">
+  <div class="washi-texture"></div>
+  <div class="ink-stain-tr"></div>
+  <div class="ink-stain-bl"></div>
+  <div class="blob-tr"></div>
+  <div class="blob-bl"></div>
+  <div class="slide-inner"></div>
+  <svg class="sei-decor-br"><rect width="100%" height="100%" fill="url(#sei)"/></svg>
+  <svg class="sei-decor-bl"><rect width="100%" height="100%" fill="url(#sei)"/></svg>
+  <div class="slide-content--center">
+    <div class="divider reveal"></div>
+    <p class="text-large brown-text reveal">八字是地圖，不是宿命。</p>
+    <p class="text-large brown-text reveal" style="margin-top: clamp(8px, 1.5vh, 14px);">你的人生，你來走。</p>
+    <div class="divider reveal"></div>
+    <p class="text-small muted-text reveal" style="margin-top: clamp(20px, 4vh, 36px);">&mdash; 可青老師</p>
+    <p class="text-small gold-line-text reveal" style="margin-top: clamp(12px, 2vh, 24px);">追蹤 @keqing_bazi｜報名連結在聊天室</p>
+  </div>
+</section>
+
+<script>
+class SlidePresentation {
+  constructor() {
+    this.slides = document.querySelectorAll('.slide');
+    this.totalSlides = this.slides.length;
+    this.currentSlide = 0;
+    this.progressBar = document.getElementById('progress-bar');
+    this.isScrolling = false;
+    this.init();
+  }
+
+  init() {
+    this.setupIntersectionObserver();
+    this.setupKeyboardNav();
+    this.setupScrollObserver();
+    this.updateUI();
+    setTimeout(() => this.revealSlide(this.slides[0]), 100);
+  }
+
+  setupIntersectionObserver() {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && entry.intersectionRatio > 0.5) {
+          const slideIndex = parseInt(entry.target.dataset.slide) - 1;
+          this.currentSlide = slideIndex;
+          this.updateUI();
+          this.revealSlide(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+    this.slides.forEach(slide => observer.observe(slide));
+  }
+
+  setupKeyboardNav() {
+    document.addEventListener('keydown', (e) => {
+      switch(e.key) {
+        case 'ArrowDown': case 'ArrowRight': case ' ': case 'PageDown':
+          e.preventDefault();
+          this.goToSlide(this.currentSlide + 1);
+          break;
+        case 'ArrowUp': case 'ArrowLeft': case 'PageUp':
+          e.preventDefault();
+          this.goToSlide(this.currentSlide - 1);
+          break;
+        case 'Home':
+          e.preventDefault();
+          this.goToSlide(0);
+          break;
+        case 'End':
+          e.preventDefault();
+          this.goToSlide(this.totalSlides - 1);
+          break;
+      }
+    });
+  }
+
+  setupScrollObserver() {
+    let scrollTimeout;
+    window.addEventListener('scroll', () => {
+      clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(() => {
+        const scrollPos = window.scrollY;
+        const windowH = window.innerHeight;
+        const idx = Math.round(scrollPos / windowH);
+        if (idx !== this.currentSlide && idx >= 0 && idx < this.totalSlides) {
+          this.currentSlide = idx;
+          this.updateUI();
+        }
+      }, 50);
+    });
+  }
+
+  goToSlide(index) {
+    if (index < 0 || index >= this.totalSlides) return;
+    this.currentSlide = index;
+    this.slides[index].scrollIntoView({ behavior: 'smooth' });
+    this.updateUI();
+  }
+
+  revealSlide(slideEl) {
+    const reveals = slideEl.querySelectorAll('.reveal');
+    reveals.forEach((el, i) => {
+      setTimeout(() => {
+        el.classList.add('visible');
+      }, i * 50);
+    });
+  }
+
+  updateUI() {
+    const progress = ((this.currentSlide + 1) / this.totalSlides) * 100;
+    this.progressBar.style.width = `${progress}%`;
+  }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  new SlidePresentation();
+});
+</script>
+</body>
+</html>
