@@ -18,8 +18,8 @@
 @page{size:154mm 216mm;margin:0;}
 
 :root{
-  --paper:#FAF7F2;
-  --paper-warm:#F2EDE4;
+  --paper:#FFFFFF;
+  --paper-warm:#FFFFFF;
   --brown:#3A342C;
   --brown-body:#5A534A;
   --brown-muted:#9A938A;
@@ -51,13 +51,13 @@ body{font-family:var(--f-body);background:#E8E4DC;color:var(--brown);-webkit-pri
 .page-inner{position:relative;width:100%;height:100%;padding:17mm 15mm 19mm;display:flex;flex-direction:column;z-index:1;}
 
 /* ═══ WATERCOLOR WASHES — subtle CSS gradient decorations ═══ */
-.wash-gold{background:radial-gradient(ellipse 50% 35% at 80% 15%,rgba(200,170,110,0.06) 0%,transparent 70%),var(--paper);}
-.wash-blue{background:radial-gradient(ellipse 45% 30% at 20% 85%,rgba(150,180,210,0.05) 0%,transparent 70%),var(--paper);}
-.wash-both{background:radial-gradient(ellipse 50% 35% at 85% 10%,rgba(200,170,110,0.06) 0%,transparent 70%),radial-gradient(ellipse 40% 30% at 15% 90%,rgba(150,180,210,0.04) 0%,transparent 70%),var(--paper);}
+.wash-gold{background:#FFFFFF;}
+.wash-blue{background:#FFFFFF;}
+.wash-both{background:#FFFFFF;}
 
 /* ═══ WAVE / CLOUD DECORATION ═══ */
-.waves-bottom{position:absolute;bottom:0;left:0;right:0;height:50mm;z-index:0;}
-.waves-top{position:absolute;top:0;left:0;right:0;height:30mm;z-index:0;transform:scaleY(-1);}
+.waves-bottom{position:absolute;bottom:0;left:0;right:0;height:50mm;z-index:0;display:none;}
+.waves-top{position:absolute;top:0;left:0;right:0;height:30mm;z-index:0;transform:scaleY(-1);display:none;}
 
 /* ═══ SVG DECORATION LAYER ═══ */
 .deco{position:absolute;z-index:0;pointer-events:none;}
@@ -84,17 +84,17 @@ body{font-family:var(--f-body);background:#E8E4DC;color:var(--brown);-webkit-pri
 
 /* ═══ INFO CARD — ultra-subtle on paper ═══ */
 .gl{background:rgba(180,170,155,0.04);border:0.5pt solid rgba(180,150,100,0.1);border-radius:3.5mm;padding:3.5mm 4.5mm;margin-bottom:2mm;position:relative;}
-.gl::before{content:'';position:absolute;top:0;left:8%;right:8%;height:0.3pt;background:linear-gradient(90deg,transparent,rgba(180,150,100,0.1),transparent);}
+.gl::before{content:none;}
 .gl-t{font-family:var(--f-title);font-size:9pt;font-weight:700;color:#6B5D3E;margin-bottom:1.5mm;letter-spacing:0.03em;}
 
 /* ═══ WRITING CARD — subtle warm tint ═══ */
-.wr{background:rgba(180,170,155,0.06);border-radius:3.5mm;padding:4mm 5mm;margin-bottom:2mm;position:relative;box-shadow:inset 0 0 0 0.5pt rgba(180,150,100,0.15);}
-.wr::before{content:'';position:absolute;top:0;left:8%;right:8%;height:0.3pt;background:linear-gradient(90deg,transparent,rgba(180,150,100,0.12),transparent);}
+.wr{background:rgba(180,170,155,0.06);border-radius:3.5mm;padding:4mm 5mm;margin-bottom:2mm;position:relative;border:0.5pt solid rgba(180,150,100,0.15);}
+.wr::before{content:none;}
 .wr-t{font-family:var(--f-title);font-size:9pt;font-weight:700;color:#6B5D3E;margin-bottom:2mm;letter-spacing:0.03em;}
 .wr-txt{font-family:var(--f-body);font-size:8pt;font-weight:300;line-height:1.85;color:var(--brown-body);}
 .wr-sm{font-family:var(--f-body);font-size:6.5pt;font-weight:200;color:var(--brown-muted);line-height:1.5;}
 /* Highlighted writing card (badge cards) */
-.wr-hl{box-shadow:inset 0 0 0 0.5pt rgba(212,168,76,0.2),inset 0 0 8px rgba(212,168,76,0.03);}
+.wr-hl{}
 
 /* ═══ FILL LINES — warm beige dashed ═══ */
 .fl{height:6.5mm;margin-bottom:0.8mm;border-bottom:0.4pt dashed #DDD8CE;}
@@ -104,16 +104,16 @@ body{font-family:var(--f-body);background:#E8E4DC;color:var(--brown);-webkit-pri
 .fn-i{border-bottom:0.4pt dashed rgba(180,150,100,0.12);display:inline-block;width:24mm;margin:0 1mm;}
 
 /* ═══ BADGE — warm shadow on light bg ═══ */
-.bd{display:inline-flex;align-items:center;justify-content:center;width:5mm;height:5mm;border-radius:50%;background:radial-gradient(circle at 38% 32%,var(--gold-bright),var(--gold));color:var(--brown);font-family:var(--f-title);font-size:7pt;font-weight:800;margin-right:1.5mm;box-shadow:0 1px 4px rgba(180,150,100,0.3);flex-shrink:0;}
+.bd{display:inline-flex;align-items:center;justify-content:center;width:5mm;height:5mm;border-radius:50%;background:var(--gold);color:var(--brown);font-family:var(--f-title);font-size:7pt;font-weight:800;margin-right:1.5mm;flex-shrink:0;}
 
 /* ═══ ELEMENT ORBS — with light-bg shadow ═══ */
-.orb{width:7mm;height:7mm;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-family:var(--f-title);font-size:8pt;font-weight:800;flex-shrink:0;position:relative;box-shadow:0 1px 4px rgba(0,0,0,0.08);}
-.orb::after{content:'';position:absolute;inset:-1.5mm;border-radius:50%;border:0.3pt solid;opacity:0.15;}
-.o-w{background:radial-gradient(circle at 35% 30%,#8FD4A0,var(--el-wood));color:#1a2e1e;}.o-w::after{border-color:var(--el-wood);}
-.o-f{background:radial-gradient(circle at 35% 30%,#F4A878,var(--el-fire));color:#2e1a12;}.o-f::after{border-color:var(--el-fire);}
-.o-e{background:radial-gradient(circle at 35% 30%,#E8C880,var(--el-earth));color:#2e2412;}.o-e::after{border-color:var(--el-earth);}
-.o-m{background:radial-gradient(circle at 35% 30%,#C4B8E8,var(--el-metal));color:#1e1a2e;}.o-m::after{border-color:var(--el-metal);}
-.o-wa{background:radial-gradient(circle at 35% 30%,#7CB8E8,var(--el-water));color:#121e2e;}.o-wa::after{border-color:var(--el-water);}
+.orb{width:7mm;height:7mm;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-family:var(--f-title);font-size:8pt;font-weight:800;flex-shrink:0;position:relative;}
+.orb::after{content:none;}
+.o-w{background:var(--el-wood);color:#1a2e1e;}
+.o-f{background:var(--el-fire);color:#2e1a12;}
+.o-e{background:var(--el-earth);color:#2e2412;}
+.o-m{background:var(--el-metal);color:#1e1a2e;}
+.o-wa{background:var(--el-water);color:#121e2e;}
 
 /* ═══ QUOTE — warm brown tones ═══ */
 .qt{margin-top:auto;padding:2.5mm 4mm;border-left:1.2pt solid rgba(180,150,100,0.3);font-family:var(--f-title);font-size:7.8pt;font-weight:400;color:var(--brown-muted);line-height:1.6;font-style:italic;background:linear-gradient(90deg,rgba(180,150,100,0.03),transparent);}
@@ -139,15 +139,15 @@ body{font-family:var(--f-body);background:#E8E4DC;color:var(--brown);-webkit-pri
 /* ═══ v17: ORGANIC WATERCOLOR + SEIGAIHA SYSTEM ═══ */
 
 /* Paper grain overlay — washi fiber texture on every page */
-.page::before{content:'';position:absolute;inset:0;z-index:0;pointer-events:none;filter:url(#washi);mix-blend-mode:multiply;opacity:0.3;}
-.page-dark::before{mix-blend-mode:soft-light;opacity:0.15;filter:url(#washiDark);}
+.page::before{content:'';position:absolute;inset:0;z-index:0;pointer-events:none;filter:url(#washi);mix-blend-mode:multiply;opacity:0;}
+.page-dark::before{mix-blend-mode:soft-light;opacity:0;filter:url(#washiDark);}
 
 /* Organic blob decorations — positioned at corners */
-.blob{position:absolute;z-index:0;pointer-events:none;overflow:visible;}
+.blob{position:absolute;z-index:0;pointer-events:none;overflow:visible;display:none;}
 
 /* Gold foil micro-displacement on decorative lines */
-.t1::after{filter:url(#goldFoil);}
-.rule,.rule-s{filter:url(#goldFoil);}
+.t1::after{}
+.rule,.rule-s{}
 
 @media print{.page::before{-webkit-print-color-adjust:exact;print-color-adjust:exact;}}
 
@@ -1044,13 +1044,13 @@ body{font-family:var(--f-body);background:#E8E4DC;color:var(--brown);-webkit-pri
 
     <div class="gl mb2" style="padding:2.5mm 4mm;">
       <div class="gl-t mb2">走運對照表</div>
-      <div class="st" style="line-height:2;">
-        <span style="color:var(--el-wood);font-weight:600;">甲乙木</span>　身強：巳午未申酉戌　身弱：亥子丑寅卯辰<br>
-        <span style="color:var(--el-fire);font-weight:600;">丙丁火</span>　身強：申酉戌亥子丑　身弱：寅卯辰巳午未<br>
-        <span style="color:var(--el-earth);font-weight:600;">戊己土</span>　身強：亥子丑寅卯辰申酉戌　身弱：巳午未<br>
-        <span style="color:var(--el-metal);font-weight:600;">庚辛金</span>　身強：寅卯辰巳午未亥子丑　身弱：申酉戌<br>
-        <span style="color:var(--el-water);font-weight:600;">壬癸水</span>　身強：寅卯辰巳午未　身弱：申酉戌亥子丑
-      </div>
+      <table style="width:100%;border-collapse:collapse;font-family:var(--f-body);font-size:7pt;color:var(--brown-body);line-height:2.2;">
+        <tr><td style="white-space:nowrap;padding-right:2mm;"><span style="color:var(--el-wood);font-weight:600;">甲乙木</span></td><td style="white-space:nowrap;padding-right:3mm;">身強：巳午未申酉戌</td><td>身弱：亥子丑寅卯辰</td></tr>
+        <tr><td style="white-space:nowrap;padding-right:2mm;"><span style="color:var(--el-fire);font-weight:600;">丙丁火</span></td><td style="white-space:nowrap;padding-right:3mm;">身強：申酉戌亥子丑</td><td>身弱：寅卯辰巳午未</td></tr>
+        <tr><td style="white-space:nowrap;padding-right:2mm;"><span style="color:var(--el-earth);font-weight:600;">戊己土</span></td><td style="white-space:nowrap;padding-right:3mm;">身強：亥子丑寅卯辰申酉戌</td><td>身弱：巳午未</td></tr>
+        <tr><td style="white-space:nowrap;padding-right:2mm;"><span style="color:var(--el-metal);font-weight:600;">庚辛金</span></td><td style="white-space:nowrap;padding-right:3mm;">身強：寅卯辰巳午未亥子丑</td><td>身弱：申酉戌</td></tr>
+        <tr><td style="white-space:nowrap;padding-right:2mm;"><span style="color:var(--el-water);font-weight:600;">壬癸水</span></td><td style="white-space:nowrap;padding-right:3mm;">身強：寅卯辰巳午未</td><td>身弱：申酉戌亥子丑</td></tr>
+      </table>
     </div>
 
     <div class="wr-txt mb2" style="color:var(--gold-light);">我走運的地支是：<span class="fl-i" style="width:40mm;"></span></div>
