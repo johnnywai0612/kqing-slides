@@ -517,21 +517,23 @@ body {
   border-radius: 10px;
   overflow: hidden;
   margin-top: clamp(12px, 2vh, 24px);
-  font-size: clamp(0.75rem, 1.2vw, 0.95rem);
+  font-size: clamp(1rem, 1.4vw, 1.2rem);
 }
 .data-table th {
   background: var(--gold);
   color: white;
   font-family: var(--f-title);
   font-weight: 700;
-  padding: clamp(10px, 1.5vw, 18px);
+  padding: clamp(12px, 1.8vw, 22px);
   text-align: left;
-  font-size: clamp(0.75rem, 1.2vw, 0.95rem);
+  font-size: clamp(1rem, 1.4vw, 1.2rem);
 }
 .data-table td {
-  padding: clamp(10px, 1.5vw, 18px);
+  padding: clamp(12px, 1.8vw, 22px);
   border-bottom: 1px solid rgba(180,150,100,0.1);
-  line-height: 1.6;
+  line-height: 1.7;
+  color: #1F1A12;
+  font-weight: 600;
 }
 .data-table tr:nth-child(even) td { background: var(--paper-warm); }
 .data-table tr:nth-child(odd) td { background: var(--paper); }
@@ -771,13 +773,15 @@ body {
    PROMPT CARD (for type-specific info)
    ============================================ */
 .prompt-card {
-  padding: clamp(10px, 1.5vw, 18px);
-  border-left: 3px solid;
-  margin-bottom: clamp(8px, 1vh, 14px);
-  background: rgba(180,170,155,0.03);
+  padding: clamp(14px, 2vw, 22px);
+  border-left: 4px solid;
+  margin-bottom: clamp(10px, 1.5vh, 16px);
+  background: rgba(180,170,155,0.08);
   border-radius: 0 8px 8px 0;
-  font-size: clamp(0.85rem, 1.3vw, 1.1rem);
-  line-height: 1.6;
+  font-size: clamp(1.05rem, 1.5vw, 1.25rem);
+  line-height: 1.7;
+  color: #1F1A12;
+  font-weight: 600;
 }
 .prompt-card--wood { border-color: var(--el-wood); }
 .prompt-card--fire { border-color: var(--el-fire); }
@@ -927,6 +931,501 @@ tr.row-tease td.el-cell-water {
   box-shadow: 0 2px 8px rgba(58,52,44,0.06);
 }
 
+/* ============================================
+/* ============================================
+   v2 補入 — value-card / compare-row
+   ============================================ */
+.value-card {
+  display: flex;
+  gap: clamp(16px, 2.5vw, 32px);
+  align-items: flex-start;
+  background: rgba(180,170,155,0.04);
+  border: 1.5px solid rgba(180,150,100,0.12);
+  border-radius: 10px;
+  padding: clamp(20px, 3vw, 36px);
+  max-width: 800px;
+  width: 100%;
+}
+.value-card .value-num {
+  font-family: var(--f-title);
+  font-weight: 800;
+  font-size: clamp(2.5rem, 4vw, 4rem);
+  color: var(--gold);
+  line-height: 1;
+  flex-shrink: 0;
+  opacity: 0.7;
+}
+.value-card .value-body {
+  flex: 1;
+}
+.value-card .value-title {
+  font-family: var(--f-title);
+  font-weight: 700;
+  font-size: clamp(1.2rem, 2.2vw, 1.8rem);
+  color: var(--brown);
+  margin-bottom: clamp(6px, 1vh, 12px);
+}
+.value-card .value-desc {
+  font-size: clamp(0.95rem, 1.5vw, 1.2rem);
+  color: var(--brown-body);
+  line-height: 1.8;
+}
+.value-card .value-hook {
+  display: block;
+  margin-top: clamp(8px, 1.2vh, 14px);
+  font-family: var(--f-title);
+  font-weight: 700;
+  font-size: clamp(0.95rem, 1.5vw, 1.15rem);
+  color: var(--gold-line);
+  font-style: italic;
+}
+
+/* Two-value layout */
+.value-grid {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(14px, 2.5vh, 28px);
+  width: 100%;
+  max-width: 800px;
+  margin-top: clamp(12px, 2vh, 24px);
+}
+
+/* ============================================
+   COMPARISON ROW
+   ============================================ */
+.compare-row {
+  display: flex;
+  gap: clamp(12px, 2vw, 24px);
+  width: 100%;
+  max-width: 800px;
+  margin-top: clamp(16px, 3vh, 28px);
+  align-items: stretch;
+}
+.compare-card {
+  flex: 1;
+  background: rgba(180,170,155,0.10);
+  border: 1.5px solid rgba(180,150,100,0.25);
+  border-radius: 10px;
+  padding: clamp(16px, 2.5vw, 32px);
+  text-align: center;
+}
+.compare-card--dim {
+  background: rgba(180,170,155,0.06);
+  border-color: rgba(180,150,100,0.18);
+}
+.compare-card--highlight {
+  border-color: var(--gold);
+  border-width: 2px;
+  box-shadow: 0 0 24px rgba(212,168,76,0.18);
+  background: rgba(212,168,76,0.06);
+}
+.compare-label {
+  font-family: var(--f-mono);
+  font-size: clamp(0.8rem, 1.15vw, 1rem);
+  letter-spacing: 0.15em;
+  color: var(--gold-dim);
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: clamp(8px, 1vh, 14px);
+}
+.compare-price {
+  font-family: var(--f-title);
+  font-weight: 800;
+  font-size: clamp(1.8rem, 3vw, 2.8rem);
+  color: #1F1A12;
+  margin-bottom: clamp(4px, 0.5vh, 8px);
+}
+.compare-note {
+  font-size: clamp(0.95rem, 1.4vw, 1.15rem);
+  color: #2A251D;
+  font-weight: 500;
+  line-height: 1.7;
+}
+
+
+
+/* ============================================
+   v2 新增 — Stack & Close + Origin Story + Beliefs
+   ============================================ */
+.stack-badge {
+  position: absolute;
+  top: clamp(36px, 5vh, 60px);
+  right: clamp(28px, 4vw, 56px);
+  background: linear-gradient(135deg, var(--gold), var(--gold-dim));
+  color: #FAF7F2;
+  padding: clamp(14px, 2vh, 22px) clamp(20px, 3vw, 36px);
+  border-radius: 14px;
+  font-family: var(--f-title);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  box-shadow: 0 6px 20px rgba(168,138,80,0.4);
+  z-index: 60;
+  white-space: nowrap;
+  text-align: center;
+  border: 2px solid rgba(255,255,255,0.3);
+}
+.stack-badge .stack-label {
+  font-size: clamp(0.75rem, 1vw, 0.9rem);
+  font-weight: 500;
+  opacity: 0.95;
+  display: block;
+  letter-spacing: 0.15em;
+  margin-bottom: 4px;
+}
+.stack-badge .stack-amount {
+  font-size: clamp(1.3rem, 2vw, 1.7rem);
+  font-weight: 800;
+  display: block;
+}
+
+.stat-huge {
+  font-family: var(--f-title);
+  font-weight: 800;
+  font-size: clamp(5rem, 14vw, 12rem);
+  color: var(--gold);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+.stat-label {
+  font-family: var(--f-title);
+  font-weight: 400;
+  font-size: clamp(1.1rem, 2vw, 1.6rem);
+  color: var(--brown-muted);
+  margin-top: clamp(8px, 1.5vh, 16px);
+  letter-spacing: 0.1em;
+}
+
+.belief-eyebrow {
+  font-family: var(--f-title);
+  font-weight: 700;
+  font-size: clamp(1rem, 1.5vw, 1.25rem);
+  color: var(--gold-dim);
+  letter-spacing: 0.2em;
+  margin-bottom: clamp(12px, 2vh, 20px);
+}
+.belief-title {
+  font-family: var(--f-title);
+  font-weight: 700;
+  font-size: clamp(1.8rem, 4vw, 3.2rem);
+  color: var(--brown);
+  line-height: 1.3;
+  max-width: 900px;
+}
+.belief-strike {
+  text-decoration: line-through;
+  text-decoration-color: var(--el-fire);
+  text-decoration-thickness: 3px;
+  color: var(--brown-muted);
+}
+.belief-highlight {
+  color: var(--gold);
+  font-weight: 800;
+}
+
+.testimonial-grid {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(14px, 2.2vh, 22px);
+  width: 100%;
+  max-width: 900px;
+  margin-top: clamp(16px, 3vh, 28px);
+}
+.testimonial-card {
+  background: rgba(212,168,76,0.06);
+  border-left: 3px solid var(--gold);
+  padding: clamp(16px, 2.5vh, 24px) clamp(20px, 3vw, 32px);
+  border-radius: 4px;
+}
+.testimonial-name {
+  font-family: var(--f-title);
+  font-weight: 700;
+  color: var(--gold-dim);
+  font-size: clamp(0.95rem, 1.4vw, 1.15rem);
+  margin-bottom: clamp(6px, 1vh, 10px);
+}
+.testimonial-quote {
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
+  color: var(--brown-body);
+  line-height: 1.7;
+  font-style: italic;
+}
+
+.guarantee-card {
+  background: linear-gradient(135deg, rgba(212,168,76,0.08), rgba(212,168,76,0.02));
+  border: 2px solid var(--gold);
+  border-radius: 12px;
+  padding: clamp(20px, 3vh, 32px) clamp(24px, 4vw, 40px);
+  max-width: 700px;
+  margin: clamp(16px, 2.5vh, 24px) auto 0;
+  text-align: center;
+}
+.guarantee-seal {
+  font-family: var(--f-title);
+  font-weight: 800;
+  font-size: clamp(1.1rem, 1.8vw, 1.5rem);
+  color: var(--gold);
+  letter-spacing: 0.05em;
+  margin-bottom: clamp(8px, 1.2vh, 14px);
+}
+.guarantee-text {
+  font-size: clamp(1rem, 1.5vw, 1.25rem);
+  color: var(--brown);
+  line-height: 1.7;
+  font-weight: 500;
+}
+
+.bonus-list {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(12px, 2vh, 20px);
+  max-width: 800px;
+  width: 100%;
+  margin-top: clamp(16px, 3vh, 28px);
+}
+.bonus-item {
+  display: flex;
+  align-items: flex-start;
+  gap: clamp(14px, 2vw, 22px);
+  background: rgba(180,170,155,0.04);
+  border: 1px solid rgba(184,150,62,0.15);
+  border-radius: 8px;
+  padding: clamp(14px, 2.2vh, 20px) clamp(18px, 2.8vw, 28px);
+}
+.bonus-icon {
+  font-family: var(--f-title);
+  font-weight: 800;
+  font-size: clamp(1.6rem, 2.6vw, 2.2rem);
+  color: var(--gold);
+  flex-shrink: 0;
+  line-height: 1;
+}
+.bonus-body { flex: 1; }
+.bonus-title {
+  font-family: var(--f-title);
+  font-weight: 700;
+  font-size: clamp(1.1rem, 1.7vw, 1.4rem);
+  color: var(--brown);
+  margin-bottom: clamp(4px, 0.8vh, 8px);
+}
+.bonus-desc {
+  font-size: clamp(0.9rem, 1.3vw, 1.05rem);
+  color: var(--brown-body);
+  line-height: 1.6;
+}
+.bonus-value {
+  font-family: var(--f-mono);
+  color: var(--gold-dim);
+  font-size: 0.9em;
+  font-weight: 600;
+  margin-left: 8px;
+}
+
+.scarcity-row {
+  display: flex;
+  gap: clamp(16px, 2.5vw, 28px);
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: clamp(14px, 2vh, 20px);
+}
+.scarcity-pill {
+  background: var(--brown);
+  color: var(--paper);
+  padding: clamp(8px, 1.4vh, 14px) clamp(16px, 2.4vw, 24px);
+  border-radius: 999px;
+  font-family: var(--f-title);
+  font-weight: 700;
+  font-size: clamp(0.85rem, 1.2vw, 1rem);
+  letter-spacing: 0.05em;
+}
+.scarcity-pill--fire {
+  background: var(--el-fire);
+  color: #FAF7F2;
+}
+
+.price-stack-row {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(8px, 1.2vh, 14px);
+  margin: clamp(16px, 2.5vh, 24px) 0;
+}
+.price-anchor {
+  font-family: var(--f-mono);
+  color: var(--brown-muted);
+  font-size: clamp(0.95rem, 1.4vw, 1.15rem);
+}
+.price-anchor s { color: var(--brown-faint); }
+.price-final {
+  font-family: var(--f-title);
+  font-weight: 800;
+  color: var(--gold);
+  font-size: clamp(3rem, 6vw, 5rem);
+  line-height: 1;
+  letter-spacing: -0.01em;
+}
+.price-final-label {
+  font-family: var(--f-mono);
+  color: var(--gold-dim);
+  font-size: clamp(0.8rem, 1.1vw, 0.95rem);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.section-eyebrow {
+  font-family: var(--f-title);
+  font-weight: 700;
+  font-size: clamp(1rem, 1.5vw, 1.25rem);
+  color: var(--gold-dim);
+  letter-spacing: 0.2em;
+  margin-bottom: clamp(10px, 1.8vh, 18px);
+}
+/* ============================================
+   v2 — 投影可讀性強化（加深所有內文 + 加強對比）
+   ============================================ */
+.value-card {
+  background: rgba(180,170,155,0.10) !important;
+  border: 1px solid rgba(184,150,62,0.18) !important;
+}
+.value-card .value-title {
+  color: #1F1A12;
+  font-weight: 800 !important;
+}
+.value-card .value-desc {
+  color: #2A251D !important;
+  font-weight: 500 !important;
+}
+.text-medium.brown-text, .text-large.brown-text { color: #1F1A12 !important; font-weight: 500; }
+.text-small.brown-text { color: #2A251D !important; font-weight: 500; }
+.muted-text { color: #5A5045 !important; }
+.brown-body, body { color: #2A251D; }
+.compare-card .compare-label {
+  color: #1F1A12 !important;
+  font-weight: 700 !important;
+}
+.compare-card .compare-note {
+  color: #2A251D !important;
+  font-weight: 500 !important;
+}
+.compare-card .compare-price { font-weight: 800 !important; }
+.testimonial-name {
+  color: #8A6D2E !important;
+  font-weight: 800 !important;
+}
+.testimonial-quote {
+  color: #2A251D !important;
+  font-weight: 500 !important;
+}
+.bonus-title { color: #1F1A12 !important; font-weight: 800 !important; }
+.bonus-desc { color: #2A251D !important; font-weight: 500 !important; }
+.bonus-value { color: #8A6D2E !important; font-weight: 700 !important; }
+.guarantee-text { color: #1F1A12 !important; font-weight: 600 !important; }
+.guarantee-seal { color: #8A6D2E !important; font-weight: 800 !important; }
+.price-anchor { color: #2A251D !important; font-weight: 600 !important; }
+.price-anchor s { color: #6B645A !important; }
+.info-card .text-medium { color: #1F1A12 !important; font-weight: 600 !important; }
+.info-card .text-small.brown-text { color: #2A251D !important; }
+.scarcity-pill { font-weight: 800 !important; }
+/* 例子框（生活化案例）強化 */
+.value-card > .value-body > div[style*="background: rgba(212,168,76,0.08)"],
+.value-card > .value-body > div[style*="background: rgba(58,52,44,0.06)"] {
+  background: rgba(212,168,76,0.16) !important;
+  border-left: 3px solid var(--gold) !important;
+  color: #2A251D !important;
+}
+.fill-title { color: #1F1A12 !important; }
+.write-card { color: #1F1A12 !important; }
+.form-label { color: #2A251D !important; font-weight: 500 !important; }
+
+.demo-prompt {
+  background: linear-gradient(135deg, rgba(90,154,216,0.08), rgba(90,154,216,0.02));
+  border: 1px dashed var(--el-water);
+  border-radius: 8px;
+  padding: clamp(20px, 3vh, 32px);
+  max-width: 700px;
+  margin-top: clamp(20px, 3vh, 32px);
+  text-align: center;
+}
+.demo-prompt-text {
+  font-family: var(--f-title);
+  font-weight: 700;
+  font-size: clamp(1.4rem, 2.4vw, 1.9rem);
+  color: var(--el-water);
+}
+
+/* ============================================
+   LINE CHAT STYLE — 學員見證仿 LINE 截圖
+   ============================================ */
+.line-chat {
+  background: #8AAFD8;
+  background-image: linear-gradient(180deg, #8AAFD8 0%, #A4C5E5 100%);
+  border-radius: 20px;
+  padding: clamp(18px, 2.5vh, 28px) clamp(16px, 2.2vw, 24px);
+  max-width: 720px;
+  margin: clamp(20px, 3vh, 28px) auto 0;
+  box-shadow: 0 8px 24px rgba(58,52,44,0.15);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(14px, 2vh, 20px);
+  position: relative;
+}
+.line-chat::before {
+  content: "💬 學員回饋";
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--gold);
+  color: white;
+  font-family: var(--f-title);
+  font-weight: 700;
+  font-size: clamp(0.85rem, 1.2vw, 1rem);
+  padding: 6px 16px;
+  border-radius: 999px;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+.line-msg {
+  display: flex;
+  gap: 10px;
+  align-items: flex-end;
+}
+.line-avatar {
+  width: clamp(38px, 4.5vw, 48px);
+  height: clamp(38px, 4.5vw, 48px);
+  border-radius: 50%;
+  background: var(--gold);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--f-title);
+  font-weight: 800;
+  font-size: clamp(1rem, 1.4vw, 1.2rem);
+  flex-shrink: 0;
+}
+.line-bubble-wrap {
+  flex: 1;
+  max-width: 80%;
+}
+.line-name {
+  font-family: var(--f-title);
+  font-size: clamp(0.85rem, 1.2vw, 1rem);
+  color: rgba(255,255,255,0.85);
+  margin-bottom: 4px;
+  margin-left: 4px;
+  font-weight: 500;
+}
+.line-bubble {
+  background: white;
+  padding: clamp(12px, 1.8vh, 18px) clamp(14px, 2vw, 20px);
+  border-radius: 4px 18px 18px 18px;
+  color: #1F1A12;
+  font-size: clamp(0.95rem, 1.35vw, 1.15rem);
+  line-height: 1.75;
+  font-weight: 500;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+}
+
 </style>
 </head>
 <body>
@@ -961,74 +1460,65 @@ tr.row-tease td.el-cell-water {
 <div id="progress-bar"></div>
 
 <!-- ============================================
-     SLIDE 1 — COVER
+     SLIDE 1 — 暖場（0-5 min）
+     歡迎 + 三件事 + 鉤子
      ============================================ -->
-<section class="slide wash-both" data-slide="1">
+<section class="slide wash-warm" data-slide="1">
   <div class="washi-texture"></div>
-  <div class="ink-stain-tr"></div>
-  <div class="ink-stain-bl"></div>
-  <div class="blob-tr"></div>
-  <div class="blob-bl"></div>
+  <div class="ink-stain-tl"></div>
   <div class="slide-inner"></div>
-  <svg class="sei-decor-br"><rect width="100%" height="100%" fill="url(#sei)"/></svg>
   <div class="slide-content--center">
-    <div class="mono-label reveal">FREE LECTURE</div>
-    <h1 class="text-huge reveal" style="margin-bottom: clamp(6px, 1vh, 14px);">你的財運體質</h1>
+    <p class="reveal" style="font-family: var(--f-title); font-weight: 700; font-size: clamp(1.4rem, 2.4vw, 2rem); color: var(--gold); letter-spacing: 0.15em; margin-bottom: clamp(20px, 3vh, 32px);">人生說明書工作坊</p>
+    <h1 class="text-huge gold-text reveal" style="line-height:1.15; font-size: clamp(3.5rem, 7vw, 6rem);">看懂你自己<br>不再迷路</h1>
     <div class="gold-divider reveal"></div>
-    <p class="text-medium gold-text reveal" style="margin-bottom: clamp(28px, 5vh, 56px);">從測驗結果到命盤真相</p>
-    <p class="text-small muted-text reveal">可青老師 KeQing｜八字生活應用</p>
+    <p class="reveal" style="margin-top: clamp(18px, 2.8vh, 28px); font-family: var(--f-title); font-weight: 500; font-size: clamp(1.3rem, 2vw, 1.7rem); color: #2E2920;">可青老師 ・ 八字命理講座</p>
   </div>
 </section>
 
 <!-- ============================================
-     SLIDE 2 — ICEBREAKER: Which type?
+     SLIDE 2 — Origin Story（5-15 min）
+     7 年逆轉
      ============================================ -->
 <section class="slide wash-gold" data-slide="2">
   <div class="washi-texture"></div>
-  <div class="ink-stain-tr"></div>
+  <div class="ink-stain-bl"></div>
   <div class="blob-tr"></div>
   <div class="slide-inner"></div>
   <div class="slide-content--center">
-    <h2 class="slide-title slide-title--center reveal">你是哪一種財運體質？</h2>
-    <div class="element-row reveal">
-      <div class="element-orb"><div class="orb orb-wood">木</div><div class="orb-label">衝勁財</div></div>
-      <div class="element-orb"><div class="orb orb-fire">火</div><div class="orb-label">爆發財</div></div>
-      <div class="element-orb"><div class="orb orb-earth">土</div><div class="orb-label">厚積財</div></div>
-      <div class="element-orb"><div class="orb orb-metal">金</div><div class="orb-label">精算財</div></div>
-      <div class="element-orb"><div class="orb orb-water">水</div><div class="orb-label">靈感財</div></div>
+    <p class="section-eyebrow reveal">老師的故事</p>
+    <div class="reveal" style="text-align:center;">
+      <div class="stat-huge">7 年</div>
+      <div class="stat-label">不走運</div>
     </div>
-    <p class="text-medium gold-line-text reveal">舉手讓我看看&mdash;&mdash;哪一組最多？</p>
+    <div class="gold-divider reveal" style="margin-top: clamp(20px, 3vh, 32px);"></div>
+    <p class="text-large brown-text reveal" style="margin-top: clamp(20px, 3vh, 28px); max-width: 800px; text-align:center; line-height:1.7;">
+      最痛苦的不是不順&mdash;&mdash;<br>
+      是<span style="color:var(--gold); font-weight:700;">不知道為什麼不順</span>
+    </p>
   </div>
 </section>
 
 <!-- ============================================
-     SLIDE 3 — AGENDA
+     SLIDE 3 — 信念 #1（15-25 min）
+     八字 ≠ 算命，是你的人生 Google Maps
      ============================================ -->
 <section class="slide wash-blue" data-slide="3">
   <div class="washi-texture"></div>
-  <div class="ink-stain-bl"></div>
-  <div class="blob-tr-blue"></div>
+  <div class="ink-stain-tr"></div>
+  <div class="blob-bl"></div>
   <div class="slide-inner"></div>
-  <div class="slide-content">
-    <h2 class="slide-title reveal">今天 90 分鐘</h2>
-    <div class="card-row reveal">
-      <div class="card">
-        <div class="card-label">Part 01</div>
-        <div class="card-title">驗證</div>
-        <div class="card-body">你的測驗結果到底準不準</div>
-      </div>
-      <div class="card">
-        <div class="card-label">Part 02</div>
-        <div class="card-title">發現</div>
-        <div class="card-body">你命盤裡沒人告訴過你的事</div>
-      </div>
-      <div class="card">
-        <div class="card-label">Part 03</div>
-        <div class="card-title">時機</div>
-        <div class="card-body">2026 下半年你該注意的月份</div>
-      </div>
-    </div>
-    <div class="quote quote--right reveal">「今天不算命。今天教你看自己。」</div>
+  <div class="slide-content--center">
+    <p class="belief-eyebrow reveal">信念 #1</p>
+    <h2 class="belief-title reveal" style="text-align:center;">
+      <span class="belief-strike">八字 = 算命</span>
+    </h2>
+    <div class="gold-divider reveal" style="margin: clamp(20px, 3vh, 32px) auto;"></div>
+    <h2 class="belief-title reveal" style="text-align:center;">
+      八字是你的<br><span class="belief-highlight">人生 Google Maps</span>
+    </h2>
+    <p class="text-medium muted-text reveal" style="margin-top: clamp(20px, 3vh, 28px); max-width: 700px; text-align:center; line-height:1.8;">
+      告訴你：你在哪裡、前面的路長什麼樣、哪條路適合你
+    </p>
   </div>
 </section>
 
@@ -1047,7 +1537,7 @@ tr.row-tease td.el-cell-water {
       <li>八字 ＝ 「你的出廠設定是什麼」</li>
       <li>用途：認識自己、理解關係、找到節奏</li>
     </ul>
-    <div class="quote reveal">「別人幫你算命只給答案&mdash;&mdash;但你的人生，你自己才能走。」</div>
+    <div class="quote reveal">「別人幫你算命只給答案&mdash;&mdash;但你的人生，你自己才能走」</div>
   </div>
 </section>
 
@@ -1102,7 +1592,7 @@ tr.row-tease td.el-cell-water {
   <div class="slide-content--center">
     <div class="divider reveal"></div>
     <p class="text-large brown-text reveal">準備好了嗎？</p>
-    <p class="text-large brown-text reveal">打開你的手機。</p>
+    <p class="text-large brown-text reveal">打開你的手機</p>
     <div class="divider reveal"></div>
     <p class="text-small gold-line-text reveal" style="margin-top: clamp(16px, 3vh, 28px);">接下來，我們一起排出你的命盤</p>
   </div>
@@ -1197,14 +1687,14 @@ tr.row-tease td.el-cell-water {
         </thead>
         <tbody>
           <tr>
-            <th class="fp-row-label">客</th>
+            <th class="fp-row-label">你</th>
             <td>十神</td>
             <td class="fp-self">日元</td>
             <td>十神</td>
             <td>十神</td>
           </tr>
           <tr class="fp-highlight-top">
-            <th class="fp-row-label">人</th>
+            <th class="fp-row-label">的</th>
             <td class="fp-hl">天干</td>
             <td class="fp-self fp-hl">天干</td>
             <td class="fp-hl">天干</td>
@@ -1227,7 +1717,7 @@ tr.row-tease td.el-cell-water {
         </tbody>
       </table>
     </div>
-    <p class="text-small gold-line-text reveal" style="margin-top: clamp(16px, 3vh, 28px);">4 柱 &times; 2 字 ＝ 八字。日柱天干就是「你」。</p>
+    <p class="text-small gold-line-text reveal" style="margin-top: clamp(16px, 3vh, 28px);">4 柱 &times; 2 字 ＝ 八字。日柱天干就是「你」</p>
   </div>
 </section>
 
@@ -1314,7 +1804,7 @@ tr.row-tease td.el-cell-water {
   <div class="slide-inner"></div>
   <div class="slide-content--center">
     <h1 class="text-huge gold-text reveal">對，</h1>
-    <h1 class="text-huge reveal" style="margin-bottom: clamp(20px, 4vh, 40px);">你就是這樣的人。</h1>
+    <h1 class="text-huge reveal" style="margin-bottom: clamp(20px, 4vh, 40px);">你就是這樣的人</h1>
     <div class="gold-divider reveal"></div>
     <p class="text-medium muted-text reveal" style="margin-top: clamp(20px, 4vh, 40px);">但&hellip;&hellip;你有沒有注意到，</p>
     <p class="text-medium muted-text reveal">你缺了什麼？</p>
@@ -1357,10 +1847,10 @@ tr.row-tease td.el-cell-water {
       <div class="col-orb"><div class="orb orb-wood orb-large">木</div></div>
       <div class="col-text">
         <h2 class="slide-title">木多｜衝勁財</h2>
-        <p class="text-medium">行動力強，看到機會就衝，喜歡嘗試新事物。容易同時開很多條線，資金分散，賺得到但留不住。</p>
+        <p class="text-medium">行動力強，看到機會就衝，喜歡嘗試新事物。容易同時開很多條線，資金分散，賺得到但留不住</p>
         <div class="divider"></div>
         <p class="text-medium"><span class="el-cell-metal">缺木</span></p>
-        <p class="text-small muted-text" style="margin-top: 8px;">行動遲緩，知道該動但動不了。容易錯過時機點，思考多於行動，計畫永遠比執行多。</p>
+        <p class="text-small muted-text" style="margin-top: 8px;">行動遲緩，知道該動但動不了。容易錯過時機點，思考多於行動，計畫永遠比執行多</p>
       </div>
     </div>
   </div>
@@ -1378,10 +1868,10 @@ tr.row-tease td.el-cell-water {
       <div class="col-orb"><div class="orb orb-fire orb-large">火</div></div>
       <div class="col-text">
         <h2 class="slide-title">火多｜爆發財</h2>
-        <p class="text-medium">直覺敏銳，出手果斷，爆發力強。容易情緒化操作，追高殺低，賺了又賠回去。</p>
+        <p class="text-medium">直覺敏銳，出手果斷，爆發力強。容易情緒化操作，追高殺低，賺了又賠回去</p>
         <div class="divider"></div>
         <p class="text-medium"><span class="el-cell-water">缺火</span></p>
-        <p class="text-small muted-text" style="margin-top: 8px;">行動力不足，想太多、做太少。機會來了猶豫，等到確定了機會已過。缺乏熱情推動力。</p>
+        <p class="text-small muted-text" style="margin-top: 8px;">行動力不足，想太多、做太少。機會來了猶豫，等到確定了機會已過。缺乏熱情推動力</p>
       </div>
     </div>
   </div>
@@ -1399,10 +1889,10 @@ tr.row-tease td.el-cell-water {
       <div class="col-orb"><div class="orb orb-earth orb-large">土</div></div>
       <div class="col-text">
         <h2 class="slide-title">土多｜厚積財</h2>
-        <p class="text-medium">穩健保守，不輕易冒險，重安全感。容易過度保守，錢放著不動，錯失增值機會。</p>
+        <p class="text-medium">穩健保守，不輕易冒險，重安全感。容易過度保守，錢放著不動，錯失增值機會</p>
         <div class="divider"></div>
         <p class="text-medium"><span class="el-cell-wood">缺土</span></p>
-        <p class="text-small muted-text" style="margin-top: 8px;">缺乏穩定錨點，容易在貪婪和恐懼之間擺盪。情緒主導決策，沒有紀律，資產難以積累。</p>
+        <p class="text-small muted-text" style="margin-top: 8px;">缺乏穩定錨點，容易在貪婪和恐懼之間擺盪。情緒主導決策，沒有紀律，資產難以積累</p>
       </div>
     </div>
   </div>
@@ -1420,10 +1910,10 @@ tr.row-tease td.el-cell-water {
       <div class="col-orb"><div class="orb orb-metal orb-large">金</div></div>
       <div class="col-text">
         <h2 class="slide-title">金多｜精算財</h2>
-        <p class="text-medium">思慮深，精算型。容易陷入完美主義，分析癱瘓，永遠在等「最佳時機」。</p>
+        <p class="text-medium">思慮深，精算型。容易陷入完美主義，分析癱瘓，永遠在等「最佳時機」</p>
         <div class="divider"></div>
         <p class="text-medium"><span class="el-cell-fire">缺金</span></p>
-        <p class="text-small muted-text" style="margin-top: 8px;">缺乏收斂和截止能力。賺到錢不知道何時停利，方向太多不知道如何取捨，容易做了一半又換方向。</p>
+        <p class="text-small muted-text" style="margin-top: 8px;">缺乏收斂和截止能力。賺到錢不知道何時停利，方向太多不知道如何取捨，容易做了一半又換方向</p>
       </div>
     </div>
   </div>
@@ -1441,10 +1931,10 @@ tr.row-tease td.el-cell-water {
       <div class="col-orb"><div class="orb orb-water orb-large">水</div></div>
       <div class="col-text">
         <h2 class="slide-title">水多｜靈感財</h2>
-        <p class="text-medium">市場嗅覺敏銳，靈感型。容易受到情緒和外部訊息干擾，反而不知道該信哪一個。</p>
+        <p class="text-medium">市場嗅覺敏銳，靈感型。容易受到情緒和外部訊息干擾，反而不知道該信哪一個</p>
         <div class="divider"></div>
         <p class="text-medium"><span class="el-cell-earth">缺水</span></p>
-        <p class="text-small muted-text" style="margin-top: 8px;">缺乏靈活應變能力，固執，不善於觀察市場變化。情勢已經變了還在用舊方法，容易硬撐不撤退。</p>
+        <p class="text-small muted-text" style="margin-top: 8px;">缺乏靈活應變能力，固執，不善於觀察市場變化。情勢已經變了還在用舊方法，容易硬撐不撤退</p>
       </div>
     </div>
   </div>
@@ -1462,11 +1952,11 @@ tr.row-tease td.el-cell-water {
   <div class="slide-inner"></div>
   <svg class="sei-decor-br"><rect width="100%" height="100%" fill="url(#sei)"/></svg>
   <div class="slide-content--center">
-    <p class="text-large gold-text reveal">你的天賦，你已經知道了。</p>
+    <p class="text-large gold-text reveal">你的天賦，你已經知道了</p>
     <p class="text-large brown-text reveal" style="margin-top: clamp(16px, 3vh, 28px);">但你缺的那一塊&mdash;&mdash;</p>
-    <p class="text-large brown-text reveal">才是決定你財運天花板的關鍵。</p>
+    <p class="text-large brown-text reveal">才是決定你財運天花板的關鍵</p>
     <div class="gold-divider reveal"></div>
-    <p class="text-medium muted-text reveal" style="margin-top: clamp(16px, 3vh, 28px);">問題不是你不夠努力。<br>問題是你一直在用天賦硬撐盲點。</p>
+    <p class="text-medium muted-text reveal" style="margin-top: clamp(16px, 3vh, 28px);">問題不是你不夠努力<br>問題是你一直在用天賦硬撐盲點</p>
   </div>
 </section>
 
@@ -1480,9 +1970,9 @@ tr.row-tease td.el-cell-water {
   <div class="slide-inner"></div>
   <div class="slide-content--center">
     <p class="text-large gold-text reveal">在那之前&mdash;&mdash;</p>
-    <h1 class="text-huge reveal" style="margin: clamp(12px, 2vh, 24px) 0;">我們先看時機。</h1>
+    <h1 class="text-huge reveal" style="margin: clamp(12px, 2vh, 24px) 0;">我們先看時機</h1>
     <div class="gold-divider reveal"></div>
-    <p class="text-medium muted-text reveal">你的盲點在哪裡，你已經知道了。</p>
+    <p class="text-medium muted-text reveal">你的盲點在哪裡，你已經知道了</p>
     <p class="text-medium muted-text reveal">但&hellip;&hellip;什麼時候會出事？</p>
   </div>
 </section>
@@ -1550,72 +2040,525 @@ tr.row-tease td.el-cell-water {
       <div class="prompt-card prompt-card--water"><strong class="el-cell-water">水多缺土</strong> &rarr; <span class="blur-tease">留意 12 月（金水月，擺盪最劇烈）</span></div>
     </div>
     <p class="text-small reveal" style="margin-top: clamp(10px, 1.5vh, 14px); text-align: center; color: var(--gold-dim); font-style: italic;">🔒 後 3 種五行的注意月份 &mdash; <strong style="color: var(--gold); font-style: normal;">正課解鎖</strong></p>
-    <p class="text-small gold-line-text reveal" style="margin-top: clamp(6px, 1vh, 10px); text-align: center;">圈起來。這幾個月，先不要做重大財務決定。</p>
+    <p class="text-small gold-line-text reveal" style="margin-top: clamp(6px, 1vh, 10px); text-align: center;">圈起來。這幾個月，先不要做重大財務決定</p>
+  </div>
+</section>
+
+<!-- ============================================
+     SLIDE 5 — 信念 #2（35-42 min）
+     看 YouTube 可能讓你走反方向
+     ============================================ -->
+<section class="slide wash-gold" data-slide="26">
+  <div class="washi-texture"></div>
+  <div class="ink-stain-tr"></div>
+  <div class="blob-tr"></div>
+  <div class="slide-inner"></div>
+  <div class="slide-content--center">
+    <p class="belief-eyebrow reveal">信念 #2</p>
+    <h2 class="belief-title reveal" style="text-align:center;">
+      看 YouTube 學八字
+    </h2>
+    <h2 class="belief-title reveal" style="text-align:center; margin-top: clamp(12px, 2vh, 18px);">
+      <span class="belief-highlight">可能讓你走反方向</span>
+    </h2>
+    <div class="gold-divider reveal" style="margin-top: clamp(20px, 3vh, 32px);"></div>
+    <div class="compare-row reveal" style="margin-top: clamp(20px, 3vh, 28px);">
+      <div class="compare-card compare-card--dim">
+        <div class="compare-label">身強的木</div>
+        <div class="compare-note" style="margin-top: 8px;">已經很高很壯的大樹<br>需要修剪、定方向</div>
+      </div>
+      <div class="compare-card compare-card--highlight">
+        <div class="compare-label">身弱的木</div>
+        <div class="compare-note" style="margin-top: 8px;">剛冒出土的小苗<br>需要澆水、保護</div>
+      </div>
+    </div>
+    <p class="reveal" style="margin-top: clamp(20px, 3vh, 28px); max-width: 820px; text-align:center; font-family: var(--f-title); font-size: clamp(1.2rem, 1.8vw, 1.5rem); color: #1F1A12; font-weight: 700; line-height: 1.7;">
+      同樣屬木，補錯方向 = 越來越固執、越來越聽不進別人的話
+    </p>
+  </div>
+</section>
+
+<!-- ============================================
+     SLIDE 6 — 啊哈炸彈（42-52 min · 教學段情緒高峰）
+     現場示範：健康×命理（可青獨有差異化武器）
+     ============================================ -->
+<section class="slide wash-blue" data-slide="27">
+  <div class="washi-texture"></div>
+  <div class="ink-stain-bl"></div>
+  <div class="blob-bl"></div>
+  <div class="slide-inner"></div>
+  <div class="slide-content--center">
+    <p class="section-eyebrow reveal">現場示範</p>
+    <h2 class="slide-title slide-title--center reveal">你的命盤裡<br>還寫了你的身體</h2>
+    <div class="demo-prompt reveal">
+      <p style="font-size: clamp(1rem, 1.4vw, 1.2rem); color: #2A251D; font-weight: 500; margin-bottom: 10px;">想被老師現場看的，在聊天室打</p>
+      <p class="demo-prompt-text">「我想看」</p>
+    </div>
+    <p class="reveal" style="margin-top: clamp(20px, 3vh, 28px); max-width: 760px; text-align:center; line-height:1.8; font-size: clamp(1.05rem, 1.5vw, 1.25rem); color: #2A251D; font-weight: 500;">
+      心臟、血壓、眼睛、腸胃&mdash;&mdash;<br>
+      你的五行能量分佈，真的會反映在身體上
+    </p>
   </div>
 </section>
 
 <!-- ============================================
      SLIDE 26 — LIVE DEMO: Mini Reading 1
      ============================================ -->
-<section class="slide wash-gold" data-slide="26">
-  <div class="washi-texture"></div>
-  <div class="ink-stain-tr"></div>
-  <div class="blob-bl-gold"></div>
-  <div class="slide-inner"></div>
-  <div class="slide-content--center">
-    <h2 class="slide-title slide-title--center reveal">現場看命盤</h2>
-    <div class="info-card reveal" style="max-width: 600px; text-align: center;">
-      <p class="text-medium brown-text">我現在請 1&ndash;2 位同學，<br>當場帶你看你的命盤。</p>
-      <p class="text-small muted-text" style="margin-top: clamp(8px, 1.5vh, 14px);">需要你的出生年月日和時間</p>
-    </div>
-    <p class="text-medium gold-line-text reveal" style="margin-top: clamp(20px, 4vh, 36px);">想被看的請打字「我要」</p>
-  </div>
-</section>
-
 <!-- ============================================
      SLIDE 27 — Mini Reading 2
      ============================================ -->
-<section class="slide wash-blue" data-slide="27">
+<!-- ============================================
+     SLIDE 7 — 信念 #3 + 學員見證（52-57 min）
+     一天就能看懂 + 3 則見證
+     ============================================ -->
+<section class="slide wash-warm" data-slide="28">
   <div class="washi-texture"></div>
-  <div class="ink-stain-bl"></div>
-  <div class="blob-tr-blue"></div>
+  <div class="ink-stain-tr"></div>
   <div class="slide-inner"></div>
   <div class="slide-content--center">
-    <h2 class="slide-title slide-title--center reveal">再看一位</h2>
-    <div class="info-card reveal" style="max-width: 600px; text-align: center;">
-      <p class="text-medium brown-text">剛剛那位看完了&mdash;&mdash;<br>我們再看一個不同類型的。</p>
+    <p class="belief-eyebrow reveal">信念 #3</p>
+    <h2 class="slide-title slide-title--center reveal">一天就夠了</h2>
+    <p class="reveal" style="text-align:center; margin-top: clamp(8px, 1.5vh, 14px); font-size: clamp(1.05rem, 1.5vw, 1.25rem); color: #4A453C;">他們跟你一樣，零基礎</p>
+    <div class="line-chat reveal">
+      <div class="line-msg">
+        <div class="line-avatar">陳</div>
+        <div class="line-bubble-wrap">
+          <div class="line-name">陳小姐 ・ 行政助理</div>
+          <div class="line-bubble">上完課我才知道為什麼我跟我媽的關係一直很緊張&mdash;&mdash;原來是我們的五行在相沖。知道之後我調整了跟她說話的方式，這兩個月關係好太多了</div>
+        </div>
+      </div>
+      <div class="line-msg">
+        <div class="line-avatar">林</div>
+        <div class="line-bubble-wrap">
+          <div class="line-name">林先生 ・ 業務主管</div>
+          <div class="line-bubble">我本來要衝動跳槽，但看了命盤才知道今年不適合大動作。結果上個月原公司升我當主管&mdash;&mdash;如果當初衝動走了，這個機會就沒了</div>
+        </div>
+      </div>
+      <div class="line-msg">
+        <div class="line-avatar">王</div>
+        <div class="line-bubble-wrap">
+          <div class="line-name">王小姐 ・ 自由接案</div>
+          <div class="line-bubble">我之前看 YouTube 學了 3 年，以為自己很懂。上完課才發現我身強身弱搞反了，用了 3 年錯誤的方法。一天的課，抵過 3 年自學</div>
+        </div>
+      </div>
     </div>
-    <p class="text-medium gold-line-text reveal" style="margin-top: clamp(20px, 4vh, 36px);">你有沒有看到，老師怎麼解讀的？</p>
   </div>
 </section>
 
 <!-- ============================================
      SLIDE 28 — 關於八字命盤還有...
      ============================================ -->
-<section class="slide wash-gold" data-slide="28">
+<!-- ============================================
+     SLIDE 9 — 冰山一角（57-62 min · 情感過渡）
+     你看到的是 10%，還有 90%
+     ============================================ -->
+<section class="slide wash-warm" data-slide="29">
+  <div class="washi-texture"></div>
+  <div class="ink-stain-tl"></div>
+  <div class="slide-inner"></div>
+  <div class="slide-content--center">
+    <p class="section-eyebrow reveal">可青老師為什麼想要出來講這堂課？</p>
+    <p class="reveal" style="font-family: var(--f-title); font-size: clamp(1.5rem, 2.4vw, 2rem); color: #2E2920; line-height: 1.7; max-width: 920px; text-align: center; font-weight: 500;">
+      今天你學到的，是命盤的 <span style="color:var(--gold); font-weight:800;">10%</span>
+    </p>
+    <p class="reveal" style="font-family: var(--f-title); font-size: clamp(1.5rem, 2.4vw, 2rem); color: #2E2920; line-height: 1.7; max-width: 920px; text-align: center; font-weight: 500; margin-top: clamp(10px, 1.5vh, 16px);">
+      如果剩下的 <span style="color:var(--gold); font-weight:800;">90%</span> 你也能夠瞭解
+    </p>
+    <p class="reveal" style="font-family: var(--f-title); font-size: clamp(1.65rem, 2.7vw, 2.25rem); color: var(--gold); line-height: 1.5; max-width: 920px; text-align: center; font-weight: 700; margin-top: clamp(20px, 3vh, 32px);">
+      那才是真正能改變你生活的能力
+    </p>
+    <div class="gold-divider reveal" style="margin: clamp(24px, 3.5vh, 36px) auto;"></div>
+    <p class="reveal" style="font-size: clamp(1rem, 1.4vw, 1.2rem); color: #4A453C; max-width: 760px; text-align:center; line-height:1.8;">
+      身強身弱 ・ 十神格局 ・ 大運走勢 ・ 流年吉凶 ・ 感情合盤 ・ 健康風水
+    </p>
+    <p class="reveal" style="margin-top: clamp(12px, 1.8vh, 18px); font-family: var(--f-title); font-weight: 700; font-size: clamp(1.15rem, 1.7vw, 1.4rem); color: var(--gold-dim); text-align: center;">
+      🔓 完整課程，學習更多
+    </p>
+  </div>
+</section>
+
+
+
+<!-- ============================================
+     SLIDE 10 — Stack #1（62-75 min）
+     完整命盤解讀 $5,000
+     ============================================ -->
+<section class="slide wash-gold" data-slide="30">
   <div class="washi-texture"></div>
   <div class="ink-stain-tr"></div>
+  <div class="blob-tr"></div>
+  <div class="slide-inner"></div>
+  <div class="stack-badge"><span class="stack-label">累計價值</span><span class="stack-amount">NT$5,000</span></div>
+  <div class="slide-content--center">
+    <p class="section-eyebrow reveal">正課帶你走過 ➀</p>
+    <h2 class="slide-title slide-title--center reveal">完整命盤解讀</h2>
+    <p class="reveal" style="margin-top: clamp(8px, 1.5vh, 14px); font-size: clamp(1.1rem, 1.6vw, 1.35rem); color: #2E2920; font-weight: 500;">不是聽理論&mdash;&mdash;是看<strong>你自己的</strong></p>
+    <div class="value-card reveal" style="max-width: 760px; margin-top: clamp(20px, 3vh, 28px);">
+      <div class="value-body">
+        <div class="value-desc" style="font-size: clamp(1.05rem, 1.55vw, 1.25rem); line-height: 1.8; color: #2E2920;">
+          老師會帶你親自看自己的命盤，每位同學都會被點名校準
+        </div>
+        <div style="margin-top: clamp(14px, 2vh, 20px); padding-top: clamp(14px, 2vh, 20px); border-top: 1px dashed var(--gold-line);">
+          <p style="font-size: clamp(1.05rem, 1.5vw, 1.2rem); color: #1F1A12; line-height: 1.85; font-weight: 500;">
+            👉 你會知道：<br>
+            <strong style="color: var(--brown);">「為什麼我這份工作做得越來越無力？」</strong>—— 答案在你的日主裡<br>
+            <strong style="color: var(--brown);">「為什麼我跟某些人一見面就合得來？」</strong>—— 命盤先告訴你
+          </p>
+        </div>
+      </div>
+    </div>
+    <p class="reveal" style="margin-top: clamp(16px, 2.5vh, 22px); font-size: clamp(1.1rem, 1.55vw, 1.3rem); color: #1F1A12; font-weight: 600;">外面找老師看一次：<span style="color: var(--el-fire); font-weight: 800; font-size: 1.15em;">$2,000&ndash;$8,000 起跳</span></p>
+  </div>
+</section>
+
+<!-- ============================================
+     SLIDE 11 — Stack #2（62-75 min）
+     身強身弱 + 十神 +$3,000 → 累計 $8,000
+     ============================================ -->
+<section class="slide wash-blue" data-slide="31">
+  <div class="washi-texture"></div>
+  <div class="ink-stain-bl"></div>
+  <div class="blob-bl"></div>
+  <div class="slide-inner"></div>
+  <div class="stack-badge"><span class="stack-label">累計價值</span><span class="stack-amount">NT$8,000</span></div>
+  <div class="slide-content--center">
+    <p class="section-eyebrow reveal">正課帶你走過 ➁</p>
+    <h2 class="slide-title slide-title--center reveal">身強身弱 + 十神格局</h2>
+    <p class="reveal" style="margin-top: clamp(8px, 1.5vh, 14px); font-size: clamp(1.1rem, 1.6vw, 1.35rem); color: #2E2920; font-weight: 500;">為什麼有些事做得順、有些怎麼努力都不行</p>
+    <div class="value-grid reveal" style="margin-top: clamp(18px, 2.6vh, 26px);">
+      <div class="value-card">
+        <div class="value-body">
+          <div class="value-title">身強身弱</div>
+          <div class="value-desc">你該衝還是該守？最佳工作時段、加分顏色一次看懂</div>
+          <div style="margin-top: 10px; padding: 14px 18px; background: rgba(212,168,76,0.18); border-radius: 6px; font-size: clamp(1.05rem, 1.5vw, 1.2rem); color: #1F1A12; line-height: 1.8; font-weight: 500;">
+            💼 例：身強的人，重要決定放在<strong>下午 3 點後</strong>處理，效率會差很多
+          </div>
+        </div>
+      </div>
+      <div class="value-card">
+        <div class="value-body">
+          <div class="value-title">十神格局</div>
+          <div class="value-desc">你在別人眼中扮演什麼角色？老闆、伴侶、孩子各看到不同的你</div>
+          <div style="margin-top: 10px; padding: 14px 18px; background: rgba(212,168,76,0.18); border-radius: 6px; font-size: clamp(1.05rem, 1.5vw, 1.2rem); color: #1F1A12; line-height: 1.8; font-weight: 500;">
+            💼 例：你跟主管總是溝通不來？看完十神就知道<strong>該怎麼說他才聽</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="reveal" style="margin-top: clamp(14px, 2vh, 20px); font-size: clamp(1.1rem, 1.55vw, 1.3rem); color: #1F1A12; font-weight: 600;">外面單獨學這個：<span style="color: var(--el-fire); font-weight: 800; font-size: 1.15em;">至少 $3,000</span></p>
+  </div>
+</section>
+
+<!-- ============================================
+     SLIDE 12 — Stack #3（62-75 min）
+     合盤 +$3,000 → 累計 $11,000
+     ============================================ -->
+<section class="slide wash-gold" data-slide="32">
+  <div class="washi-texture"></div>
+  <div class="ink-stain-tr"></div>
+  <div class="blob-tr"></div>
+  <div class="slide-inner"></div>
+  <div class="stack-badge"><span class="stack-label">累計價值</span><span class="stack-amount">NT$11,000</span></div>
+  <div class="slide-content--center">
+    <p class="section-eyebrow reveal">正課帶你走過 ➂</p>
+    <h2 class="slide-title slide-title--center reveal">合盤分析</h2>
+    <p class="reveal" style="margin-top: clamp(8px, 1.5vh, 14px); font-size: clamp(1.1rem, 1.6vw, 1.35rem); color: #2E2920; font-weight: 500;">伴侶 ・ 小孩 ・ 老闆 ・ 父母</p>
+    <div class="value-card reveal" style="max-width: 760px; margin-top: clamp(18px, 2.6vh, 26px);">
+      <div class="value-body">
+        <div class="value-desc" style="font-size: clamp(1.05rem, 1.55vw, 1.2rem); line-height: 1.8; color: #2E2920;">
+          為什麼你們總在<strong>同一件事</strong>上吵？兩個命盤放一起，答案一目了然
+        </div>
+        <div style="margin-top: clamp(14px, 2vh, 20px); padding: clamp(14px, 2vh, 20px) clamp(18px, 2.4vw, 24px); background: rgba(212,168,76,0.18); border-radius: 8px;">
+          <p style="font-size: clamp(1.05rem, 1.5vw, 1.2rem); color: #1F1A12; line-height: 1.85; font-weight: 500;">
+            💕 <strong style="color: var(--brown);">「我老婆每次小事就翻舊帳」</strong> → 看完合盤才知道，她不是無理取鬧，是五行能量在衝<br>
+            👨‍👦 <strong style="color: var(--brown);">「我跟兒子根本講不通」</strong> → 原來他需要的不是道理，是你給他空間
+          </p>
+        </div>
+      </div>
+    </div>
+    <p class="reveal" style="margin-top: clamp(14px, 2vh, 20px); font-size: clamp(1.1rem, 1.55vw, 1.3rem); color: #1F1A12; font-weight: 600;">外面單獨學這個：<span style="color: var(--el-fire); font-weight: 800; font-size: 1.15em;">$3,000</span></p>
+  </div>
+</section>
+
+<!-- ============================================
+     SLIDE 13 — Stack #4（62-75 min）
+     10 年大運 + 2026 流年 +$3,000 → 累計 $14,000
+     ============================================ -->
+<section class="slide wash-blue" data-slide="33">
+  <div class="washi-texture"></div>
+  <div class="ink-stain-bl"></div>
+  <div class="blob-bl"></div>
+  <div class="slide-inner"></div>
+  <div class="stack-badge"><span class="stack-label">累計價值</span><span class="stack-amount">NT$14,000</span></div>
+  <div class="slide-content--center">
+    <p class="section-eyebrow reveal">正課帶你走過 ➃</p>
+    <h2 class="slide-title slide-title--center reveal">10 年大運 + 2026 逐月流年</h2>
+    <p class="reveal" style="margin-top: clamp(8px, 1.5vh, 14px); font-size: clamp(1.1rem, 1.6vw, 1.35rem); color: #2E2920; font-weight: 500;">什麼時候該衝、什麼時候該等</p>
+    <div class="value-grid reveal" style="margin-top: clamp(18px, 2.6vh, 26px);">
+      <div class="value-card">
+        <div class="value-body">
+          <div class="value-title">10 年大運</div>
+          <div class="value-desc">未來 10 年，哪幾年是你的好運年？</div>
+          <div style="margin-top: 10px; padding: 14px 18px; background: rgba(212,168,76,0.18); border-radius: 6px; font-size: clamp(1.05rem, 1.5vw, 1.2rem); color: #1F1A12; line-height: 1.8; font-weight: 500;">
+            🏠 例：知道 2027 是你的「<strong>財運大運</strong>」起點 → 該不該買房、創業，心裡有底
+          </div>
+        </div>
+      </div>
+      <div class="value-card">
+        <div class="value-body">
+          <div class="value-title">2026 逐月流年</div>
+          <div class="value-desc">每個月的吉凶 ・ 哪天適合簽約 ・ 哪天別做大決定</div>
+          <div style="margin-top: 10px; padding: 14px 18px; background: rgba(212,168,76,0.18); border-radius: 6px; font-size: clamp(1.05rem, 1.5vw, 1.2rem); color: #1F1A12; line-height: 1.8; font-weight: 500;">
+            💼 例：客戶催你 8 月簽約，但你看了流年知道<strong>9 月才是你的吉月</strong> → 多撐兩週多賺幾十萬
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="reveal" style="margin-top: clamp(14px, 2vh, 20px); font-size: clamp(1.1rem, 1.55vw, 1.3rem); color: #1F1A12; font-weight: 600;">外面單獨學這個：<span style="color: var(--el-fire); font-weight: 800; font-size: 1.15em;">$3,000</span></p>
+  </div>
+</section>
+
+<!-- ============================================
+     SLIDE 14 — Stack #5（62-75 min）
+     五行健康 + 風水布局 +$2,000 → 累計 $16,000
+     ============================================ -->
+<section class="slide wash-gold" data-slide="34">
+  <div class="washi-texture"></div>
+  <div class="ink-stain-tr"></div>
+  <div class="blob-tr"></div>
+  <div class="slide-inner"></div>
+  <div class="stack-badge"><span class="stack-label">累計價值</span><span class="stack-amount">NT$16,000</span></div>
+  <div class="slide-content--center">
+    <p class="section-eyebrow reveal">正課帶你走過 ➄</p>
+    <h2 class="slide-title slide-title--center reveal">五行健康 + 風水布局</h2>
+    <p class="reveal" style="margin-top: clamp(8px, 1.5vh, 14px); font-size: clamp(1.1rem, 1.6vw, 1.35rem); color: #2E2920; font-weight: 500;">你的命盤，連身體都告訴你怎麼照顧</p>
+    <div class="value-grid reveal" style="margin-top: clamp(18px, 2.6vh, 26px);">
+      <div class="value-card">
+        <div class="value-body">
+          <div class="value-title">五行 × 健康</div>
+          <div class="value-desc">心臟、血壓、腸胃、眼睛&mdash;&mdash;你的弱點寫在命盤裡</div>
+          <div style="margin-top: 10px; padding: 14px 18px; background: rgba(212,168,76,0.18); border-radius: 6px; font-size: clamp(1.05rem, 1.5vw, 1.2rem); color: #1F1A12; line-height: 1.8; font-weight: 500;">
+            🌱 例：火多的人容易心悸、失眠 → 知道後<strong>避開 11 月旺火期</strong>多休息，預防勝於治療
+          </div>
+        </div>
+      </div>
+      <div class="value-card">
+        <div class="value-body">
+          <div class="value-title">風水布局</div>
+          <div class="value-desc">辦公桌面向 ・ 床位 ・ 財位&mdash;&mdash;回家就能調</div>
+          <div style="margin-top: 10px; padding: 14px 18px; background: rgba(212,168,76,0.18); border-radius: 6px; font-size: clamp(1.05rem, 1.5vw, 1.2rem); color: #1F1A12; line-height: 1.8; font-weight: 500;">
+            🏢 例：辦公桌調面向<strong>東南</strong>，貴人運和財運能立刻啟動 —— 不用花錢，今晚就能改
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="reveal" style="margin-top: clamp(14px, 2vh, 20px); font-size: clamp(1.1rem, 1.55vw, 1.3rem); color: #1F1A12; font-weight: 600;">外面單獨學這個：<span style="color: var(--el-fire); font-weight: 800; font-size: 1.15em;">$2,000</span></p>
+  </div>
+</section>
+
+<!-- ============================================
+     SLIDE 15 — Stack #6（62-75 min）
+     社群陪伴 + 人生說明書（無價）
+     ============================================ -->
+<section class="slide wash-blue" data-slide="35">
+  <div class="washi-texture"></div>
+  <div class="ink-stain-bl"></div>
+  <div class="blob-bl"></div>
+  <div class="slide-inner"></div>
+  <div class="stack-badge" style="background: linear-gradient(135deg, var(--brown), var(--brown-body));"><span class="stack-label">無價加贈</span><span class="stack-amount">PRICELESS</span></div>
+  <div class="slide-content--center">
+    <p class="section-eyebrow reveal">正課帶你走過 ➅</p>
+    <h2 class="slide-title slide-title--center reveal">課後陪伴 + 你的人生說明書</h2>
+    <div class="value-grid reveal" style="margin-top: clamp(18px, 2.6vh, 26px);">
+      <div class="value-card">
+        <div class="value-body">
+          <div class="value-title">課後社群陪伴</div>
+          <div class="value-desc">上完課不是結束。隨時可以問老師問題&mdash;&mdash;不是那種買完就不理你的課</div>
+          <div style="margin-top: 10px; padding: 14px 18px; background: rgba(58,52,44,0.10); border-radius: 6px; font-size: clamp(1.05rem, 1.5vw, 1.2rem); color: #1F1A12; line-height: 1.8; font-weight: 500;">
+            💬 例：明年要轉職，<strong>群裡丟一張命盤老師當天回</strong>，省下 $3,000 諮詢費
+          </div>
+        </div>
+      </div>
+      <div class="value-card">
+        <div class="value-body">
+          <div class="value-title">A5 精裝人生說明書</div>
+          <div class="value-desc">不是一張 A4 紙&mdash;&mdash;是你親手填、老師校準的精裝手冊</div>
+          <div style="margin-top: 10px; padding: 14px 18px; background: rgba(58,52,44,0.10); border-radius: 6px; font-size: clamp(1.05rem, 1.5vw, 1.2rem); color: #1F1A12; line-height: 1.8; font-weight: 500;">
+            📖 例：迷惘時翻一頁，<strong>「啊，這就是我的天賦」</strong> —— 像隨身攜帶的人生 GPS
+          </div>
+        </div>
+      </div>
+    </div>
+    <span class="value-hook reveal" style="display:block; margin-top: clamp(14px, 2vh, 20px);">&ldquo;你手上那張紙的完整版，就是這本&rdquo;</span>
+  </div>
+</section>
+
+<!-- ============================================
+     SLIDE 16 — 學會自己看（62-75 min · ROI 收尾）
+     不是被算命 — 是身份轉換
+     ============================================ -->
+<section class="slide wash-warm" data-slide="36">
+  <div class="washi-texture"></div>
+  <div class="ink-stain-bl"></div>
   <div class="blob-bl"></div>
   <div class="slide-inner"></div>
   <div class="slide-content--center">
-    <h2 class="slide-title slide-title--center reveal">關於八字命盤還有...</h2>
-    <div style="display: flex; gap: clamp(16px, 3vw, 32px); justify-content: center; flex-wrap: wrap; margin-top: clamp(16px, 3vh, 28px); width: 100%; max-width: 780px;">
-      <div class="info-card reveal" style="flex: 1; min-width: 260px; max-width: 360px;">
-        <p class="text-medium" style="color: var(--gold); font-weight: 600; margin-bottom: clamp(12px, 2vh, 20px);">今天學到的</p>
-        <p class="text-small brown-text" style="line-height: 2.2;">✓ 五行數量<br>✓ 哪個最多、哪個最少<br>✓ 理財行為模式<br>✓ 你的盲點是什麼</p>
+    <p class="section-eyebrow reveal">為什麼一次值回票價</p>
+    <h2 class="slide-title slide-title--center reveal">學會自己看 &ne; 被算命</h2>
+    <div class="compare-row reveal" style="margin-top: clamp(20px, 3vh, 32px); flex-direction: row !important; gap: clamp(16px, 2.5vw, 28px);">
+      <div class="compare-card compare-card--dim" style="flex: 1; padding: clamp(20px, 3vh, 32px); opacity: 0.85;">
+        <div class="compare-label" style="font-size: clamp(0.95rem, 1.3vw, 1.1rem);">找老師算</div>
+        <div class="compare-price" style="font-size: clamp(1.6rem, 2.5vw, 2.4rem);"><s>$2,000&ndash;$8,000</s></div>
+        <div class="compare-note" style="font-size: clamp(1.1rem, 1.55vw, 1.3rem); line-height: 1.8; color: #2A251D;">每次的錢，只看一個人<br>一年看 3 次破萬</div>
       </div>
-      <div class="info-card reveal" style="flex: 1; min-width: 260px; max-width: 360px;">
-        <p class="text-medium" style="color: var(--el-fire); font-weight: 600; margin-bottom: clamp(12px, 2vh, 20px);">還沒教到的</p>
-        <p class="text-small brown-text" style="line-height: 2.2;">☆ 身強身弱（決定一切的關鍵）<br>☆ 怎麼補你缺的五行<br>☆ 十天干性格地圖<br>☆ 合盤：跟另一半的關係<br>☆ 風水財位</p>
+      <div class="compare-card compare-card--highlight" style="flex: 1.2; padding: clamp(22px, 3.5vh, 36px); border-width: 3px; box-shadow: 0 0 32px rgba(212,168,76,0.3); background: linear-gradient(135deg, rgba(212,168,76,0.18), rgba(212,168,76,0.08));">
+        <div class="compare-label" style="font-size: clamp(1rem, 1.4vw, 1.2rem); color: var(--gold) !important; font-weight: 800;">學會自己看</div>
+        <div class="compare-price" style="color: var(--gold); font-size: clamp(2rem, 3vw, 2.8rem);">一次學會</div>
+        <div class="compare-note" style="font-size: clamp(1.2rem, 1.7vw, 1.45rem); line-height: 1.8; color: #1F1A12; font-weight: 700;">自己 + 伴侶 + 孩子 + 爸媽<br><span style="color: var(--gold);">無限次，終身受用</span></div>
+      </div>
+    </div>
+    <div class="reveal" style="margin-top: clamp(24px, 3.5vh, 36px); padding: clamp(16px, 2.4vh, 22px) clamp(28px, 4vw, 48px); background: linear-gradient(135deg, var(--gold), var(--gold-dim)); border-radius: 12px; box-shadow: 0 6px 24px rgba(168,138,80,0.35); display: inline-flex; align-items: baseline; gap: 12px;">
+      <span style="font-family: var(--f-title); font-size: clamp(1.05rem, 1.5vw, 1.3rem); color: rgba(255,255,255,0.92); font-weight: 600; letter-spacing: 0.05em;">課程總價值超過</span>
+      <span style="font-family: var(--f-title); font-size: clamp(2rem, 3.2vw, 2.8rem); color: white; font-weight: 800; letter-spacing: 0.02em;">NT$16,000</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     SLIDE 17 — 報價頁（75-85 min · Stack & Close 收尾）
+     $16,000 錨定 + 30 名額 + 48hr + QR Code
+     ============================================ -->
+<section class="slide wash-gold" data-slide="37">
+  <div class="washi-texture"></div>
+  <div class="ink-stain-tr"></div>
+  <div class="blob-bl-gold"></div>
+  <div class="slide-inner"></div>
+  <svg class="sei-decor-br"><rect width="100%" height="100%" fill="url(#sei)"/></svg>
+  <div class="slide-content--center" style="display: flex; flex-direction: row; gap: clamp(24px, 4vw, 56px); align-items: center; justify-content: center; max-width: 1200px;">
+    <div style="flex: 1; max-width: 540px;">
+      <p class="section-eyebrow reveal">講座限定 · 24 小時</p>
+      <h2 class="slide-title reveal" style="font-size: clamp(2.4rem, 4vw, 3.2rem); margin-bottom: clamp(14px, 2.2vh, 20px); color: #1F1A12;">報名正課</h2>
+      <div class="price-stack-row reveal" style="align-items: flex-start; margin: 0;">
+        <p class="price-anchor" style="margin: 0; font-size: clamp(1rem, 1.45vw, 1.2rem); color: #2A251D;">外面分別找老師：<s>NT$16,000</s></p>
+        <p class="price-anchor" style="margin: 0; font-size: clamp(1rem, 1.45vw, 1.2rem); color: #2A251D;">原價：<s>NT$8,800</s></p>
+        <p class="price-final-label" style="margin-top: 6px; color: var(--gold-dim); font-weight: 700;">講座限定</p>
+        <p class="price-final" style="font-size: clamp(3rem, 5.5vw, 4.5rem); line-height: 1;">NT$6,800</p>
+      </div>
+      <div class="scarcity-row reveal" style="justify-content: flex-start; margin-top: clamp(14px, 2.2vh, 22px);">
+        <span class="scarcity-pill scarcity-pill--fire">⏱ 24 hr</span>
+        <span class="scarcity-pill">限額 30 位</span>
+        <span class="scarcity-pill">3 期 0 利率</span>
+      </div>
+      <p class="reveal" style="margin-top: clamp(16px, 2.4vh, 22px); font-family: var(--f-title); font-size: clamp(1.15rem, 1.6vw, 1.35rem); color: #1F1A12; font-weight: 700;">5 / 6（二）09:30&ndash;17:00 ・ 臺北</p>
+      <p class="reveal" style="margin-top: 6px; font-size: clamp(0.9rem, 1.25vw, 1.05rem); color: #5A5045;">（地點會在課程群組通知）</p>
+    </div>
+    <div style="flex: 0 0 auto; display: flex; flex-direction: column; align-items: center;">
+      <div style="width: clamp(160px, 18vw, 220px); height: clamp(160px, 18vw, 220px); display: flex; align-items: center; justify-content: center; padding: 8px; background: white; border-radius: 8px; box-shadow: 0 4px 16px rgba(58,52,44,0.1);" class="reveal">
+      <img src="data:image/jpeg;base64,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" style="width: 120px; height: 120px; border-radius: 12px; object-fit: contain;">
+      </div>
+      <p class="text-small gold-line-text reveal" style="margin-top: 12px; text-align: center;">QR Code ・ 報名連結也在聊天室</p>
+      <p class="text-small reveal" style="margin-top: 4px; text-align: center; color: var(--gold-dim);">還在考慮？社群連結也在聊天室</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     SLIDE 18 — 退費保證（75-85 min · 風險逆轉）
+     老師親自承諾，銷售 +21%
+     ============================================ -->
+<section class="slide wash-blue" data-slide="38">
+  <div class="washi-texture"></div>
+  <div class="ink-stain-bl"></div>
+  <div class="blob-bl"></div>
+  <div class="slide-inner"></div>
+  <div class="slide-content--center">
+    <p class="section-eyebrow reveal">老師親自承諾</p>
+    <h2 class="slide-title slide-title--center reveal" style="margin-bottom: clamp(8px, 1.5vh, 14px);">你的風險是零</h2>
+    <div class="guarantee-card reveal" style="padding: clamp(16px, 2.2vh, 24px) clamp(20px, 3vw, 32px);">
+      <div class="guarantee-seal">100% 退費保證</div>
+      <p class="guarantee-text" style="font-size: clamp(0.95rem, 1.4vw, 1.15rem);">
+        如果你上完課覺得沒收穫、不值得&mdash;&mdash;<br>
+        跟我說，我<strong style="color:var(--gold);">全額退費</strong>
+      </p>
+    </div>
+    <div class="compare-row reveal" style="margin-top: clamp(16px, 2.2vh, 22px); flex-direction: row !important; align-items: stretch; gap: clamp(16px, 2.5vw, 28px);">
+      <div class="compare-card compare-card--dim" style="flex: 1; padding: clamp(14px, 2vh, 22px) clamp(16px, 2.2vw, 24px); opacity: 0.85;">
+        <div class="compare-label" style="font-size: clamp(0.95rem, 1.3vw, 1.1rem);">最壞情況</div>
+        <div class="compare-note" style="margin-top: 10px; font-size: clamp(1.05rem, 1.5vw, 1.25rem); color: #2A251D;">花一天時間<br>拿回 NT$6,800</div>
+      </div>
+      <div class="compare-card compare-card--highlight" style="flex: 1.4; padding: clamp(22px, 3vh, 36px) clamp(24px, 3.2vw, 40px); border-width: 4px; box-shadow: 0 0 40px rgba(212,168,76,0.45); background: linear-gradient(135deg, rgba(212,168,76,0.22), rgba(212,168,76,0.10)); position: relative;">
+        <div class="compare-label" style="font-size: clamp(1.05rem, 1.45vw, 1.25rem); color: var(--gold) !important; font-weight: 800;">✨ 最好情況</div>
+        <div class="compare-note" style="margin-top: 12px; font-size: clamp(1.3rem, 1.85vw, 1.6rem); font-weight: 800; color: #1F1A12; line-height: 1.6;">拿到一張<br><span style="color: var(--gold); font-size: 1.15em;">改變你人生的地圖</span></div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ============================================
-     SLIDE 29 — CLOSING
+     SLIDE 19 — 3 加贈（75-85 min · Bonus Stacking）
+     加值 > 打折（行為經濟學）
      ============================================ -->
-<section class="slide wash-both" data-slide="29">
+<section class="slide wash-gold" data-slide="39">
+  <div class="washi-texture"></div>
+  <div class="ink-stain-tr"></div>
+  <div class="blob-tr"></div>
+  <div class="slide-inner"></div>
+  <div class="slide-content--center">
+    <p class="section-eyebrow reveal">講座限定加贈</p>
+    <h2 class="slide-title slide-title--center reveal">再送你三樣東西</h2>
+    <div class="bonus-list reveal">
+      <div class="bonus-item">
+        <div class="bonus-icon">01</div>
+        <div class="bonus-body">
+          <div class="bonus-title">學員專屬群組<span class="bonus-value">無價</span></div>
+          <div class="bonus-desc">課後有任何問題&mdash;&mdash;<strong>老師跟助教協助你做解答</strong>，不是買完就沒下文的課</div>
+        </div>
+      </div>
+      <div class="bonus-item">
+        <div class="bonus-icon">02</div>
+        <div class="bonus-body">
+          <div class="bonus-title">五行速查懶人包・進階版<span class="bonus-value">NT$800</span></div>
+          <div class="bonus-desc">今天講座中大家用的是基礎版，正課學員拿到的是進階版（含十神對照、走運速查表）</div>
+        </div>
+      </div>
+      <div class="bonus-item">
+        <div class="bonus-icon">03</div>
+        <div class="bonus-body">
+          <div class="bonus-title">一年內免費複訓乙次<span class="bonus-value">NT$6,800</span></div>
+          <div class="bonus-desc">一年內任何一梯次正課可<strong>免費再上一次</strong>，多聽一輪學得更深更穩，還能聽到更新過的內容，老師跟你一起持續成長</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     SLIDE 20 — Q&A（85-90 min）
+     持續顯示 CTA + 名額倒數
+     ============================================ -->
+<section class="slide wash-blue" data-slide="40">
+  <div class="washi-texture"></div>
+  <div class="ink-stain-tr"></div>
+  <div class="blob-tr-blue"></div>
+  <div class="slide-inner"></div>
+  <div class="stack-badge" style="background: linear-gradient(135deg, var(--el-fire), #C76544);"><span class="stack-label">優惠倒數</span><span class="stack-amount">24 hr</span></div>
+  <div class="slide-content--center">
+    <p class="section-eyebrow reveal">Q &amp; A 時間</p>
+    <h2 class="slide-title slide-title--center reveal">你的問題<br>我來回答</h2>
+    <div class="info-card reveal" style="max-width: 680px; text-align: center; margin-top: clamp(20px, 3vh, 28px); background: rgba(212,168,76,0.06); border: 2px solid var(--gold-line);">
+      <p style="font-family: var(--f-title); font-size: clamp(1.3rem, 1.9vw, 1.6rem); font-weight: 700; color: #1F1A12;">在聊天室打你的問題</p>
+      <div class="divider" style="margin: clamp(10px, 1.8vh, 16px) 0;"></div>
+      <p style="font-size: clamp(1rem, 1.4vw, 1.15rem); color: #2A251D; font-weight: 500;">報名連結持續開放中</p>
+      <p style="font-family: var(--f-title); color: var(--el-fire); font-weight: 800; margin-top: 8px; font-size: clamp(1.1rem, 1.6vw, 1.3rem);">講座限定優惠 NT$6,800 ・ 限額 30 位</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     SLIDE 21 — 溫暖收尾（85-90 min · Peak-End Rule）
+     感謝 + 五行速查懶人包 + 你已踏出第一步
+     ============================================ -->
+<section class="slide wash-warm" data-slide="41">
   <div class="washi-texture"></div>
   <div class="ink-stain-tr"></div>
   <div class="ink-stain-bl"></div>
@@ -1625,13 +2568,15 @@ tr.row-tease td.el-cell-water {
   <svg class="sei-decor-br"><rect width="100%" height="100%" fill="url(#sei)"/></svg>
   <svg class="sei-decor-bl"><rect width="100%" height="100%" fill="url(#sei)"/></svg>
   <div class="slide-content--center">
-    <div class="divider reveal"></div>
-    <p class="text-large brown-text reveal">八字是地圖，不是宿命。</p>
-    <p class="text-large brown-text reveal" style="margin-top: clamp(8px, 1.5vh, 14px);">你的人生，你來走。</p>
-    <div class="divider reveal"></div>
-    <p class="text-small muted-text reveal" style="margin-top: clamp(20px, 4vh, 36px);">&mdash; 可青老師</p>
+    <p class="reveal" style="font-family: var(--f-title); font-size: clamp(1.5rem, 2.4vw, 2rem); font-weight: 500; color: #1F1A12;">不管你今天有沒有報名</p>
+    <p class="reveal" style="font-family: var(--f-title); font-size: clamp(1.9rem, 3vw, 2.5rem); font-weight: 700; color: var(--gold); margin-top: clamp(12px, 1.8vh, 20px); line-height: 1.4;">你已經踏出了第一步</p>
+    <div class="gold-divider reveal" style="margin: clamp(28px, 4vh, 40px) auto;"></div>
+    <p class="reveal" style="font-family: var(--f-title); letter-spacing: 0.15em; font-size: clamp(1.3rem, 1.9vw, 1.6rem); color: #1F1A12; font-weight: 600;">認識自己，永遠不嫌晚</p>
+    <p class="reveal" style="margin-top: clamp(16px, 2.4vh, 22px); font-size: clamp(1rem, 1.4vw, 1.15rem); color: #5A5045; font-weight: 500;">&mdash; 可青老師</p>
   </div>
 </section>
+
+
 
 <script>
 class SlidePresentation {
