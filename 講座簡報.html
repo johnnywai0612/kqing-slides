@@ -1353,6 +1353,162 @@ tr.row-tease td.el-cell-water {
 }
 
 /* ============================================
+   月運勢卡片 — 看日主的月運勢（10 天干 + 9-12 月賣關子）
+   ============================================ */
+.month-overview-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(12px, 1.8vh, 18px) clamp(14px, 2vw, 20px);
+  max-width: 920px;
+  margin: clamp(18px, 2.6vh, 26px) auto 0;
+}
+.month-card {
+  background: rgba(180,170,155,0.08);
+  border: 1.5px solid rgba(184,150,62,0.20);
+  border-radius: 10px;
+  padding: clamp(14px, 2vh, 20px) clamp(14px, 2vw, 22px);
+  text-align: center;
+}
+.month-card--ready {
+  background: rgba(212,168,76,0.10);
+  border-color: var(--gold);
+  box-shadow: 0 2px 12px rgba(212,168,76,0.12);
+}
+.month-card--locked { opacity: 0.92; }
+.month-num {
+  font-family: var(--f-title);
+  font-weight: 800;
+  font-size: clamp(1.3rem, 2vw, 1.7rem);
+  color: #1F1A12;
+}
+.month-pillar {
+  font-family: var(--f-title);
+  color: var(--gold-dim);
+  font-size: clamp(1rem, 1.4vw, 1.2rem);
+  margin-top: 4px;
+  font-weight: 700;
+}
+.month-status {
+  margin-top: clamp(8px, 1.2vh, 12px);
+  font-family: var(--f-mono);
+  font-size: clamp(0.82rem, 1.15vw, 0.95rem);
+  font-weight: 600;
+}
+.month-card--ready .month-status { color: var(--gold); }
+.month-card--locked .month-status { color: #5A5045; }
+
+/* 十天干運勢 list */
+.gan-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(6px, 0.9vh, 10px) clamp(16px, 2vw, 26px);
+  max-width: 1180px;
+  margin: clamp(14px, 2vh, 20px) auto 0;
+  width: 100%;
+}
+.gan-row {
+  display: grid;
+  grid-template-columns: clamp(60px, 8vw, 88px) clamp(50px, 7vw, 70px) 1fr;
+  align-items: center;
+  gap: clamp(10px, 1.4vw, 18px);
+  padding: clamp(8px, 1.2vh, 12px) clamp(12px, 1.8vw, 18px);
+  background: rgba(180,170,155,0.08);
+  border-left: 4px solid;
+  border-radius: 0 6px 6px 0;
+}
+.gan-self {
+  font-family: var(--f-title);
+  font-weight: 800;
+  font-size: clamp(1.05rem, 1.45vw, 1.25rem);
+  white-space: nowrap;
+}
+.gan-shen {
+  font-family: var(--f-mono);
+  color: var(--gold-dim);
+  font-size: clamp(0.88rem, 1.2vw, 1rem);
+  font-weight: 700;
+  white-space: nowrap;
+}
+.gan-fortune {
+  color: #1F1A12;
+  font-size: clamp(0.95rem, 1.3vw, 1.1rem);
+  font-weight: 500;
+  line-height: 1.5;
+}
+.gan-row.gan-wood { border-color: var(--el-wood); }
+.gan-row.gan-wood .gan-self { color: var(--el-wood); }
+.gan-row.gan-fire { border-color: var(--el-fire); }
+.gan-row.gan-fire .gan-self { color: var(--el-fire); }
+.gan-row.gan-earth { border-color: var(--el-earth); }
+.gan-row.gan-earth .gan-self { color: var(--el-earth); }
+.gan-row.gan-metal { border-color: var(--el-metal); }
+.gan-row.gan-metal .gan-self { color: var(--el-metal); }
+.gan-row.gan-water { border-color: var(--el-water); }
+.gan-row.gan-water .gan-self { color: var(--el-water); }
+
+/* 9-12 月預告卡 */
+.month-tease-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(14px, 2vh, 20px);
+  max-width: 880px;
+  margin: clamp(18px, 2.6vh, 26px) auto 0;
+}
+.month-tease-card {
+  background: rgba(180,170,155,0.08);
+  border: 1.5px solid rgba(184,150,62,0.20);
+  border-radius: 10px;
+  padding: clamp(16px, 2.2vh, 22px) clamp(20px, 2.6vw, 28px);
+  position: relative;
+}
+.month-tease-card::after {
+  content: "🔒";
+  position: absolute;
+  top: 14px;
+  right: 18px;
+  opacity: 0.45;
+  font-size: 1.2em;
+}
+.month-tease-head {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: clamp(8px, 1.2vh, 12px);
+}
+.month-tease-num {
+  font-family: var(--f-title);
+  font-weight: 800;
+  font-size: clamp(1.5rem, 2.2vw, 1.9rem);
+  color: #1F1A12;
+}
+.month-tease-pillar {
+  font-family: var(--f-title);
+  color: var(--gold);
+  font-weight: 700;
+  font-size: clamp(1rem, 1.4vw, 1.2rem);
+}
+.month-tease-elem {
+  font-family: var(--f-mono);
+  font-size: clamp(0.85rem, 1.2vw, 1rem);
+  color: var(--gold-dim);
+  font-weight: 600;
+  margin-bottom: clamp(6px, 1vh, 10px);
+}
+.month-tease-theme {
+  font-family: var(--f-title);
+  font-weight: 700;
+  font-size: clamp(1.05rem, 1.5vw, 1.25rem);
+  color: #2A251D;
+  margin-bottom: clamp(6px, 1vh, 10px);
+}
+.month-tease-hint {
+  font-size: clamp(0.9rem, 1.25vw, 1.05rem);
+  color: #5A5045;
+  line-height: 1.6;
+  font-weight: 500;
+}
+
+/* ============================================
    LINE CHAT STYLE — 學員見證仿 LINE 截圖
    ============================================ */
 .line-chat {
@@ -1995,52 +2151,157 @@ tr.row-tease td.el-cell-water {
 </section>
 
 <!-- ============================================
-     SLIDE 24 — 2026 H2 MONTHLY TABLE (Layer 3)
+     SLIDE 24 — 看日主的月運勢（總覽）
      ============================================ -->
 <section class="slide wash-gold" data-slide="24">
   <div class="washi-texture"></div>
   <div class="ink-stain-tr"></div>
   <div class="blob-tr"></div>
   <div class="slide-inner"></div>
-  <div class="slide-content" style="position: relative;">
-    <h2 class="slide-title reveal">2026 下半年｜月運五行</h2>
-    <table class="data-table reveal" style="position: relative;">
-      <thead><tr>
-        <th>月份</th><th>天干地支</th><th>主導五行</th><th>需要注意的人</th>
-      </tr></thead>
-      <tbody>
-        <tr><td>7 月</td><td>乙未</td><td class="el-cell-earth">木 &middot; 土</td><td>缺金的人</td></tr>
-        <tr><td>8 月</td><td>丙申</td><td class="el-cell-fire">火 &middot; 金</td><td>缺水的人</td></tr>
-        <tr class="row-tease"><td>9 月</td><td>丁酉</td><td class="el-cell-fire">火 &middot; 金</td><td>缺水的人</td></tr>
-        <tr class="row-tease"><td>10 月</td><td>戊戌</td><td class="el-cell-earth">土 &middot; 土</td><td>缺木的人</td></tr>
-        <tr class="row-tease"><td>11 月</td><td>己亥</td><td class="el-cell-earth">土 &middot; 水</td><td>缺火的人</td></tr>
-        <tr class="row-tease"><td>12 月</td><td>庚子</td><td class="el-cell-metal">金 &middot; 水</td><td>缺土的人</td></tr>
-      </tbody>
-    </table>
-    <p class="text-small reveal" style="margin-top: clamp(10px, 1.8vh, 16px); text-align: center; color: var(--gold-dim); font-style: italic;">🔒 9&ndash;12 月的完整推算 &mdash; <strong style="color: var(--gold); font-style: normal;">正課帶你解鎖</strong></p>
-    <p class="text-small muted-text reveal" style="margin-top: clamp(6px, 1vh, 10px); text-align: center;">找到你缺的五行&mdash;&mdash;那就是你今年最需要注意的月份</p>
+  <div class="slide-content--center">
+    <p class="section-eyebrow reveal">2026 下半年</p>
+    <h2 class="slide-title slide-title--center reveal">看日主的月運勢</h2>
+    <p class="reveal" style="margin-top: clamp(10px, 1.6vh, 16px); text-align:center; font-size: clamp(1.05rem, 1.5vw, 1.25rem); color: #2A251D; font-weight: 500;">先找到你的日主&mdash;&mdash;再看你這個月怎麼走</p>
+    <div class="month-overview-grid reveal">
+      <div class="month-card month-card--ready">
+        <div class="month-num">7 月</div>
+        <div class="month-pillar">乙未</div>
+        <div class="month-status">即將揭曉</div>
+      </div>
+      <div class="month-card month-card--ready">
+        <div class="month-num">8 月</div>
+        <div class="month-pillar">丙申</div>
+        <div class="month-status">即將揭曉</div>
+      </div>
+      <div class="month-card month-card--locked">
+        <div class="month-num">9 月</div>
+        <div class="month-pillar"><span class="blur-tease">丁酉</span></div>
+        <div class="month-status">🔒 正課解鎖</div>
+      </div>
+      <div class="month-card month-card--locked">
+        <div class="month-num">10 月</div>
+        <div class="month-pillar"><span class="blur-tease">戊戌</span></div>
+        <div class="month-status">🔒 正課解鎖</div>
+      </div>
+      <div class="month-card month-card--locked">
+        <div class="month-num">11 月</div>
+        <div class="month-pillar"><span class="blur-tease">己亥</span></div>
+        <div class="month-status">🔒 正課解鎖</div>
+      </div>
+      <div class="month-card month-card--locked">
+        <div class="month-num">12 月</div>
+        <div class="month-pillar"><span class="blur-tease">庚子</span></div>
+        <div class="month-status">🔒 正課解鎖</div>
+      </div>
+    </div>
+    <p class="reveal" style="margin-top: clamp(14px, 2vh, 20px); text-align:center; font-size: clamp(0.95rem, 1.3vw, 1.1rem); color: #5A5045;">
+      💡 你的日主就是命盤裡的<strong style="color: var(--gold);">日柱天干</strong>（前面 P10 教過）
+    </p>
   </div>
 </section>
 
 <!-- ============================================
-     SLIDE 25 — YOUR DANGER MONTH
+     SLIDE 25 — 7 月乙未十天干運勢
      ============================================ -->
-<section class="slide wash-blue" data-slide="25">
+<section class="slide wash-warm" data-slide="25">
+  <div class="washi-texture"></div>
+  <div class="ink-stain-tl"></div>
+  <div class="slide-inner"></div>
+  <div class="slide-content">
+    <p class="section-eyebrow reveal" style="text-align:center;">7 月 ・ 乙未月</p>
+    <h2 class="slide-title slide-title--center reveal">十天干運勢</h2>
+    <div class="gan-list reveal">
+      <div class="gan-row gan-wood"><span class="gan-self">甲木</span><span class="gan-shen">劫財</span><span class="gan-fortune">破財競爭，謹慎為上</span></div>
+      <div class="gan-row gan-earth"><span class="gan-self">己土</span><span class="gan-shen">七殺</span><span class="gan-fortune">果斷應對，迎接挑戰</span></div>
+      <div class="gan-row gan-wood"><span class="gan-self">乙木</span><span class="gan-shen">比肩</span><span class="gan-fortune">自信堅定，獨立自主</span></div>
+      <div class="gan-row gan-metal"><span class="gan-self">庚金</span><span class="gan-shen">正財</span><span class="gan-fortune">財源穩定，踏實耕耘</span></div>
+      <div class="gan-row gan-fire"><span class="gan-self">丙火</span><span class="gan-shen">正印</span><span class="gan-fortune">貴人相助，福澤綿延</span></div>
+      <div class="gan-row gan-metal"><span class="gan-self">辛金</span><span class="gan-shen">偏財</span><span class="gan-fortune">意外之財，把握良機</span></div>
+      <div class="gan-row gan-fire"><span class="gan-self">丁火</span><span class="gan-shen">偏印</span><span class="gan-fortune">靈感湧現，學習精進</span></div>
+      <div class="gan-row gan-water"><span class="gan-self">壬水</span><span class="gan-shen">傷官</span><span class="gan-fortune">創意表達，謹慎言行</span></div>
+      <div class="gan-row gan-earth"><span class="gan-self">戊土</span><span class="gan-shen">正官</span><span class="gan-fortune">責任在肩，恪守規矩</span></div>
+      <div class="gan-row gan-water"><span class="gan-self">癸水</span><span class="gan-shen">食神</span><span class="gan-fortune">享受生活，才華展現</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     SLIDE 26 — 8 月丙申十天干運勢
+     ============================================ -->
+<section class="slide wash-warm" data-slide="26">
+  <div class="washi-texture"></div>
+  <div class="ink-stain-tr"></div>
+  <div class="slide-inner"></div>
+  <div class="slide-content">
+    <p class="section-eyebrow reveal" style="text-align:center;">8 月 ・ 丙申月</p>
+    <h2 class="slide-title slide-title--center reveal">十天干運勢</h2>
+    <div class="gan-list reveal">
+      <div class="gan-row gan-wood"><span class="gan-self">甲木</span><span class="gan-shen">食神</span><span class="gan-fortune">食祿豐厚，創意展現</span></div>
+      <div class="gan-row gan-earth"><span class="gan-self">己土</span><span class="gan-shen">正印</span><span class="gan-fortune">貴人相助，順遂平安</span></div>
+      <div class="gan-row gan-wood"><span class="gan-self">乙木</span><span class="gan-shen">傷官</span><span class="gan-fortune">才華洋溢，謹言慎行</span></div>
+      <div class="gan-row gan-metal"><span class="gan-self">庚金</span><span class="gan-shen">七殺</span><span class="gan-fortune">果斷決策，迎接挑戰</span></div>
+      <div class="gan-row gan-fire"><span class="gan-self">丙火</span><span class="gan-shen">比肩</span><span class="gan-fortune">自信滿滿，獨立自主</span></div>
+      <div class="gan-row gan-metal"><span class="gan-self">辛金</span><span class="gan-shen">正官</span><span class="gan-fortune">責任在肩，穩步前行</span></div>
+      <div class="gan-row gan-fire"><span class="gan-self">丁火</span><span class="gan-shen">劫財</span><span class="gan-fortune">競爭加劇，謹防破耗</span></div>
+      <div class="gan-row gan-water"><span class="gan-self">壬水</span><span class="gan-shen">偏財</span><span class="gan-fortune">財運亨通，把握機遇</span></div>
+      <div class="gan-row gan-earth"><span class="gan-self">戊土</span><span class="gan-shen">偏印</span><span class="gan-fortune">靈感湧現，學習新知</span></div>
+      <div class="gan-row gan-water"><span class="gan-self">癸水</span><span class="gan-shen">正財</span><span class="gan-fortune">收入穩定，踏實耕耘</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     SLIDE 27 — 9-12 月運勢預告（賣關子）
+     ============================================ -->
+<section class="slide wash-blue" data-slide="27">
   <div class="washi-texture"></div>
   <div class="ink-stain-bl"></div>
   <div class="blob-bl"></div>
   <div class="slide-inner"></div>
   <div class="slide-content">
-    <h2 class="slide-title slide-title--center reveal">你的注意月份是？</h2>
-    <div style="display: flex; flex-direction: column; gap: clamp(6px, 1vh, 12px); margin-top: clamp(16px, 3vh, 28px); max-width: 820px; margin-left: auto; margin-right: auto;" class="reveal">
-      <div class="prompt-card prompt-card--wood"><strong class="el-cell-wood">木多缺金</strong> &rarr; 留意 7 月（木土月沖你的節奏）</div>
-      <div class="prompt-card prompt-card--fire"><strong class="el-cell-fire">火多缺水</strong> &rarr; 留意 8 月（火金月，情緒更容易失控）</div>
-      <div class="prompt-card prompt-card--earth"><strong class="el-cell-earth">土多缺木</strong> &rarr; <span class="blur-tease">留意 9&ndash;10 月（方向感最弱的時期）</span></div>
-      <div class="prompt-card prompt-card--metal"><strong class="el-cell-metal">金多缺火</strong> &rarr; <span class="blur-tease">留意 11 月（動力最低谷）</span></div>
-      <div class="prompt-card prompt-card--water"><strong class="el-cell-water">水多缺土</strong> &rarr; <span class="blur-tease">留意 12 月（金水月，擺盪最劇烈）</span></div>
+    <p class="section-eyebrow reveal" style="text-align:center;">9 ~ 12 月運勢預告</p>
+    <h2 class="slide-title slide-title--center reveal">下半年的劇本，還沒翻完</h2>
+    <div class="month-tease-grid reveal">
+      <div class="month-tease-card">
+        <div class="month-tease-head">
+          <span class="month-tease-num">9 月</span>
+          <span class="month-tease-pillar">丁酉</span>
+        </div>
+        <div class="month-tease-elem">火 ・ 金　・　決斷月</div>
+        <div class="month-tease-theme">機會與選擇的拉鋸</div>
+        <div class="month-tease-hint">情緒與選擇格外清晰，但下決定前最好停三秒</div>
+      </div>
+      <div class="month-tease-card">
+        <div class="month-tease-head">
+          <span class="month-tease-num">10 月</span>
+          <span class="month-tease-pillar">戊戌</span>
+        </div>
+        <div class="month-tease-elem">土 ・ 土　・　伏筆月</div>
+        <div class="month-tease-theme">沉穩中藏著關鍵動向</div>
+        <div class="month-tease-hint">看似平靜，實則是埋伏筆的好時機</div>
+      </div>
+      <div class="month-tease-card">
+        <div class="month-tease-head">
+          <span class="month-tease-num">11 月</span>
+          <span class="month-tease-pillar">己亥</span>
+        </div>
+        <div class="month-tease-elem">土 ・ 水　・　思辨月</div>
+        <div class="month-tease-theme">想得最清楚，也最容易卡住</div>
+        <div class="month-tease-hint">思緒清晰，但別讓自己被想法困住</div>
+      </div>
+      <div class="month-tease-card">
+        <div class="month-tease-head">
+          <span class="month-tease-num">12 月</span>
+          <span class="month-tease-pillar">庚子</span>
+        </div>
+        <div class="month-tease-elem">金 ・ 水　・　清算月</div>
+        <div class="month-tease-theme">下半年的累積，這個月見真章</div>
+        <div class="month-tease-hint">所有上半年種下的，這個月開始收成或結算</div>
+      </div>
     </div>
-    <p class="text-small reveal" style="margin-top: clamp(10px, 1.5vh, 14px); text-align: center; color: var(--gold-dim); font-style: italic;">🔒 後 3 種五行的注意月份 &mdash; <strong style="color: var(--gold); font-style: normal;">正課解鎖</strong></p>
-    <p class="text-small gold-line-text reveal" style="margin-top: clamp(6px, 1vh, 10px); text-align: center;">圈起來。這幾個月，先不要做重大財務決定</p>
+    <p class="reveal" style="margin-top: clamp(14px, 2vh, 20px); text-align:center; font-family: var(--f-title); font-weight: 700; font-size: clamp(1.1rem, 1.55vw, 1.3rem); color: var(--gold-dim);">
+      🔓 完整 10 個日主的月運勢 &mdash; <strong style="color: var(--gold);">正課帶你解鎖</strong>
+    </p>
   </div>
 </section>
 
@@ -2048,7 +2309,7 @@ tr.row-tease td.el-cell-water {
      SLIDE 5 — 信念 #2（35-42 min）
      看 YouTube 可能讓你走反方向
      ============================================ -->
-<section class="slide wash-gold" data-slide="26">
+<section class="slide wash-gold" data-slide="28">
   <div class="washi-texture"></div>
   <div class="ink-stain-tr"></div>
   <div class="blob-tr"></div>
@@ -2082,7 +2343,7 @@ tr.row-tease td.el-cell-water {
      SLIDE 6 — 啊哈炸彈（42-52 min · 教學段情緒高峰）
      現場示範：健康×命理（可青獨有差異化武器）
      ============================================ -->
-<section class="slide wash-blue" data-slide="27">
+<section class="slide wash-blue" data-slide="29">
   <div class="washi-texture"></div>
   <div class="ink-stain-bl"></div>
   <div class="blob-bl"></div>
@@ -2111,7 +2372,7 @@ tr.row-tease td.el-cell-water {
      SLIDE 7 — 信念 #3 + 學員見證（52-57 min）
      一天就能看懂 + 3 則見證
      ============================================ -->
-<section class="slide wash-warm" data-slide="28">
+<section class="slide wash-warm" data-slide="30">
   <div class="washi-texture"></div>
   <div class="ink-stain-tr"></div>
   <div class="slide-inner"></div>
@@ -2152,7 +2413,7 @@ tr.row-tease td.el-cell-water {
      SLIDE 9 — 冰山一角（57-62 min · 情感過渡）
      你看到的是 10%，還有 90%
      ============================================ -->
-<section class="slide wash-warm" data-slide="29">
+<section class="slide wash-warm" data-slide="31">
   <div class="washi-texture"></div>
   <div class="ink-stain-tl"></div>
   <div class="slide-inner"></div>
@@ -2183,7 +2444,7 @@ tr.row-tease td.el-cell-water {
      SLIDE 10 — Stack #1（62-75 min）
      完整命盤解讀 $5,000
      ============================================ -->
-<section class="slide wash-gold" data-slide="30">
+<section class="slide wash-gold" data-slide="32">
   <div class="washi-texture"></div>
   <div class="ink-stain-tr"></div>
   <div class="blob-tr"></div>
@@ -2215,7 +2476,7 @@ tr.row-tease td.el-cell-water {
      SLIDE 11 — Stack #2（62-75 min）
      身強身弱 + 十神 +$3,000 → 累計 $8,000
      ============================================ -->
-<section class="slide wash-blue" data-slide="31">
+<section class="slide wash-blue" data-slide="33">
   <div class="washi-texture"></div>
   <div class="ink-stain-bl"></div>
   <div class="blob-bl"></div>
@@ -2253,7 +2514,7 @@ tr.row-tease td.el-cell-water {
      SLIDE 12 — Stack #3（62-75 min）
      合盤 +$3,000 → 累計 $11,000
      ============================================ -->
-<section class="slide wash-gold" data-slide="32">
+<section class="slide wash-gold" data-slide="34">
   <div class="washi-texture"></div>
   <div class="ink-stain-tr"></div>
   <div class="blob-tr"></div>
@@ -2284,7 +2545,7 @@ tr.row-tease td.el-cell-water {
      SLIDE 13 — Stack #4（62-75 min）
      10 年大運 + 2026 流年 +$3,000 → 累計 $14,000
      ============================================ -->
-<section class="slide wash-blue" data-slide="33">
+<section class="slide wash-blue" data-slide="35">
   <div class="washi-texture"></div>
   <div class="ink-stain-bl"></div>
   <div class="blob-bl"></div>
@@ -2322,7 +2583,7 @@ tr.row-tease td.el-cell-water {
      SLIDE 14 — Stack #5（62-75 min）
      五行健康 + 風水布局 +$2,000 → 累計 $16,000
      ============================================ -->
-<section class="slide wash-gold" data-slide="34">
+<section class="slide wash-gold" data-slide="36">
   <div class="washi-texture"></div>
   <div class="ink-stain-tr"></div>
   <div class="blob-tr"></div>
@@ -2360,7 +2621,7 @@ tr.row-tease td.el-cell-water {
      SLIDE 15 — Stack #6（62-75 min）
      社群陪伴 + 人生說明書（無價）
      ============================================ -->
-<section class="slide wash-blue" data-slide="35">
+<section class="slide wash-blue" data-slide="37">
   <div class="washi-texture"></div>
   <div class="ink-stain-bl"></div>
   <div class="blob-bl"></div>
@@ -2397,7 +2658,7 @@ tr.row-tease td.el-cell-water {
      SLIDE 16 — 學會自己看（62-75 min · ROI 收尾）
      不是被算命 — 是身份轉換
      ============================================ -->
-<section class="slide wash-warm" data-slide="36">
+<section class="slide wash-warm" data-slide="38">
   <div class="washi-texture"></div>
   <div class="ink-stain-bl"></div>
   <div class="blob-bl"></div>
@@ -2428,7 +2689,7 @@ tr.row-tease td.el-cell-water {
      SLIDE 17 — 報價頁（75-85 min · Stack & Close 收尾）
      $16,000 錨定 + 30 名額 + 48hr + QR Code
      ============================================ -->
-<section class="slide wash-gold" data-slide="37">
+<section class="slide wash-gold" data-slide="39">
   <div class="washi-texture"></div>
   <div class="ink-stain-tr"></div>
   <div class="blob-bl-gold"></div>
@@ -2466,7 +2727,7 @@ tr.row-tease td.el-cell-water {
      SLIDE 19 — 3 加贈（75-85 min · Bonus Stacking）
      加值 > 打折（行為經濟學）
      ============================================ -->
-<section class="slide wash-gold" data-slide="38">
+<section class="slide wash-gold" data-slide="40">
   <div class="washi-texture"></div>
   <div class="ink-stain-tr"></div>
   <div class="blob-tr"></div>
@@ -2504,7 +2765,7 @@ tr.row-tease td.el-cell-water {
      SLIDE 20 — Q&A（85-90 min）
      持續顯示 CTA + 名額倒數
      ============================================ -->
-<section class="slide wash-blue" data-slide="39">
+<section class="slide wash-blue" data-slide="41">
   <div class="washi-texture"></div>
   <div class="ink-stain-tr"></div>
   <div class="blob-tr-blue"></div>
@@ -2526,7 +2787,7 @@ tr.row-tease td.el-cell-water {
      SLIDE 21 — 溫暖收尾（85-90 min · Peak-End Rule）
      感謝 + 五行速查懶人包 + 你已踏出第一步
      ============================================ -->
-<section class="slide wash-warm" data-slide="40">
+<section class="slide wash-warm" data-slide="42">
   <div class="washi-texture"></div>
   <div class="ink-stain-tr"></div>
   <div class="ink-stain-bl"></div>
