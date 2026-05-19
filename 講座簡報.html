@@ -2440,6 +2440,32 @@ tr.row-tease td.el-cell-water {
 </head>
 <body>
 
+<!-- Washi Paper Texture SVG Filter -->
+<svg style="position:fixed;width:0;height:0;overflow:hidden;" aria-hidden="true">
+<defs>
+  <filter id="washi" x="0%" y="0%" width="100%" height="100%" color-interpolation-filters="sRGB">
+    <feTurbulence type="fractalNoise" baseFrequency="0.7 0.5" numOctaves="5" seed="3" stitchTiles="stitch" result="grain"/>
+    <feColorMatrix type="saturate" values="0" in="grain" result="mono"/>
+    <feComponentTransfer in="mono">
+      <feFuncR type="linear" slope="0.06" intercept="0.94"/>
+      <feFuncG type="linear" slope="0.055" intercept="0.935"/>
+      <feFuncB type="linear" slope="0.04" intercept="0.92"/>
+    </feComponentTransfer>
+  </filter>
+</defs>
+</svg>
+
+<!-- SVG Seigaiha Pattern -->
+<svg style="position:fixed;width:0;height:0"><defs>
+<pattern id="sei" patternUnits="userSpaceOnUse" width="28" height="14">
+  <circle cx="14" cy="14" r="13" fill="none" stroke="rgba(160,135,80,0.12)" stroke-width="0.4"/>
+  <circle cx="14" cy="14" r="10.5" fill="none" stroke="rgba(160,135,80,0.09)" stroke-width="0.35"/>
+  <circle cx="14" cy="14" r="8" fill="none" stroke="rgba(160,135,80,0.06)" stroke-width="0.3"/>
+  <circle cx="0" cy="14" r="13" fill="none" stroke="rgba(160,135,80,0.12)" stroke-width="0.4"/>
+  <circle cx="28" cy="14" r="13" fill="none" stroke="rgba(160,135,80,0.12)" stroke-width="0.4"/>
+</pattern>
+</defs></svg>
+
 <!-- ============================================
      SLIDE — Cover
      ============================================ -->
